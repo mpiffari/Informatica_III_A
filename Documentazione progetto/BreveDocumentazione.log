@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  21 FEB 2020 15:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  21 FEB 2020 22:49
 entering extended mode
 **./BreveDocumentazione.tex
 (BreveDocumentazione.tex
@@ -753,7 +753,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count143
-<Immagini/UniBg.png, id=35, 526.96875pt x 430.60875pt>
+<Immagini/UniBg.png, id=43, 526.96875pt x 430.60875pt>
 File: Immagini/UniBg.png Graphic file (type png)
 <use Immagini/UniBg.png>
 Package pdftex.def Info: Immagini/UniBg.png  used on input line 113.
@@ -795,7 +795,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 {C:/Users/miche/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Immagini/
 UniBg.png>] [2
 
-] (BreveDocumentazione.toc)
+] (BreveDocumentazione.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 10.
+)
 \tf@toc=\write4
 \openout4 = `BreveDocumentazione.toc'.
 
@@ -808,12 +811,11 @@ UniBg.png>] [2
 
 [5] [6
 
-]
-No file BreveDocumentazione.lot.
+] (BreveDocumentazione.lot)
 \tf@lot=\write6
 \openout6 = `BreveDocumentazione.lot'.
 
-[7] [8
+ [7] [8
 
 ] [1
 
@@ -838,39 +840,56 @@ No file BreveDocumentazione.lot.
 
 ] [13] [14]
  4.
-(Capitoli/ASM.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
- [15
+(Capitoli/ASM.tex
+<Immagini/FSM.png, id=160, 525.46312pt x 357.58594pt>
+File: Immagini/FSM.png Graphic file (type png)
+<use Immagini/FSM.png>
+Package pdftex.def Info: Immagini/FSM.png  used on input line 16.
+(pdftex.def)             Requested size: 386.95897pt x 263.34357pt.
 
-]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 23.
+("C:\Users\miche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+
+[15
+
+] [16 <./Immagini/FSM.png>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (BreveDocumentazione.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
 Package rerunfilecheck Info: File `BreveDocumentazione.out' has not changed.
-(rerunfilecheck)             Checksum: 9B6DB894F158D5151CDC989AB06B12BB;420.
+(rerunfilecheck)             Checksum: AE96C9C4D3791F791836DF82B1D9E8DB;554.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 10899 strings out of 492970
- 164666 string characters out of 3126593
- 463201 words of memory out of 3000000
- 14553 multiletter control sequences out of 15000+200000
- 48577 words of font info for 37 fonts, out of 3000000 for 9000
+ 10962 strings out of 492970
+ 166143 string characters out of 3126593
+ 465201 words of memory out of 3000000
+ 14601 multiletter control sequences out of 15000+200000
+ 70068 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,6n,65p,321b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
-c}<C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
-0.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
-mbx12.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-lm/lmcsc10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/lm/lmr10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/lm/lmr12.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr17.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/lm/lmro10.pfb>
-Output written on BreveDocumentazione.pdf (23 pages, 364433 bytes).
+ 37i,6n,65p,420b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.e
+nc}{C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.e
+nc}<C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx
+10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/
+lmbx12.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/lm/lmbxi10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/lm/lmcsc10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/lm/lmr10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/lm/lmr12.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/lm/lmr17.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/lm/lmri10.pfb><C:/Users/miche/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/lm/lmro10.pfb>
+Output written on BreveDocumentazione.pdf (24 pages, 405622 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
