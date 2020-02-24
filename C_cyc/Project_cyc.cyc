@@ -1,0 +1,548 @@
+/*
+ ============================================================================
+ Name        : Project_C_cyc.c
+ Author      : Michele Piffari
+ Version     :
+ Copyright   : No copyright
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include "Project_C_oneFile.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+
+#define USHRT_MAX  65535
+
+#define SENDER 0
+#define RECEIVER 1
+#define DATE 2
+#define PLACE 3
+
+#define MAX_NAMES_LENGTH 30
+#define MAX_PLACES_LENGTH 30
+#define MAX_DATES_LENGTH 22
+/*
+ * Longest line possible:
+ * 	- 2 * MAX_NAMES_LENGTH
+ * 	- MAX_PLACES_LENGTH
+ * 	- Longest date possible --> 65535/september/65535 --> 22
+ *  -------------------------------------------------------
+ */
+#define MAX_LINE_LENGTH 120
+#define MAX_POSTCARDS_IN_FILE 500
+
+#define FILE_NAME "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\PROGETTI_INFOIIIA_MICHELEPIFFARI\\C_cyc\\PostcardsSimplified.txt"
+#define BY_SENDER 1
+#define BY_REC	  2
+#define BY_PLACE  3
+#define BY_DATE	  4
+#define EXIT 	  -1
+
+// dropped because, if memory cannot be allocated, a null pointer exception
+// will be raised when dereferencing the null pointer returned by the memory
+// allocation function
+//void outofmemory() {
+//	printf("[ERROR] - Out of memory error!\n");
+//	exit(EXIT_FAILURE);
+//}
+
+typedef struct postcard {
+	char@ sender_name;
+	char@ receiver_name;
+	char@ place;
+	//date_ref sending_date;
+} postcard;
+
+/*typedef struct date {
+	unsigned short int day;
+	unsigned short int month;
+	unsigned short int year;
+} date;*/
+
+
+// ============== STRING UTILS ==============================
+int safe_strcpy(char@? dst, const char@? src) {
+    int n = min(numelts(dst), numelts(src));
+    return safe_strncpy(dst, src, n-1);
+}
+
+int safe_strncpy(char@? dst, const char@? src, unsigned int n) {
+    int m = min(min(numelts(dst), numelts(src))-1, n);
+    for (int i = 0; i < m; i++)
+        *(dst+i) = *(src+i);
+    return m;
+}
+
+/* Destructively deletes whitespace characters from beginning and end of the
+ * given zero-terminated string */
+char@ strtrim(char@ str) {
+	// @param str: non-null 0-term string
+
+	//ignore empty strings
+	if (*str == '\0')
+		return;
+
+	// find first non-whitespace character
+	char@ first = str;
+	while (*first != '\0') {
+		if (*first == 32) { // SPACE
+			first++;
+		} else if (*first == 9) { // TAB
+			first++;
+		} else {
+			break;
+		}
+	}
+
+	// find last non-whitespace character
+	// fat pointer needed to allow backward pointer arithmetic
+	char* @fat last = first;
+	while (*last != '\0') {
+		// find end of string
+		last++;
+	}
+	if (last != first)
+		last--;
+
+	while (last > first) {
+		// goes back to the last non-space character
+		if (*last == 32) { // SPACE
+			last--;
+		} else if (*last == 9) { // TAB
+			last--;
+		} else {
+			break;
+		}
+	}
+
+	if (first != str) {
+		// "left-shifts" the string
+		while (first <= last) {
+			*str = *first;
+			str++;
+			first++;
+		}
+		// zero-terminates the string
+		*str = '\0';
+	} else {
+		// zero-terminates the string
+		last++;
+		*last = '\0';
+	}
+}
+
+
+/* Destructively converts the given zero-terminated string to lowercase */
+char@ str2lower(char@ str) {
+	// @param str: non-null 0-term string
+
+	while (*str) {
+		if (*str >= 65 && *str <= 90) { // a-z
+			*str += 32;
+		}
+		str++;
+	}
+}
+//========================================================================
+
+//========================= DATE ==================================
+/* Divides the given string into tokens, delimited in the original string
+ * by the given delimiter character.
+ * Returns an array of tokens (as a parameter) and the number of such
+ * substrings (as the return value). Delimiters are not part of the tokens;
+ * tokens may also be empty strings.
+ * If delimiter is '\0', the whole string is one single token.
+ */
+// char@? tokenize(const char@ str, char delimiter) {
+// 	// @param str: non-null 0-term string
+// 	// @return: fat array (non-0-term) of 0-term non-null strings
+
+// 	const char@ s = str;
+
+// 	// counts occurrences of the tokens (= delimiters + 1)
+// 	int tokenCount = 1;
+
+// 	while (*s) {
+// 		if (*s == delimiter)
+// 			tokenCount++;
+// 		s++;
+// 	}
+
+// 	// allocate space for tokens array
+// 	char@? t = new{ for i < tokenCount:
+// 				new {for i < 1: '\0'}
+// 				};
+
+// 	s = str;
+// 	const char@? p = str;
+// 	tokenCount = 0;
+// 	// scan the string, storing the start (p) and end (s) of
+// 	// every token, and copying the token into the array
+
+// 	while (1) {
+// 		while (*s != delimiter && *s != '\0') {
+// 			s++;
+// 		}
+
+// 		// s points to the delimiter right after the current token
+// 		unsigned int len = s - p;
+// 		char@? copiedToken = calloc(len + 1, sizeof(char));
+// 		safe_strncpy(copiedToken, p, len);
+// 		// 0-term not needed: calloc zeroes every allocated locations
+
+// 		t[tokenCount] = (char@)copiedToken;
+// 		tokenCount++;
+
+// 		// when the end of the string has been reached, end the loop
+// 		if (*s == '\0')
+// 			break;
+
+// 		// otherwise, skip the delimiter
+// 		s++;
+// 		p = s; // now p points to the next token's first char
+// 	}
+
+// 	return t;
+// }
+
+
+// /* Given an array of 3 strings, try and parse it as day/month/year.
+//  * If the conversion is not successful, an invalid date will be returned. */
+// date_ref tokens2date(const char@@{3} str) {
+// 	// @param str: array of 3 non-null 0-term strings
+
+// 	// convert day/month/year, checking that they fit into an unsigned short int
+// 	// on error, return an invalid date (which might not be {0,0,0})
+// 	date_ref d = (date_ref) malloc(sizeof(date));
+// 	d->day = 0;
+// 	d->month = 0;
+// 	d->year = 0;
+
+// 	// day
+// 	int day = atoi(str[0]);
+// 	if (day == 0)
+// 		return d;
+
+// 	if (day < 0 || day > USHRT_MAX)
+// 		return d;
+
+
+// 	// month
+// 	int month = atoi(str[1]);
+// 	if (month == 0)
+// 		return d;
+
+// 	if (month < 0 || month > USHRT_MAX)
+// 		return d;
+
+
+// 	//year
+// 	int year = atoi(str[2]);
+// 	if(year==0)
+// 		return d;
+// 	if (year < 0 || year > USHRT_MAX)
+// 		return d;
+
+// 	d->day = day;
+// 	d->month = month;
+// 	d->year = year;
+
+// 	return d;
+// }
+
+// /*Try and convert the given string into a date.
+//  * The string must be in one of the formats:
+//  * "<i><del><i><del><i>" (where i are suitable integers)
+//  * "<i><del><month><del><i>" (where i are suitable integers and month
+//  * 		is a string of the type "jan" or "january")
+//  * If the string is not a valid date, 0-0-0 is returned
+//  */
+// date_ref string_to_date (char@ str, char delimiter) {
+// 	// @param str: non-null 0-term string
+	
+// 	date_ref d = (date_ref) malloc(sizeof(date));
+// 	d->day = 0;
+// 	d->month = 0;
+// 	d->year = 0;
+
+// 	// fat array of non-null 0-term strings
+// 	char@? tokens = tokenize(str, delimiter);
+
+// 	if(numelts(tokens) == 3){
+// 		date_ref tmp = tokens2date((char@@{3}) tokens);
+// 		d = tmp;
+// 	}
+
+// 	//Memory freeing not needed
+// 	//int i;
+// 	//for (i = 0; i < count; i++) {
+// 	//	free(tokens[i]);
+// 	//}
+// 	//free(tokens);
+// 	//tokens = NULL;
+
+// 	return d;
+// }
+
+// /* Try and parse the given string as a date.
+//  * Returns 0-0-0 if unsuccessful */
+// date_ref parse_date(char@ str) {
+// 	// @param str: non-null 0-term string
+
+// 	// fat pointer needed for strcpy
+// 	char? tmp = calloc(strlen(str) + 1, sizeof(char));
+// 	safe_strcpy(tmp, (char@?)str)
+// 	strtrim((char@) tmp);
+// 	str2lower((char@) tmp);
+
+// 	// try and figure out which delimiter was used
+// 	char@? p = (char@?)tmp;
+// 	while (*p != '\0' && *p >= '0' && *p <= '9') {
+// 		p++;
+// 	}
+
+// 	date_ref d = (date_ref) calloc(1, sizeof(date));
+// 	d = string_to_date((char @)tmp, *p);
+// 	return d;
+// }
+//=================================================================
+
+/*
+ * Make postcard.
+ * In C: If number of informations it's not enough, return NULL postcard
+ * In Cyclone: If number of informations it's not enough, return NO postcard
+*/
+postcard_ref make_postcard(char@ line) {
+	postcard_ref postcard = (postcard_ref) calloc(1, sizeof(postcard));
+
+	char@@ tokens = (char@@) calloc(strlen(line) + 1, sizeof(char@));
+	int numberOfToken = tokenize(line, '|', &tokens);
+
+	// Complete postcard
+	char@ sender = (char@) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
+	char@ receiver = (char@) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
+	//date_ref date = (date_ref) calloc(1, sizeof(date));
+	char@ place = (char@) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
+	//char@ d = (char@) calloc(MAX_DATES_LENGTH + 1, sizeof(char));
+
+	if(numberOfToken == 3)
+	//if(numberOfToken == 4) {
+		for (int i = 0; i < numberOfToken; i++) {
+			strtrim(tokens[i]);
+			str2lower(tokens[i]);
+
+			printf("%s\n", tokens[i]);
+			switch (i) {
+			case SENDER:
+				safe_strcpy(sender, tokens[i]);
+				break;
+			case RECEIVER:
+				safe_strcpy(receiver, tokens[i]);
+				break;
+			/*case DATE:
+				safe_strcpy(d, tokens[i]);
+				date = parse_date(d);
+				break;*/
+			case PLACE:
+				safe_strcpy(place, tokens[i]);
+				break;
+			default:
+				break;
+			}
+		}
+
+		postcard->sender_name = sender;
+		postcard->receiver_name = receiver;
+		postcard->place = place;
+		//postcard->sending_date = date;
+	}
+	return postcard;
+}
+
+/* Read the file and create a list of postcard object, only if it's present
+ * all the needed informations.
+ * Returns the number of postcards (as a parameter) and the reference of such
+ * postcard (as the return value).
+ */
+postcard_ref@ readFile(int@@ num_of_postcard) {
+	postcard_ref@ postcards = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE + 1, sizeof(postcard_ref));
+	FILE* stream;
+	// Opening stream file for reading
+	stream = fopen(FILE_NAME, "r");
+	if(stream == NULL) {
+		printf("Error opening file %s\n", FILE_NAME);
+		return NULL;
+	}
+
+	char line[MAX_LINE_LENGTH + 1] @zeroterm;
+	int index = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1)
+
+	while(fgets(line, (MAX_LINE_LENGTH + 1), stream) != NULL) {
+		//puts(line); // Print line
+
+		postcard_ref postcard = (postcard_ref) calloc(1, sizeof(postcard));
+		postcard = make_postcard(line);
+		*(postcards + ndex) = postcard;
+		index = index + 1;
+	}
+
+	(*(postcards + index + 1)) = NULL; // Terminator
+	*(num_of_postcard) = &index;
+	fclose(stream);
+	return postcards;
+}
+
+/*
+ * Search postcards and return them.
+ * In C: If number of informations it's not enough, return NULL postcard
+ * In Cyclone: If number of informations it's not enough, return NO postcard with a number of found postcard equals to 0
+*/
+postcard_ref@ findBy(postcard_ref* postcards, char* str_src, int* nop, int findBy) {
+	postcard_ref@ res = (postcard_ref@) calloc((*nop), sizeof(postcard_ref));
+	int nop_searched = 0;
+	date_ref d = (date_ref) calloc(1, sizeof(date));
+	/*if(findBy == BY_DATE) {
+		d = parse_date(str_src);
+		if(d->day == 0 && d->month == 0 && d->year == 0) {
+			printf("INVALID DATE SEARCH\n");
+			*nop = 0;
+			return res;
+		}
+	}*/
+
+	int temp = *nop;
+	for(int i = 0; i < temp; i++) {
+		if(findBy == BY_SENDER &&
+				strcmp((*(postcards+i))->sender_name, str_src) == 0) {
+
+			*(res + nop_searched) = *(postcards + i);
+			nop_searched = nop_searched + 1;
+		} else if(findBy == BY_REC &&
+				strcmp((*(postcards+i))->receiver_name, str_src) == 0) {
+
+			*(res + nop_searched) = *(postcards + i);
+			nop_searched = nop_searched + 1;
+		} else if(findBy == BY_PLACE &&
+				strcmp((*(postcards+i))->place, str_src) == 0) {
+
+			*(res + nop_searched) = *(postcards + i);
+			nop_searched = nop_searched + 1;
+		} /*else if(findBy == BY_DATE) {
+
+			date_ref dd = (date_ref) calloc(1, sizeof(date));
+			dd = (*(postcards + i))->sending_date;
+			if(d ->day == dd->day && d->month == dd->month && d->year == dd->year ) {
+				*(res + nop_searched) = *(postcards + i);
+				nop_searched = nop_searched + 1;
+			}
+		}*/
+	}
+
+	*nop = nop_searched;
+	return res;
+}
+
+void printPostcard (postcard_ref p) {
+	printf("	----------------\n");
+	printf("	from: %s\n", p->sender_name);
+	printf("	to: %s\n", p->receiver_name);
+	printf("	place: %s\n", p->place);
+	char* @notnull @zeroterm str = (char@) calloc(MAX_DATES_LENGTH + 1, sizeof(char));
+	sprintf(str, "%d-%d-%d", p->sending_date->day, p->sending_date->month, p->sending_date->year);
+	printf("	date: %s\n", str);
+	printf("	----------------\n");
+}
+
+int main(){
+	// Console reading
+
+	char@ command = (char@) calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+	char@ param = (char@) calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+	int@ nop = 0; // Number of postcard
+	postcard_ref@ postcards = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard_ref));
+	postcards = readFile(&nop);
+	printf("Number of postcards = %i\n", *nop);
+
+	postcard_ref@ res = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard_ref));
+	printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+	while (atoi(command) != EXIT) {
+
+		gets(command);
+		if(atoi(command) == BY_SENDER) {
+			printf("BY SENDER --> ");
+			gets(param);
+			int@ nop_searched = nop;
+			str2lower(param);
+			res = findBy(postcards, param, nop_searched, BY_SENDER);
+			printf("Postcard search: \n");
+			if(*nop_searched == 0)  {
+				printf("----> No postcard match <----\n");
+				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			} else {
+				for(int i = 0; i < *nop_searched; i++) {
+					printPostcard(*(res + i));
+				}
+				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			}
+		} else if(atoi(command) == BY_REC) {
+			printf("BY REC --> ");
+			gets(param);
+			int@ nop_searched = nop;
+			str2lower(param);
+			res = findBy(postcards, param, nop_searched, BY_REC);
+			printf("Postcard search: \n");
+			if(*nop_searched == 0)  {
+				printf("----> No postcard match <----\n");
+								printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			} else {
+				for(int i = 0; i < *nop_searched; i++) {
+					printPostcard(*(res + i));
+				}
+				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			}
+		} else if(atoi(command) == BY_PLACE) {
+			printf("BY PLACE --> ");
+			gets(param);
+			int@ nop_searched = nop;
+			str2lower(param);
+			res = findBy(postcards, param, nop_searched, BY_PLACE);
+			printf("Postcard search: \n");
+			if(*nop_searched == 0)  {
+				printf("----> No postcard match <----\n");
+				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			} else {
+				for(int i = 0; i < *nop_searched; i++) {
+					printPostcard(*(res + i));
+				}
+				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+			}
+		/*} else if(atoi(command) == BY_DATE) {
+			printf("BY DATE --> ");
+
+			gets(param);
+			int@ nop_searched = nop;
+			res = findBy(postcards, param, nop_searched, BY_DATE);
+			if(res == NULL) {
+				printf("NO Postcard found\n");
+			} else {
+				printf("Postcard search: \n");
+				if(*nop_searched == 0)  {
+					printf("----> No postcard match <----\n");
+					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+				} else {
+					for(int i = 0; i < *nop_searched; i++) {
+						printPostcard(*(res + i));
+					}
+					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
+				}
+			}*/
+		} else if(atoi(command) == EXIT) {
+			printf("EXIT");
+		}
+	}
+
+	return EXIT_SUCCESS;
+}
