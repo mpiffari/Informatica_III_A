@@ -8,7 +8,7 @@
  ============================================================================
  */
 
-#include "Project_C_oneFile.h"
+//#include "Project_C_oneFile.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -315,8 +315,8 @@ char@ str2lower(char@ str) {
  * In C: If number of informations it's not enough, return NULL postcard
  * In Cyclone: If number of informations it's not enough, return NO postcard
 */
-postcard_ref make_postcard(char@ line) {
-	postcard_ref postcard = (postcard_ref) calloc(1, sizeof(postcard));
+postcard@ make_postcard(char@ line) {
+	postcard@ postcard = (postcard@) calloc(1, sizeof(postcard));
 
 	char@@ tokens = (char@@) calloc(strlen(line) + 1, sizeof(char@));
 	int numberOfToken = tokenize(line, '|', &tokens);
@@ -367,8 +367,8 @@ postcard_ref make_postcard(char@ line) {
  * Returns the number of postcards (as a parameter) and the reference of such
  * postcard (as the return value).
  */
-postcard_ref@ readFile(int@@ num_of_postcard) {
-	postcard_ref@ postcards = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE + 1, sizeof(postcard_ref));
+postcard@@ readFile(int@@ num_of_postcard) {
+	postcard@@ postcards = (postcard@@) calloc(MAX_POSTCARDS_IN_FILE + 1, sizeof(postcard@));
 	FILE* stream;
 	// Opening stream file for reading
 	stream = fopen(FILE_NAME, "r");
@@ -383,7 +383,7 @@ postcard_ref@ readFile(int@@ num_of_postcard) {
 	while(fgets(line, (MAX_LINE_LENGTH + 1), stream) != NULL) {
 		//puts(line); // Print line
 
-		postcard_ref postcard = (postcard_ref) calloc(1, sizeof(postcard));
+		postcard@ postcard = (postcard@) calloc(1, sizeof(postcard));
 		postcard = make_postcard(line);
 		*(postcards + ndex) = postcard;
 		index = index + 1;
@@ -400,10 +400,10 @@ postcard_ref@ readFile(int@@ num_of_postcard) {
  * In C: If number of informations it's not enough, return NULL postcard
  * In Cyclone: If number of informations it's not enough, return NO postcard with a number of found postcard equals to 0
 */
-postcard_ref@ findBy(postcard_ref* postcards, char* str_src, int* nop, int findBy) {
-	postcard_ref@ res = (postcard_ref@) calloc((*nop), sizeof(postcard_ref));
+postcard@@ findBy(postcard@@ postcards, char@ str_src, int@ nop, int findBy) {
+	postcard@@ res = (postcard@@) calloc((*nop), sizeof(postcard@));
 	int nop_searched = 0;
-	date_ref d = (date_ref) calloc(1, sizeof(date));
+	//date_ref d = (date_ref) calloc(1, sizeof(date));
 	/*if(findBy == BY_DATE) {
 		d = parse_date(str_src);
 		if(d->day == 0 && d->month == 0 && d->year == 0) {
@@ -445,7 +445,7 @@ postcard_ref@ findBy(postcard_ref* postcards, char* str_src, int* nop, int findB
 	return res;
 }
 
-void printPostcard (postcard_ref p) {
+void printPostcard (postcard@ p) {
 	printf("	----------------\n");
 	printf("	from: %s\n", p->sender_name);
 	printf("	to: %s\n", p->receiver_name);
@@ -462,11 +462,11 @@ int main(){
 	char@ command = (char@) calloc(MAX_LINE_LENGTH + 1, sizeof(char));
 	char@ param = (char@) calloc(MAX_LINE_LENGTH + 1, sizeof(char));
 	int@ nop = 0; // Number of postcard
-	postcard_ref@ postcards = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard_ref));
+	postcard@@ postcards = (postcard@@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard@));
 	postcards = readFile(&nop);
 	printf("Number of postcards = %i\n", *nop);
 
-	postcard_ref@ res = (postcard_ref@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard_ref));
+	postcard@@ res = (postcard@@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard@));
 	printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
 	while (atoi(command) != EXIT) {
 
