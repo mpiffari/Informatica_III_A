@@ -48,10 +48,13 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
      
      var columnWithTagRequested = List[Int]()
       for(column <- columns) {
-        if(checkTag(products(column)(0))) {
-          columnWithTagRequested.+:(column)
-        } 
+        if(!isEmpty(column)) {
+          if(checkTag(products(column)(0))) {
+            columnWithTagRequested.:+(column)
+          } 
+        }
      }
+     println(columnWithTagRequested)
       columnWithTagRequested
    }
      
@@ -102,25 +105,25 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
      println("Language --> " + language)
      println("Available drinks:\n")
      if(!isEmpty(RED_BULL)) {
-         println("	- RED BULL")
+         println("	- " + products(RED_BULL).size + " RED BULL")
      } else {
          println("	- RED BULL EMPTY!")
      }
      
      if(!isEmpty(MONSTER)) {
-         println("	- MONSTER")
+         println("	- " + products(MONSTER).size + " MONSTER")
      } else {
          println("	- MONSTER EMPTY!")
      }
      
      if(!isEmpty(GATORADE)) {
-         println("	- GATORADE")
+         println("	- " + products(GATORADE).size + " GATORADE")
      } else {
          println("	- GATORADE EMPTY!")
      }
      
      if(!isEmpty(ITALIAN)) {
-         println("	- ITALIAN")
+         println("	- " + products(ITALIAN).size + " ITALIAN")
      } else {
          println("	- ITALIAN EMPTY!")
      } 
