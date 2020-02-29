@@ -35,25 +35,3 @@ abstract class EnergyDrink(val price: Double,
 		  this.calories - rhs.calories
   }
 }
-
-/*
-object RedBullEnergyDrink {
-  def price: Double = 1.00
-  def calories: Int = 500
-  def tagITA: List[String] = List("caffe","caffeina","studio intenso","studio disperato")
-  def tagENG: List[String] = List("coffee","caffeine"," study hard", "study study")
-}
-
-object GatoradeEnergyDrink {
-  def price: Double = 3.00
-  def calories: Int = 500
-  def tagITA: List[String] = List("caffe","caffeina","studio intenso","studio disperato")
-  def tagENG: List[String] = List("coffee","caffeine"," study hard", "study study")
-}
-
-object MonsterEnergyDrink {
-  def price: Double = 1.75
-  def calories: Int = 356
-  def tagITA: List[String] = List("caffe","caffeina","studio intenso","studio disperato")
-  def tagENG: List[String] = List("coffee","caffeine"," study hard", "study study")
-}*/

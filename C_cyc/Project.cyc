@@ -1,9 +1,9 @@
 /*
  ============================================================================
- Name        : Project_C_cyc.c
- Author      : Michele Piffari
- Version     :
- Copyright   : No copyright
+ Name : Project_C_cyc.c
+ Author: Michele Piffari
+ Version :
+ Copyright: No copyright
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
@@ -13,7 +13,7 @@
 #include <string.h>
 #include <strings.h>
 
-#define USHRT_MAX  65535
+#define USHRT_MAX65535
 
 #define SENDER 0
 #define RECEIVER 1
@@ -27,16 +27,16 @@
  * Longest line possible:
  * 	- 2 * MAX_NAMES_LENGTH
  * 	- MAX_PLACES_LENGTH
- *  -------------------------------------------------------
+ *-------------------------------------------------------
  */
 #define MAX_LINE_LENGTH 95
 #define MAX_POSTCARDS_IN_FILE 500
 
 #define FILE_NAME "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\PROGETTI_INFOIIIA_MICHELEPIFFARI\\C_cyc\\PostcardsSimplified.txt"
 #define BY_SENDER 1
-#define BY_REC	  2
-#define BY_PLACE  3
-#define EXIT 	  -1
+#define BY_REC	2
+#define BY_PLACE3
+#define EXIT 	-1
 
 // dropped because, if memory cannot be allocated, a null pointer exception
 // will be raised when dereferencing the null pointer returned by the memory
@@ -53,25 +53,25 @@ typedef struct postcard {
 } postcard;
 
 // ============== STRING UTILS ==============================
-// int min(int a, int b) { 
-// 	return (a < b) ? a : b; 
-// }
+int min(int a, int b) { 
+	return (a < b) ? a : b; 
+}
 
-// int safe_strncpy(char* @notnull @fat dst, char* @notnull @fat src, unsigned int n) {
-//     int m = min(min(numelts(dst), numelts(src))-1, n);
-//     for (int i = 0; i < m; i++) {
-//         *(dst+i) = *(src+i);
-//     }
-//     return m;
-// }
+int safe_strncpy(char* @notnull @fat dst, char* @notnull @fat src, unsigned int n) {
+	int m = min(min(numelts(dst), numelts(src))-1, n);
+	for (int i = 0; i < m; i++) {
+	 	*(dst+i) = *(src+i);
+	}
+	return m;
+}
 
-// int safe_strcpy(char* @notnull @fat dst, char* @notnull @fat src) {
-//     int n = min(numelts(dst), numelts(src));
-//     return safe_strncpy(dst, src, n-1);
-// }
+int safe_strcpy(char* @notnull @fat dst, char* @notnull @fat src) {
+	int n = min(numelts(dst), numelts(src));
+	return safe_strncpy(dst, src, n-1);
+}
 
 /* Destructively converts the given zero-terminated string to lowercase */
-void str_to_lower(char* @notnull @fat @zeroterm`H str) {
+/*void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 	// @param str: non-null 0-term string
 	int len = numelts(str);
 	for(unsigned int i = 0; i < len; i ++) {
@@ -79,64 +79,6 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 			*(str + i) += 32;
 		}
 	}
-}
-
-/* Destructively deletes whitespace characters from beginning and end of the
- * given zero-terminated string */
-/*char@`H strtrim(char@`H str) {
-	// @param str: non-null 0-term string
-		//ignore empty strings
-	if (*str == '\0') {
-		return str;
-	}
- 	// find first non-whitespace character
- 	char* @fat first = str;
- 	while (*first != '\0') {
- 		if (*first == 32) { // SPACE
- 			first++;
- 		} else if (*first == 9) { // TAB
- 			first++;
- 		} else {
- 			break;
- 		}
- 	}
-
- 	// find last non-whitespace character
- 	char* @fat last = first;
- 	while (*last != '\0') {
- 		// find end of string
- 		last++;
- 	}
- 	if (last != first) {
- 		last--;
- 	}
-
- 	while (last > first) {
- 		// goes back to the last non-space character
- 		if (*last == 32) { // SPACE
- 			last--;
- 		} else if (*last == 9) { // TAB
- 			last--;
- 		} else {
- 			break;
- 		}
- 	}
-
- 	if (first != str) {
- 		// "left-shifts" the string
- 		while (first <= last) {
- 			*str = *first;
- 			str++;
- 			first++;
- 		}
- 		// zero-terminates the string
- 		*str = '\0';
- 	} else {
- 		// zero-terminates the string
- 		last++;
- 		*last = '\0';
- 	}
-	return str;
 }*/
 
 /* Divides the given string into tokens, delimited in the original string
@@ -146,7 +88,7 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
  * tokens may also be empty strings.
  * If delimiter is '\0', the whole string is one single token.
 */
-//char@? tokenize(const char@ str, char delimiter) {
+char@? tokenize(const char@ str, char delimiter) {
 	// @param str: non-null 0-term string
 	// @return: fat array (non-0-term) of 0-term non-null strings
 
@@ -159,14 +101,14 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 		if (*s == delimiter)
 			tokenCount++;
 		s++;
-	}
+	}*/
 
 	// allocate space for tokens array
 	char@? t = new{for i < tokenCount:
 				new {for i < 1: '\0'}
 				};
 
-	s = str;
+	/*s = str;
 	const char@ p = str;
 	tokenCount = 0;
 	// scan the string, storing the start (p) and end (s) of
@@ -195,14 +137,14 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 		p = s; // now p points to the next token's first char
 	}*/
 
-	//return t;
-//}
+	return t;
+}
 //========================================================================
 
 
-//  * Make postcard.
-//  * In C: If number of informations it's not enough, return NULL postcard
-//  * In Cyclone: If number of informations it's not enough, return NO postcard
+//* Make postcard.
+//* In C: If number of informations it's not enough, return NULL postcard
+//* In Cyclone: If number of informations it's not enough, return NO postcard
 
 // postcard@ make_postcard(char@ line) {
 // 	postcard@ pc = (postcard@) calloc(1, sizeof(postcard));
@@ -217,7 +159,6 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 
 // 	if(numberOfToken == 3) {
 // 		for (int i = 0; i < numberOfToken; i++) {
-// 			strtrim(tokens[i]);
 // 			str2lower(tokens[i]);
 
 // 			printf("%s\n", tokens[i]);
@@ -244,10 +185,10 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 // }
 
 // /* Read the file and create a list of postcard object, only if it's present
-//  * all the needed informations.
-//  * Returns the number of postcards (as a parameter) and the reference of such
-//  * postcard (as the return value).
-//  */
+//* all the needed informations.
+//* Returns the number of postcards (as a parameter) and the reference of such
+//* postcard (as the return value).
+//*/
 // postcard@@ readFile(int@@ num_of_postcard) {
 // 	postcard@@ postcards = (postcard@@) calloc(MAX_POSTCARDS_IN_FILE + 1, sizeof(postcard@));
 // 	FILE* stream;
@@ -275,9 +216,9 @@ void str_to_lower(char* @notnull @fat @zeroterm`H str) {
 // }
 
 // /*
-//  * Search postcards and return them.
-//  * In C: If number of informations it's not enough, return NULL postcard
-//  * In Cyclone: If number of informations it's not enough, return NO postcard with a number of found postcard equals to 0
+//* Search postcards and return them.
+//* In C: If number of informations it's not enough, return NULL postcard
+//* In Cyclone: If number of informations it's not enough, return NO postcard with a number of found postcard equals to 0
 // */
 // postcard@@ findBy(postcard@@ postcards, char@ str_src, int@ nop, int findBy) {
 // 	postcard@@ res = (postcard@@) calloc((*nop), sizeof(postcard@));
@@ -338,7 +279,7 @@ int main(){
 			str2lower(param);
 			res = findBy(postcards, param, nop_searched, BY_SENDER);
 			printf("Postcard search: \n");
-			if(*nop_searched == 0)  {
+			if(*nop_searched == 0){
 				printf("----> No postcard match <----\n");
 				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [-1]\n");
 			} else {
@@ -354,7 +295,7 @@ int main(){
 			str2lower(param);
 			res = findBy(postcards, param, nop_searched, BY_REC);
 			printf("Postcard search: \n");
-			if(*nop_searched == 0)  {
+			if(*nop_searched == 0){
 				printf("----> No postcard match <----\n");
 								printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [-1]\n");
 			} else {
@@ -370,7 +311,7 @@ int main(){
 			str2lower(param);
 			res = findBy(postcards, param, nop_searched, BY_PLACE);
 			printf("Postcard search: \n");
-			if(*nop_searched == 0)  {
+			if(*nop_searched == 0){
 				printf("----> No postcard match <----\n");
 				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- DATE [4]\n- EXIT [-1]\n");
 			} else {

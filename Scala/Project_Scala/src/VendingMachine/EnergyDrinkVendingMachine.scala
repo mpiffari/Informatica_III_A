@@ -2,7 +2,7 @@ package VendingMachine
 import Drinks._
 import scala.collection.mutable.Queue
 
-class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
+class EnergyDrinkVendingMachine(val language: String, val id: Int) extends VendingMachine {
   
    // Make array of queue: it's like in a real vending machine
    // 1: Red Bull  2: Monster  3: Gatorade  4: Italian
@@ -110,8 +110,7 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
    }
    
    def show {
-     println("Language --> " + language)
-     println("Available drinks:\n")
+     println("Available drinks for machine with id " + id + ":\n")
      if(!isEmpty(RED_BULL)) {
          println("	- " + products(RED_BULL).size + " RED BULL")
      } else {

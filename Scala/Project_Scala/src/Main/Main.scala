@@ -6,8 +6,8 @@ object Main {
   
   def main(args:Array[String]): Unit = {
     // Creation of vending machine
-    val vendingMachineENG: VendingMachine = new EnergyDrinkVendingMachine(language = "ENG")
-    val vendingMachineITA: VendingMachine = new EnergyDrinkVendingMachine(language = "ITA")
+    val vendingMachineENG: VendingMachine = new EnergyDrinkVendingMachine(language = "ENG", id = 10)
+    val vendingMachineITA: VendingMachine = new EnergyDrinkVendingMachine(language = "ITA", id = 100)
     
     // Show information of empty vending machines
     vendingMachineENG.show 

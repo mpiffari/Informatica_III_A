@@ -1,12 +1,12 @@
-       MICHELE PIFFALI       |            NICOLA PIFFARO          |                ROME          
-       MICHELE PIFFALI       |            SERGIO PIFFARO          |                ROME          
-       MICHELE PIFFALI       |            LUISA BERGAMINI         |                ROME          
-       MICHE ROSSSI          |            NICOLA PIFFARI          |            GROENLANDIA       
-       LUISA ROSSSI          |            NICOLA PIFFARI          |            GROENLANDIA       
-       SABRI YUNG            |            NICOLA PIFFARI          |            GROENLANDIA       
-       LUCREZIA VERDI        |            NICOLA PIFFARI          |            GROENLANDIA       
-       MICHE   PIFFARI       |            SALICE PIFFARI          |            uevgfjdvb         
-       LUCA    PIFFARI       |            NICOLA PIFFARA          |        VENICE                
-       MICHELA ISSARI        |            NOCE PUFFARI            |                KAMCHAKTA     
-       HELEN   PIFFARI       |            NICOLA PISSARI          |                ICELAND       
-       MAERTIN PIFFARI       |            NICOLA FISSARI          |                BERGHEM       
+MICHELE PIFFALI|NICOLA PIFFARO|ROME
+MICHELE PIFFALI|SERGIO PIFFARO|ROME
+MICHELE PIFFALI|LUISA BERGAMINI|ROME
+MICHE ROSSSI|NICOLA PIFFARI|GROENLANDIA
+LUISA ROSSSI|NICOLA PIFFARI|GROENLANDIA
+SABRI YUNG|NICOLA PIFFARI|GROENLANDIA
+LUCREZIA VERDI|NICOLA PIFFARI|GROENLANDIA
+MICHEPIFFARI|SALICE PIFFARI|uevgfjdvb
+LUCAPIFFARI|NICOLA PIFFARA|VENICE
+MICHELA ISSARI|NOCE PUFFARI|KAMCHAKTA 
+HELENPIFFARI|NICOLA PISSARI|ICELAND
+MAERTIN PIFFARI|NICOLA FISSARI|BERGHEM
