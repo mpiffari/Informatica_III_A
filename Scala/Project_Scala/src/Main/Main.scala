@@ -50,14 +50,16 @@ object Main {
     println("Column with product with tag CONCENTRATION "  + vendingMachineENG.searchByTag("concentration"))
     println("Column with product with tag HARD STUDY "  + vendingMachineENG.searchByTag("hard study"))
     println("Column with product with tag CONCENTRAZIONE "  + vendingMachineITA.searchByTag("concentrazione"))
-
-    /*dis.show
     
-    println("Resto: "+dis.vendi(1,10) +"\n")
-    println("Resto: "+dis.vendi(1,10) +"\n")
-    dis.show
-    println("Resto: "+dis.vendi(1,10) +"\n")
-    println("Resto: "+dis.vendi(2,10) +"\n")
-    println("Resto: "+dis.vendi(3,10) +"\n")*/
+    
+    println("Resto from ENG: " + vendingMachineENG.buy(0,10) + "\n")
+    println("Resto from ENG: " + vendingMachineENG.buy(1,10) + "\n")
+    vendingMachineENG.show
+    
+    println("Resto from ITA: " + vendingMachineITA.buy(0,10) + "\n")
+    println("Resto from ITA: " + vendingMachineITA.buy(0,10) + "\n")
+    println("Resto from ITA: " + vendingMachineITA.buy(2,1) + "\n")
+    println("Resto from ITA: " + vendingMachineITA.buy(3,10) + "\n")
+    vendingMachineITA.show
   } 
 }

@@ -25,7 +25,7 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
      }
    }
    
-   def searchByTag(tag: String) : List[Int] = {
+   def searchByTag(tag: String) : List[String] = {
      val columns = Vector(RED_BULL,MONSTER,GATORADE,ITALIAN)
      
      def checkTag(product: EnergyDrink) : Boolean = {
@@ -46,15 +46,23 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
        }
      }
      
-     var columnWithTagRequested = List[Int]()
+     var columnWithTagRequested = List[String]()
       for(column <- columns) {
         if(!isEmpty(column)) {
           if(checkTag(products(column)(0))) {
-            columnWithTagRequested.:+(column)
-          } 
+             if(column == 0) {
+               columnWithTagRequested = columnWithTagRequested:+"Red Bull"
+             } else if(column == 1) {
+               columnWithTagRequested = columnWithTagRequested:+"Monster"
+             } else if(column == 2) {
+               columnWithTagRequested = columnWithTagRequested:+"Gatorade"
+             } else {
+               columnWithTagRequested = columnWithTagRequested:+"Italian"
+             }
+          }
         }
      }
-     println(columnWithTagRequested)
+     
       columnWithTagRequested
    }
      
@@ -62,11 +70,11 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
      products(column).isEmpty
    }
    
-   def sell(column: Int): EnergyDrink = {
+   def buy(column: Int): EnergyDrink = {
      products(column).dequeue()
    }
    
-   def sell(column: Int, money: Double): Double = {
+   def buy(column: Int, money: Double): Double = {
      var productDescription: String = ""
      if(column == 0) {
         productDescription = "Red Bull"
@@ -78,11 +86,11 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
        productDescription = "Italian"
      }
      
-     if(!isEmpty(column)) {
+     if(isEmpty(column)) {
        println("Product " + productDescription + " not available")
        money
      } else {
-       val productSelected = sell(column)
+       val productSelected = buy(column)
        val price = productSelected.price
        if(money < price || money <= 0){
          println("Money not enough for " + productDescription)
@@ -92,8 +100,8 @@ class EnergyDrinkVendingMachine(val language: String) extends VendingMachine {
            println(productDescription + " expired! Take it for free")
            return money
          } else {
-            println(productDescription + "has \n-		" + productSelected.nutritionalValues() 
-                + " nutriation value\n-	" + productSelected.calories + " calories");
+            println("I'm giving you a " + productDescription + " that is \n-		" + productSelected.nutritionalValues() 
+                + "\n-		" + productSelected.calories + " calories");
             amountOfMoneyOnMachine += price
          }
        }
