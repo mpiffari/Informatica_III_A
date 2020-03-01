@@ -31,7 +31,7 @@ Nel codice della ASM questi eventi sono denominati action; ad ogni stato corrisp
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/ActionASM.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/ActionASM.png}
 	\caption{Action che implicano un possibile cambio di stato}
 	\label{fig:actionASM}
 \end{figure}
@@ -49,7 +49,7 @@ Sono stati introdotti un dominio enumerativo per gli stati della FSM, uno per ci
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/EnumDomain.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/EnumDomain.png}
 	\caption{Domini enumerativi}
 	\label{fig:enumDomain}
 \end{figure}
@@ -61,7 +61,7 @@ Sono stati introdotti anche un dominio statico concreto per i tagli di monete ri
 Le funzioni in figura ~\ref{fig:notMonitored}, rappresentano funzioni non-monitored così definite:
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/DynamicController.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/DynamicController.png}
 	\caption{Funzioni non monitored}
 	\label{fig:notMonitored}
 \end{figure}
@@ -82,7 +82,7 @@ Le funzioni static (figura ~\ref{fig:staticFunc}) sono funzioni la cui interpret
 Possono essere paragonate alle costanti dei linguaggi di programmazione.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/StaticFunction.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/StaticFunction.png}
 	\caption{Static functions}
 	\label{fig:staticFunc}
 \end{figure}
@@ -104,7 +104,7 @@ Perché la macchina inizi a operare in uno stato diverso, più significativo (an
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/InitialState.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/InitialState.png}
 	\caption{Inizializzazione}
 	\label{fig:initialState}
 \end{figure}
@@ -115,12 +115,12 @@ Le event management rules si occupano di ricevere le azioni dell’utente e di e
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Immagini/ManagementRule.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/ManagementRule.png}
 	\caption{Management rules}
 	\label{fig:managementRules}
 \end{figure}
 
-La \textit{main rule}, che costituisce l’entry point del programma, controlla per prima cosa che il distributore possa operare, perché non ha finito gli ingredienti (r_selfCheck); questo è possibile grazie al comportamento del blocco sequenziale, che effettua gli update dopo la valutazione di ciascun termine. 
+La \textit{main rule}, che costituisce l’entry point del programma, controlla per prima cosa che il distributore possa operare, perché non ha finito gli ingredienti (r-selfCheck); questo è possibile grazie al comportamento del blocco sequenziale, che effettua gli update dopo la valutazione di ciascun termine. 
 
 Dopo il controllo, invece, vengono valutate in parallelo le regole di gestione degli eventi: per esse non vi è pericolo di \textit{update inconsistenti} perché ciascuna regola ha una guardia che permette di valutare la regola solo quando la macchina si trova nello stato corretto (ogni regola si applica a un diverso stato, quindi sola una alla volta è “attiva”).
 
