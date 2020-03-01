@@ -15,4 +15,13 @@
 \contentsline {chapter}{\numberline {4}Coffe Machine con ASM}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}Descrizione del progetto}{17}{section.4.1}
 \contentsline {section}{\numberline {4.2}Macchina a stati}{17}{section.4.2}
-\contentsline {section}{\numberline {4.3}Standard Library}{17}{section.4.3}
+\contentsline {section}{\numberline {4.3}Eventi}{17}{section.4.3}
+\contentsline {section}{\numberline {4.4}Domini}{18}{section.4.4}
+\contentsline {section}{\numberline {4.5}Controlled - static - monitored functions}{18}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Controlled}{18}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Static}{19}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Monitored}{19}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Inizializzazione}{19}{section.4.6}
+\contentsline {section}{\numberline {4.7}Event management rules e main rule}{20}{section.4.7}
+\contentsline {section}{\numberline {4.8}Transition rule}{20}{section.4.8}
+\contentsline {section}{\numberline {4.9}Simulazione}{20}{section.4.9}
