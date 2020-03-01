@@ -1,5 +1,9 @@
 package VendingMachine
 import Drinks._
+import Drinks.RedBullEnergyDrink
+import Drinks.MonsterEnergyDrink
+import Drinks.GatoradeEnergyDrink
+import Drinks.ItalianEnergyDrink
 import scala.collection.mutable.Queue
 
 class EnergyDrinkVendingMachine(val language: String, val id: Int) extends VendingMachine {
@@ -14,6 +18,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
    var amountOfMoneyOnMachine = 0.0
    
    def addProduct(product: EnergyDrink) {
+   
      if(product.isInstanceOf[RedBullEnergyDrink]) {
        products(RED_BULL) += product
      } else if(product.isInstanceOf[MonsterEnergyDrink]) {
