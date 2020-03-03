@@ -1,13 +1,3 @@
-/*
- ============================================================================
- Name        : Project_C_cyc.c
- Author      : Michele Piffari
- Version     :
- Copyright   : No copyright
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,9 +11,10 @@
 #define MAX_PLACES_LENGTH 30
 
 #define MAX_LINE_LENGTH 95
-#define MAX_POSTCARDS_IN_FILE 500
+#define MAX_POSTCARDS_IN_FILE 50
 
-#define FILE_NAME "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\WS_INFO_III_A\\Project_C_oneFile\\src\\PostcardsSimplified.txt"
+
+#define FILE_NAME "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\PROGETTI_INFOIIIA_MICHELEPIFFARI\\C_cyc\\PostcardsSimplified.txt"
 #define BY_SENDER 1
 #define BY_REC	  2
 #define BY_PLACE  3
@@ -34,11 +25,11 @@
 // 	exit(EXIT_FAILURE);
 // }
 
-// typedef struct postcard {
-// 	char* sender_name;
-// 	char* receiver_name;
-// 	char* place;
-// } postcard;
+typedef struct postcard {
+ 	char* sender_name;
+ 	char* receiver_name;
+ 	char* place;
+};
 
 // // ============== STRING UTILS ==============================
 // /* Destructively converts the given zero-terminated string to lowercase */
@@ -165,22 +156,20 @@
  * Returns the number of postcards (as a parameter) and the reference of such
  * postcard (as the return value).
  */
-postcard?? readFile(int? num_of_postcard) {
-
-	postcard?? postcards = (postcard??) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard?));
-	FILE* stream;
+void readFile(int* @fat num_of_postcard, struct postcard?? postcards) {
 	// Opening stream file for reading
-	stream = fopen(FILE_NAME, "r");
-	if(stream == NULL) {
+	FILE* f = fopen(FILE_NAME, "r");
+	if (f == NULL) {
 		printf("Error opening file %s\n", FILE_NAME);
-		return NULL;
+		return;
 	}
 
-	char* @notnull @zeroterm line = (char ) malloc(sizeof(char) * (MAX_LINE_LENGTH + 1));
-	int index = 0; // Number of postcard
+	char line[MAX_LINE_LENGTH + 1] @zeroterm;
+	int index = 0;
+	//int? index = (int?) calloc(1, sizeof(int)); // Number of postcard
 
-	while(fgets(line, (MAX_LINE_LENGTH + 1), stream) != NULL) {
-		// TODO
+	//while(fgets(line, (MAX_LINE_LENGTH + 1), f) != NULL) {
+		
 		/*postcard? pc = make_postcard(line);
 		if(pc != NULL) {
 			*(postcards + *index) = pc;
@@ -188,11 +177,10 @@ postcard?? readFile(int? num_of_postcard) {
 		} else {
 			printf("__ERROR ON POSTCARD ___\n");
 		}*/
-	}
+	//}
 
-	*(num_of_postcard) = index;
-	fclose(stream);
-	return postcards;
+	//*(num_of_postcard) = *(index);
+	//fclose(f);
 }
 
 // /*
@@ -239,11 +227,10 @@ int main(){
 	char* @fat @zeroterm command = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
 	char* @fat @zeroterm command = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
 	
-	int zero = 0;
-	int* @notnull @fat nop = &zero; // Number of postcard
+	int? nop = (int?) calloc(1, sizeof(int)); // Number of postcard
 	
-	postcard@@ postcards = (postcard@@) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard@));
-	postcards = readFile(nop);
+	struct postcard?? postcards = (struct postcard??) malloc(sizeof(struct postcard?) * (MAX_POSTCARDS_IN_FILE));
+	readFile(nop, postcards);
 	printf("Number of postcards = %i\n", *nop);
 
 	/*postcard** res = (postcard**) malloc(sizeof(postcard*) * (MAX_POSTCARDS_IN_FILE + 1));
