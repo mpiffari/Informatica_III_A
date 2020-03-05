@@ -1,13 +1,3 @@
-/*
- ============================================================================
- Name        : Project_C_cyc.c
- Author      : Michele Piffari
- Version     :
- Copyright   : No copyright
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,27 +13,44 @@
 #define MAX_LINE_LENGTH 95
 #define MAX_POSTCARDS_IN_FILE 50
 
-#define FILE_NAME "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\WS_INFO_III_A\\Project_C_oneFile\\src\\PostcardsSimplified.txt"
+#define FILE_PATH "E:/PostcardsSimplified.txt"
 #define BY_SENDER 1
 #define BY_REC	  2
 #define BY_PLACE  3
 #define EXIT 	  -1
 
- __cyclone_port_on__;
- 
-void outofmemory() {
-	printf("[ERROR] - Out of memory error!\n");
-	exit(EXIT_FAILURE);
-}
+// Dropped because, if memory cannot be allocated, a null pointer exception
+// will be raised when dereferencing the null pointer returned by the memory
+// allocation function
+//void outofmemory() {
+//	printf("Out of memory error!\n");
+//	exit(1);
+//}
 
 typedef struct postcard {
-	char* sender_name;
-	char* receiver_name;
-	char* place;
+	char* @fat sender_name;
+	char* @fat receiver_name;
+	char* @fat place;
 } postcard;
 
 /* Destructively converts the given zero-terminated string to lowercase */
-void str2lower(char* str) {
+int min(int a, int b) { 
+	return (a < b) ? a : b;
+}
+
+int safe_strncpy(char * @notnull @fat dst, const char * @notnull @fat src, unsigned int n) {
+    int m = min(min(numelts(dst), numelts(src))-1, n);
+    for (int i = 0; i < m; i++)
+        *(dst+i) = *(src+i);
+    return m;
+}
+
+int safe_strcpy(char * @notnull @fat dst, const char * @notnull @fat src) {
+    int n = min(numelts(dst), numelts(src));
+    return safe_strncpy(dst, src, n-1);
+}
+
+void str2lower(char* @fat @zeroterm str) {
 	while (*str) {
 		if (*str >= 65 && *str <= 90) { // a-z
 			*str += 32;
@@ -59,8 +66,8 @@ void str2lower(char* str) {
 * tokens may also be empty strings.
 * If delimiter is '\0', the whole string is one single token.
 */
-unsigned int tokenize(const char* str, char delimiter, char*** tokens) {
-	const char* s = str;
+char?? tokenize(const char? str, char delimiter) {
+	const char? s = str;
 	// Counts occurrences of the tokens (= delimiters + 1)
 	int tokenCount = 1;
 	while (*s) {
@@ -70,12 +77,10 @@ unsigned int tokenize(const char* str, char delimiter, char*** tokens) {
 	}
 
 	// Allocate space for tokens array
-	char** t = calloc(tokenCount, sizeof(char*));
-	if (!t)
-		outofmemory();
+	char?? t = (char??) calloc(tokenCount, sizeof(char?));
 
 	s = str;
-	const char* p = str;
+	const char? p = str;
 	tokenCount = 0;
 
 	// Scan the string, storing the start (p) and end (s) of
@@ -87,11 +92,9 @@ unsigned int tokenize(const char* str, char delimiter, char*** tokens) {
 
 		// s points to the delimiter right after the current token
 		int len = s - p;
-		t[tokenCount] = malloc((len + 1) * sizeof(char));
-		if (!t[tokenCount])
-			outofmemory();
+		t[tokenCount] = calloc((len + 1), sizeof(char));
 
-		strncpy(t[tokenCount], p, len);
+		safe_strncpy(t[tokenCount], p, len);
 		t[tokenCount][len] = '\0'; // Add null char at the end of tokenCount-esimo token
 		tokenCount++;
 
@@ -103,9 +106,8 @@ unsigned int tokenize(const char* str, char delimiter, char*** tokens) {
 		s++;
 		p = s; // now p points to the next token's first char
 	}
-
-	*tokens = t; // return the tokens array through the parameter
-	return tokenCount;
+	
+	return t;
 }
 
 /*
@@ -114,35 +116,33 @@ unsigned int tokenize(const char* str, char delimiter, char*** tokens) {
  */
 postcard* make_postcard(char* line) {
 	postcard* pc = (postcard*) malloc(sizeof(postcard));
-	pc->sender_name = (char*) malloc(sizeof(char) * (MAX_NAMES_LENGTH + 1));
-	pc->receiver_name = (char*) malloc(sizeof(char) * (MAX_NAMES_LENGTH + 1));
-	pc->place = (char*) malloc(sizeof(char) * (MAX_NAMES_LENGTH + 1));
+	pc->sender_name = (char*) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
+	pc->receiver_name = (char*) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
+	pc->place = (char*) calloc(MAX_PLACES_LENGTH + 1, sizeof(char));
 
-	char** tokens = (char**) calloc(strlen(line) + 1, sizeof(char*));
-	int numberOfToken = tokenize(line, '|', &tokens);
+	char?? tokens = (char??) calloc(strlen(line) + 1, sizeof(char?));
+	tokens = tokenize(line, '|');
+	int numberOfToken = numelts(tokens);
+	
 
 	if(numberOfToken == 3) {
 		for (int i = 0; i < numberOfToken; i++) {
 			str2lower(tokens[i]);
 			switch (i) {
 			case SENDER:
-				strcpy(pc->sender_name, tokens[i]);
+				safe_strcpy(pc->sender_name, tokens[i]);
 				break;
 			case RECEIVER:
-				strcpy(pc->receiver_name, tokens[i]);
+				safe_strcpy(pc->receiver_name, tokens[i]);
 				break;
 			case PLACE:
-				strcpy(pc->place, tokens[i]);
+				safe_strcpy(pc->place, tokens[i]);
 				break;
 			default:
 				break;
 			}
 		}
-
-		for (int i = 0; i < numberOfToken; i++) {
-			free(tokens[i]);
-		}
-		free(tokens);
+		
 		return pc;
 	} else {
 		return NULL;
@@ -163,33 +163,42 @@ void printPostcard (postcard* p) {
  * Returns the number of postcards (as a parameter) and the reference of such
  * postcard (as the return value).
  */
-postcard* readFile(int** num_of_postcard) {
-	postcard* postcards = (postcard*) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
-	FILE* stream;
-	// Opening stream file for reading
-	stream = fopen(FILE_NAME, "r");
-	if(stream == NULL) {
-		printf("Error opening file %s\n", FILE_NAME);
-		return NULL;
+//postcard *@fat readFile(int*‘r *‘r num_of_postcard) {
+postcard *@fat readFile() {
+	postcard *@fat postcards = (postcard *@fat) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
+
+	FILE* filePointer = fopen(FILE_PATH, "r");
+	if(filePointer == NULL) {
+		printf("Error opening file %s\n", FILE_PATH);
+		return postcards;
+	} else {
+		printf("FILE OPENED %s\n", FILE_PATH);
 	}
+	
+	char line[MAX_LINE_LENGTH + 1];
+	int index = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1)
 
-	char* line = (char*) malloc(sizeof(char) * (MAX_LINE_LENGTH + 1));
-	int* index = (int*) calloc(1, sizeof(int)); // From 1 to (MAX_POSTCARDS_IN_FILE - 1)
+	/*while(1) {
+	printf("	Reading...\n");
+	if (fscanf(stream, "%c", line) == -1) {
+		printf("FILE ENDED");
+		break;
+	}
+	printf(line);*/
 
-	while(fgets(line, (MAX_LINE_LENGTH + 1), stream) != NULL) {
-		postcard* pc = make_postcard(line);
+	while(fgets(line, (MAX_LINE_LENGTH + 1), filePointer)) {
+		printf("%s\n", line);
+		/*postcard* pc = make_postcard(line);
 		printPostcard(pc);
 		if(pc != NULL) {
-			*(postcards + *index) = *pc;
-			*index = *index + 1;
+			*(postcards + index) = *pc;
+			index = index + 1;
 		} else {
 			printf("__ERROR ON POSTCARD ___\n");
-		}
+		}*/
 	}
 
-	*(num_of_postcard) = index;
-	fclose(stream);
-	free(line);
+	fclose(filePointer);
 	return postcards;
 }
 
@@ -197,7 +206,7 @@ postcard* readFile(int** num_of_postcard) {
  * Search postcards and return them.
  * If number of informations it's not enough, return NULL postcard
  */
-postcard* findBy(postcard* postcards, char* str_src, int** nop, int findBy) {
+/*postcard* findBy(postcard* postcards, char* str_src, int** nop, int findBy) {
 	postcard* res = (postcard*) malloc(sizeof(postcard) * (*(*nop)));
 	int* nop_searched = calloc(1, sizeof(int));
 
@@ -223,18 +232,20 @@ postcard* findBy(postcard* postcards, char* str_src, int** nop, int findBy) {
 
 	*nop = nop_searched;
 	return res;
-}
+}*/
 
-int main( int argc, char *argv[] ){
-	// Console reading
-	char *command = (char*) malloc(sizeof(char) * MAX_LINE_LENGTH);
-	char *param = (char*) malloc(sizeof(char) * MAX_LINE_LENGTH);
-	int* nop = 0; // Number of postcard
-	postcard* postcards = (postcard*) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
-	postcards = readFile(&nop);
-	printf("Number of postcards = %i\n", *nop);
+int main(){
+	printf("\nSTART\n");
+	// Console reading through "fgets" append automaticcaly "null"terminator
+	char* @fat @zeroterm command = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+	char* @fat @zeroterm command = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+	
+	postcard* @fat postcards = (postcard* @fat) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
+	postcards = readFile();
+	//int nop = numelts(postcards);// Number of postcard
+	//printf("Number of postcards = %i\n", nop);
 
-	postcard* res = (postcard*) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
+	/*postcard* res = (postcard*) malloc(sizeof(postcard) * MAX_POSTCARDS_IN_FILE);
 	printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]"
 			"\n- EXIT [-1]\n");
 	while (atoi(command) != EXIT) {
@@ -294,7 +305,6 @@ int main( int argc, char *argv[] ){
 	}
 
 
-	free(command);
+	free(command);*/
 	return EXIT_SUCCESS;
 }
-__cyclone_port_off__;
