@@ -22,6 +22,9 @@
 
 #define DEBUG 1 // Search in automatic way (4 kind of test) [1] or search from command line input [0]
 
+int number_of_postcards_parsed = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1) readFile
+int nop_found = 0; //findBy
+
 // Dropped because, if memory cannot be allocated, a null pointer exception
 // will be raised when dereferencing the null pointer returned by the memory
 // allocation function
@@ -29,9 +32,6 @@
 //	printf("Out of memory error!\n");
 //	exit(1);
 //}
-
-int number_of_postcards_parsed = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1) readFile
-int nop_searched = 0; //findBy
 
 typedef struct postcard {
 	char* @notnull @fat sender_name;
@@ -153,7 +153,7 @@ char?? tokenize(const char? str, char delimiter) {
 	return pc;
 }*/
 
-void printPostcard (postcard* p) {
+void printPostcard (postcard? p) {
 	printf("	----------------\n");
 	printf("	from: %s\n", p->sender_name);
 	printf("	to: %s\n", p->receiver_name);
@@ -260,31 +260,31 @@ postcard?? readFile() {
  * Search postcards and return them.
  * If number of informations it's not enough, return NULL postcard
  */
-/*postcard** findBy(postcard** postcards, char* str_src, int** nop, int findBy) {
-	postcard** res = (postcard**) malloc(sizeof(postcard*) * number_of_postcards_parsed);
-
+postcard?`H?`H findBy(postcard?`H?`H postcards,const char* str_src, int findBy) {
+	postcard?`H?`H res = (postcard?`H?`H) malloc(sizeof(postcard?`H) * number_of_postcards_parsed);
+	nop_found = 0;
+	
 	for(int i = 0; i < number_of_postcards_parsed; i++) {
 		if(findBy == BY_SENDER &&
 				strcmp((*(postcards+i))->sender_name, str_src) == 0) {
 
-			*(res + nop_searched) = *(postcards + i);
-			nop_searched = nop_searched + 1;
+			*(res + nop_found) = *(postcards + i);
+			nop_found = nop_found + 1;
 		} else if(findBy == BY_REC &&
 				strcmp((*(postcards+i))->receiver_name, str_src) == 0) {
 
-			*(res + nop_searched) = *(postcards + i);
-			nop_searched = nop_searched + 1;
+			*(res + nop_found) = *(postcards + i);
+			nop_found = nop_found + 1;
 		} else if(findBy == BY_PLACE &&
 				strcmp((*(postcards+i))->place, str_src) == 0) {
 
-			*(res + nop_searched) = *(postcards + i);
-			nop_searched = nop_searched + 1;
+			*(res + nop_found) = *(postcards + i);
+			nop_found = nop_found + 1;
 		}
 	}
 
-	*nop = &nop_searched;
 	return res;
-}*/
+}
 
 int main(){
 	printf("\nSTART\n");
@@ -294,62 +294,60 @@ int main(){
 	
 	postcard?? postcards = (postcard??) malloc(sizeof(postcard?) * MAX_POSTCARDS_IN_FILE);	
 	postcards = readFile();
-	int nop = numelts(postcards);// Number of postcard
-	printf("Number of postcards = %i\n", nop);
+	printf("Number of postcards = %i\n", number_of_postcards_parsed);
 
-	postcard?? res = (postcard??) malloc(sizeof(postcard?) * MAX_POSTCARDS_IN_FILE);	
+	postcard?`H?`H res = (postcard?`H?`H) malloc(sizeof(postcard?`H) * number_of_postcards_parsed);	
 	printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]"
 			"\n- EXIT [-1]\n");
 			
 	// TEST MANUALE
 	if(DEBUG) {
-		/*printf("BY SENDER --> ");
-		int@@ nop_found = (int@@) calloc(1, sizeof(int@));
-		res = findBy(postcards, "maertin piffari", nop_found, BY_SENDER);
+		printf("BY SENDER --> ");
+		const char* param = "maertin_piffari";
+		res = findBy(postcards, param, BY_SENDER);
 		printf("Postcard found: \n");
-		if(*(*nop_found) == 0) {
+		if(nop_found == 0) {
 			printf("----> No postcard match <----\n");
 		} else {
-			for(int i = 0; i < *(*nop_found); i++) {
-				printPostcard((res + i));
+			for(int i = 0; i < nop_found; i++) {
+				printPostcard(*(res + i));
 			}
 		}
 
 		printf("BY RECEIVER --> ");
-		*(*(nop_found)) = 0;
-		res = findBy(postcards, "nicola piffari", nop_found, BY_REC);
+		param = "nicola_piffari";
+		res = findBy(postcards, param, BY_REC);
 		printf("Postcard found: \n");
-		if(*(*nop_found) == 0) {
+		if(nop_found == 0) {
 			printf("----> No postcard match <----\n");
 		} else {
-			for(int i = 0; i < *(*nop_found); i++) {
-				printPostcard((res + i));
+			for(int i = 0; i < nop_found; i++) {
+				printPostcard(*(res + i));
 			}
 		}
 
 		printf("BY PLACE --> ");
-		*(*(nop_found)) = 0;
-		res = findBy(postcards, "groenlandia", nop_found, BY_PLACE);
+		param = "groenlandia";
+		res = findBy(postcards, param, BY_PLACE);
 		printf("Postcard found: \n");
-		if(*(*nop_found) == 0) {
+		if(nop_found == 0) {
 			printf("----> No postcard match <----\n");
 		} else {
-			for(int i = 0; i < *(*nop_found); i++) {
-				printPostcard((res + i));
+			for(int i = 0; i < nop_found; i++) {
+				printPostcard(*(res + i));
 			}
 		}
 
 		printf("BY REC [wrong] --> ");
-		*(*(nop_found)) = 0;
-		res = findBy(postcards, "groenlandia", nop_found, BY_REC);
+		res = findBy(postcards, param, BY_REC);
 		printf("Postcard found: \n");
-		if(*(*nop_found) == 0) {
+		if(nop_found == 0) {
 			printf("----> No postcard match <----\n");
 		} else {
-			for(int i = 0; i < *(*nop_found); i++) {
-				printPostcard((res + i));
+			for(int i = 0; i < nop_found; i++) {
+				printPostcard(*(res + i));
 			}
-		}*/
+		}
 	} else {
 		/*while (atoi(command) != EXIT) {
 
