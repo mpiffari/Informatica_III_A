@@ -67,8 +67,8 @@ void str2lower(char * @fat @zeroterm str) {
 
 /*Divides the given string into tokens, delimited in the original string
 * by the given delimiter character.
-* Returns an array of tokens (as a parameter) and the number of such
-* substrings (as the return value). Delimiters are not part of the tokens;
+* Returns an array of tokens.
+* Delimiters are not part of the tokens;
 * tokens may also be empty strings.
 * If delimiter is '\0', the whole string is one single token.
 */

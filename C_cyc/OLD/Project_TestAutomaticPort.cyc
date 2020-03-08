@@ -165,8 +165,8 @@ void readFile(int* @fat num_of_postcard, struct postcard?? postcards) {
 	}
 
 	char line[MAX_LINE_LENGTH + 1] @zeroterm;
-	int index = 0;
-	//int? index = (int?) calloc(1, sizeof(int)); // Number of postcard
+	//int index = 0;
+	int? index = (int?) calloc(1, sizeof(int)); // Number of postcard
 
 	//while(fgets(line, (MAX_LINE_LENGTH + 1), f) != NULL) {
 		
