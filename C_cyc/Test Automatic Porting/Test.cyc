@@ -56,7 +56,7 @@ int safe_strcpy(char * @notnull @fat dst, const char * @notnull @fat src) {
     return safe_strncpy(dst, src, n-1);
 }
 
-void str2lower(char* @fat @zeroterm str) {
+void str2lower(char * @fat @zeroterm str) {
 	while (*str) {
 		if (*str >= 65 && *str <= 90) { // a-z
 			*str += 32;
@@ -148,8 +148,6 @@ postcard?? readFile() {
 		if (fscanf(filePointer, "%s", line) == -1)
 			break;
 		printf("Length: %d --> %s\n", strlen(line),line);
-		
-		//postcard* pc = make_postcard(&line);
 		
 		postcard* pc = (postcard*) malloc(sizeof(postcard));
 		pc->sender_name = (char*@notnull @fat) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
