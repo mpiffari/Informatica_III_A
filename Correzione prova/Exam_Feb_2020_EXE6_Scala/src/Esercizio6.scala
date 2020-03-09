@@ -29,9 +29,9 @@ object Esercizio6 {
 			if(N == 1) {
 				acc
 			} else {
-				if(N % 2 == 0) {prodPariFino_ricorsivoTail(N - 1, (acc * N))
+				if(N % 2 == 0) {prodPariFino_ricorsivoTail_wrapped(N - 1, (acc * N))
 				} else {
-					prodPariFino_ricorsivoTail(N - 1, acc)
+					prodPariFino_ricorsivoTail_wrapped(N - 1, acc)
 				}
 			}
 	  }
