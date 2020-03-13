@@ -3,17 +3,27 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces @fat pointer come Struct\relax }}{4}{figure.caption.4}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Gestione pointer nullable\relax }}{5}{figure.caption.5}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces UML class diagram\relax }}{9}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esempio di eredit\IeC {\`a} multipla della classe \textit {Matrix}\relax }}{10}{figure.caption.7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Diamond problem\relax }}{10}{figure.caption.8}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Virtual Inerithance nelle classe \textit {Addable} e \textit {Subtractable}\relax }}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Virtual desctructor della classe base \textit {Number}\relax }}{11}{figure.caption.10}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Ridefinizione dell'operatore di stream\relax }}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Ridefinizione degli operatori nella classe \textit {Matrix}\relax }}{12}{figure.caption.12}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Esempio di utilizzo della redefinizione degli operatori\relax }}{12}{figure.caption.13}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces STL - Iterator\relax }}{13}{figure.caption.14}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces STL - Algorithm\relax }}{13}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Prodotti disponibili\relax }}{13}{figure.caption.6}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Classi e trait\relax }}{14}{figure.caption.7}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Utilizzo comando \textit {filter} nella nostra applicazione\relax }}{15}{figure.caption.8}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Sealed\relax }}{16}{figure.caption.9}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Prodotti disponibili\relax }}{17}{figure.caption.16}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Classi e trait\relax }}{18}{figure.caption.17}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Utilizzo comando \textit {filter} nella nostra applicazione\relax }}{19}{figure.caption.18}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sealed\relax }}{20}{figure.caption.19}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Macchina a stati\relax }}{20}{figure.caption.10}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Action che implicano un possibile cambio di stato\relax }}{20}{figure.caption.11}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Domini enumerativi\relax }}{20}{figure.caption.12}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Funzioni non monitored\relax }}{21}{figure.caption.13}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Static functions\relax }}{21}{figure.caption.14}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{21}{figure.caption.15}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Inizializzazione\relax }}{22}{figure.caption.16}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Management rules\relax }}{23}{figure.caption.17}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Macchina a stati\relax }}{24}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Action che implicano un possibile cambio di stato\relax }}{24}{figure.caption.21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Domini enumerativi\relax }}{24}{figure.caption.22}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Funzioni non monitored\relax }}{25}{figure.caption.23}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Static functions\relax }}{25}{figure.caption.24}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{25}{figure.caption.25}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Inizializzazione\relax }}{26}{figure.caption.26}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Management rules\relax }}{27}{figure.caption.27}

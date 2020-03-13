@@ -6,10 +6,6 @@
 
 using namespace std;
 
-/**
- * Rappresenta oggetti che possono essere stampati su ostream (es. cout).
- * E' necessario implementare il metodo toString().
- */
 class Stringable{
 public:
     Stringable(); // Default constructor
