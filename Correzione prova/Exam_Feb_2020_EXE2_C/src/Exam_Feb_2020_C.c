@@ -46,29 +46,6 @@ int* serieNumeriPariRicorsiva(int N) {
 	}
 }
 
-int* foo(int n,int cont){
-	if(cont*2 >= n){
-		int* temp = (int*) calloc(n,sizeof(int));
-		temp[0] = 1;
-		return temp;
-	} else {
-		int* temp = (int*) calloc(n,sizeof(int));
-		int* ris = foo(n,cont+1);
-		*temp = cont*2;
-		printf("contatore: %i, ris: %i,%i\n",cont,*(ris+1),*(ris+2));
-		memcpy(temp+1,ris,sizeof(int)*(n-1));
-		printf("contatore: %i, temp: %i,%i\n",cont,*(temp+1),*(temp+2));
-		free(ris);
-
-		return temp;
-	}
-}
-
-int* numeripari(int n){
-	return foo(n,1);
-}
-
-
 int* serieNumeriPariRicorsivaTail(int N, int* res, int index) {
 	if(N == 1) {
 		*(res + index) = 1;
@@ -91,7 +68,6 @@ int* serieNumeriPariR_Tail(int N) {
 int main(void) {
 
 	//int* res = serieNumeriPari(5); // OK
-	//int* res = numeripari(6); // Cale
 	int* res = serieNumeriPariRicorsiva(5);
 	//int* res = serieNumeriPariR_Tail(5); // OK
 	int* n = res;
@@ -105,3 +81,4 @@ int main(void) {
 	puts("No greetings"); /* prints No greetings */
 	return EXIT_SUCCESS;
 }
+
