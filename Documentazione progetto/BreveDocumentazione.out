@@ -23,32 +23,33 @@
 \BOOKMARK [-1][-]{part.3}{III Terzo progettino}{}% 23
 \BOOKMARK [0][-]{chapter.3}{Energy drink vending machine con Scala}{part.3}% 24
 \BOOKMARK [1][-]{section.3.1}{Descrizione del progetto}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Gerarchia delle classi}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Filter}{chapter.3}% 27
-\BOOKMARK [1][-]{section.3.4}{Match - sealed}{chapter.3}% 28
-\BOOKMARK [2][-]{subsection.3.4.1}{Match}{section.3.4}% 29
-\BOOKMARK [2][-]{subsection.3.4.2}{Sealed}{section.3.4}% 30
-\BOOKMARK [-1][-]{part.4}{IV Quarto progettino}{}% 31
-\BOOKMARK [0][-]{chapter.4}{Coffe Machine con ASM}{part.4}% 32
-\BOOKMARK [1][-]{section.4.1}{Descrizione del progetto}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.2}{Macchina a stati}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.3}{Eventi}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.4}{Domini}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.5}{Controlled - static - monitored functions}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.5.1}{Controlled}{section.4.5}% 38
-\BOOKMARK [2][-]{subsection.4.5.2}{Static}{section.4.5}% 39
-\BOOKMARK [2][-]{subsection.4.5.3}{Monitored}{section.4.5}% 40
-\BOOKMARK [1][-]{section.4.6}{Inizializzazione}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.7}{Event management rules e main rule}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.8}{Transition rule}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.9}{Simulazione}{chapter.4}% 44
-\BOOKMARK [0][-]{chapter.5}{Correzione prova}{part.4}% 45
-\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 46
-\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 47
-\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 48
-\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 49
-\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 50
-\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 51
-\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 52
-\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 54
+\BOOKMARK [1][-]{section.3.2}{Costrutti utilizzati}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.3}{Gerarchia delle classi e trait}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Filter}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.5}{Match - sealed}{chapter.3}% 29
+\BOOKMARK [2][-]{subsection.3.5.1}{Match}{section.3.5}% 30
+\BOOKMARK [2][-]{subsection.3.5.2}{Sealed}{section.3.5}% 31
+\BOOKMARK [-1][-]{part.4}{IV Quarto progettino}{}% 32
+\BOOKMARK [0][-]{chapter.4}{Coffe Machine con ASM}{part.4}% 33
+\BOOKMARK [1][-]{section.4.1}{Descrizione del progetto}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.2}{Macchina a stati}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.3}{Eventi}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.4}{Domini}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.5}{Controlled - static - monitored functions}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.5.1}{Controlled}{section.4.5}% 39
+\BOOKMARK [2][-]{subsection.4.5.2}{Static}{section.4.5}% 40
+\BOOKMARK [2][-]{subsection.4.5.3}{Monitored}{section.4.5}% 41
+\BOOKMARK [1][-]{section.4.6}{Inizializzazione}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.7}{Event management rules e main rule}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.8}{Transition rule}{chapter.4}% 44
+\BOOKMARK [1][-]{section.4.9}{Simulazione}{chapter.4}% 45
+\BOOKMARK [0][-]{chapter.5}{Correzione prova}{part.4}% 46
+\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 48
+\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 51
+\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 53
+\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 54
+\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 55

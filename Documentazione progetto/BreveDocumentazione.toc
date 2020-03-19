@@ -24,32 +24,33 @@
 \contentsline {part}{III\hspace {1em}Terzo progettino}{15}{part.3}
 \contentsline {chapter}{\numberline {3}Energy drink vending machine con Scala}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}Descrizione del progetto}{17}{section.3.1}
-\contentsline {section}{\numberline {3.2}Gerarchia delle classi}{18}{section.3.2}
-\contentsline {section}{\numberline {3.3}Filter}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}Match - sealed}{19}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Match}{19}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Sealed}{20}{subsection.3.4.2}
-\contentsline {part}{IV\hspace {1em}Quarto progettino}{21}{part.4}
-\contentsline {chapter}{\numberline {4}Coffe Machine con ASM}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Descrizione del progetto}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Macchina a stati}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Eventi}{23}{section.4.3}
-\contentsline {section}{\numberline {4.4}Domini}{24}{section.4.4}
-\contentsline {section}{\numberline {4.5}Controlled - static - monitored functions}{25}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Controlled}{25}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Static}{25}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Monitored}{25}{subsection.4.5.3}
-\contentsline {section}{\numberline {4.6}Inizializzazione}{26}{section.4.6}
-\contentsline {section}{\numberline {4.7}Event management rules e main rule}{26}{section.4.7}
-\contentsline {section}{\numberline {4.8}Transition rule}{27}{section.4.8}
-\contentsline {section}{\numberline {4.9}Simulazione}{27}{section.4.9}
-\contentsline {chapter}{\numberline {5}Correzione prova}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}EXE 1 - RA}{29}{section.5.1}
-\contentsline {section}{\numberline {5.2}EXE 2 - C}{30}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Iterativa}{30}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Ricorsiva senza tail}{30}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Ricorsiva CON tail}{31}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}EXE 3 - C++ distruttore}{31}{section.5.3}
-\contentsline {section}{\numberline {5.4}EXE 4 - Opachi}{31}{section.5.4}
-\contentsline {section}{\numberline {5.5}EXE 5 - Visitor}{32}{section.5.5}
-\contentsline {section}{\numberline {5.6}EXE 6 - Scala}{32}{section.5.6}
+\contentsline {section}{\numberline {3.2}Costrutti utilizzati}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Gerarchia delle classi e trait}{19}{section.3.3}
+\contentsline {section}{\numberline {3.4}Filter}{20}{section.3.4}
+\contentsline {section}{\numberline {3.5}Match - sealed}{21}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Match}{21}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Sealed}{21}{subsection.3.5.2}
+\contentsline {part}{IV\hspace {1em}Quarto progettino}{23}{part.4}
+\contentsline {chapter}{\numberline {4}Coffe Machine con ASM}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Descrizione del progetto}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Macchina a stati}{25}{section.4.2}
+\contentsline {section}{\numberline {4.3}Eventi}{25}{section.4.3}
+\contentsline {section}{\numberline {4.4}Domini}{26}{section.4.4}
+\contentsline {section}{\numberline {4.5}Controlled - static - monitored functions}{27}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Controlled}{27}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Static}{27}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Monitored}{27}{subsection.4.5.3}
+\contentsline {section}{\numberline {4.6}Inizializzazione}{28}{section.4.6}
+\contentsline {section}{\numberline {4.7}Event management rules e main rule}{28}{section.4.7}
+\contentsline {section}{\numberline {4.8}Transition rule}{29}{section.4.8}
+\contentsline {section}{\numberline {4.9}Simulazione}{29}{section.4.9}
+\contentsline {chapter}{\numberline {5}Correzione prova}{31}{chapter.5}
+\contentsline {section}{\numberline {5.1}EXE 1 - RA}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}EXE 2 - C}{32}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Iterativa}{32}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Ricorsiva senza tail}{32}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Ricorsiva CON tail}{33}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}EXE 3 - C++ distruttore}{33}{section.5.3}
+\contentsline {section}{\numberline {5.4}EXE 4 - Opachi}{33}{section.5.4}
+\contentsline {section}{\numberline {5.5}EXE 5 - Visitor}{34}{section.5.5}
+\contentsline {section}{\numberline {5.6}EXE 6 - Scala}{34}{section.5.6}

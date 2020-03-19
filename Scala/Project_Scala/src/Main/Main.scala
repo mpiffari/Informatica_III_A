@@ -9,7 +9,7 @@ object Main {
     val vendingMachineENG: VendingMachine = new EnergyDrinkVendingMachine(language = "ENG", id = 10)
     val vendingMachineITA: VendingMachine = new EnergyDrinkVendingMachine(language = "ITA", id = 100)
     
-    // Show information of empty vending machines
+    // Showing information of two empty vending machines just created
     vendingMachineENG.show 
     vendingMachineITA.show
     
@@ -28,7 +28,7 @@ object Main {
     val italian1 = new ItalianEnergyDrink("2020-03-29", 330, 1.75, 150,
         List("concentrazione", "concetrazione meditazione"))
   
-    // Addition of products
+    // Addition of products to vending machines
     vendingMachineENG.addProduct(redBull1)
     vendingMachineENG.addProduct(redBull2_expired)
     vendingMachineENG.addProduct(redBull3)
@@ -46,12 +46,12 @@ object Main {
     vendingMachineENG.show 
     vendingMachineITA.show
     
-    // Search by tag
+    // Search product by tag
     println("Column with product with tag CONCENTRATION "  + vendingMachineENG.searchByTag("concentration"))
     println("Column with product with tag HARD STUDY "  + vendingMachineENG.searchByTag("hard study"))
     println("Column with product with tag CONCENTRAZIONE "  + vendingMachineITA.searchByTag("concentrazione"))
     
-    
+    // Buying some energy drink (colum --> type of product, money --> money inserted)
     println("Resto from ENG: " + vendingMachineENG.buy(0,10) + "\n")
     println("Resto from ENG: " + vendingMachineENG.buy(1,10) + "\n")
     vendingMachineENG.show

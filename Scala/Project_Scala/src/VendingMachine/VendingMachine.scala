@@ -1,6 +1,7 @@
 package VendingMachine
 import Drinks._
 
+// Trait (like Java interface) definition
 trait VendingMachine {
   def addProduct(product: EnergyDrink)
   def searchByTag(tag: String) : List[String]

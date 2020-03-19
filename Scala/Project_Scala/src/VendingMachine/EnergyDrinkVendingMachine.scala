@@ -18,7 +18,6 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
    var amountOfMoneyOnMachine = 0.0
    
    def addProduct(product: EnergyDrink) {
-   
      if(product.isInstanceOf[RedBullEnergyDrink]) {
        products(RED_BULL) += product
      } else if(product.isInstanceOf[MonsterEnergyDrink]) {
@@ -30,9 +29,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
      }
    }
    
-   def searchByTag(tag: String) : List[String] = {
-     val columns = Vector(RED_BULL,MONSTER,GATORADE,ITALIAN)
-     
+   def searchByTag(tag: String) : List[String] = {   
      def checkTag(product: EnergyDrink) : Boolean = {
        if(language == "ITA") {
          if(product.tagITA.filter(t => t.contains(tag)).size > 0) {
@@ -51,6 +48,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
        }
      }
      
+     val columns = Vector(RED_BULL,MONSTER,GATORADE,ITALIAN)
      var columnWithTagRequested = List[String]()
       for(column <- columns) {
         if(!isEmpty(column)) {
