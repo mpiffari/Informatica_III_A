@@ -25,7 +25,11 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
      } else if(product.isInstanceOf[GatoradeEnergyDrink]) {
        products(GATORADE) += product
      } else if(product.isInstanceOf[ItalianEnergyDrink]) {
-       products(ITALIAN) += product
+       if(language == "ENG") {
+         println("! ERROR ! Italian drink forbidden in ENG vending machine") 
+       } else {
+         products(ITALIAN) += product
+       }
      }
    }
    
@@ -103,8 +107,8 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
            println(productDescription + " expired! Take it for free")
            return money
          } else {
-            println("I'm giving you a " + productDescription + " that is \n-		" + productSelected.nutritionalValues() 
-                + "\n-		" + productSelected.calories + " calories");
+            println("I'm giving you a " + productDescription + " that is \n- " + productSelected.nutritionalValues() 
+                + "\n- " + productSelected.calories + " calories" + "\n- " + price + " (price)");
             amountOfMoneyOnMachine += price
          }
        }
@@ -113,7 +117,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
    }
    
    def show {
-     println("Available drinks for machine with id " + id + ":\n")
+     println("Available drinks for machine with id " + id + ":")
      if(!isEmpty(RED_BULL)) {
          println("	- " + products(RED_BULL).size + " RED BULL")
      } else {
@@ -132,10 +136,12 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
          println("	- GATORADE EMPTY!")
      }
      
-     if(!isEmpty(ITALIAN)) {
-         println("	- " + products(ITALIAN).size + " ITALIAN")
-     } else {
-         println("	- ITALIAN EMPTY!")
-     } 
+     if(language != "ENG") {
+    	 if(!isEmpty(ITALIAN)) {
+    		 println("	- " + products(ITALIAN).size + " ITALIAN")
+    	 } else {
+    		 println("	- ITALIAN EMPTY!")
+    	 } 
+     }
    }
 }

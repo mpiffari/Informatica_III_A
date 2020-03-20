@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  19 MAR 2020 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  20 MAR 2020 09:34
 entering extended mode
 **./BreveDocumentazione.tex
 (BreveDocumentazione.tex
@@ -937,63 +937,54 @@ File: Immagini/ShowVendingMachine.png Graphic file (type png)
 Package pdftex.def Info: Immagini/ShowVendingMachine.png  used on input line 36
 .
 (pdftex.def)             Requested size: 193.47578pt x 61.37904pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [17
 
-]
-Overfull \hbox (5.95079pt too wide) in paragraph at lines 44--45
-[]\T1/lmr/m/n/10.95 TODO: move in an-other sec-tion nello speci-fico, l'aggiunt
-a di un nuovo prodotto, avviene all'interno
- []
-
-[18 <./Immagini/ShowVendingMachine.png>]
+] [18 <./Immagini/ShowVendingMachine.png>]
 <Immagini/EnergyDrink.png, id=506, 387.69844pt x 213.04594pt>
 File: Immagini/EnergyDrink.png Graphic file (type png)
 <use Immagini/EnergyDrink.png>
-Package pdftex.def Info: Immagini/EnergyDrink.png  used on input line 64.
+Package pdftex.def Info: Immagini/EnergyDrink.png  used on input line 61.
 (pdftex.def)             Requested size: 217.66211pt x 119.61047pt.
 <Immagini/ExpirableTrait.png, id=507, 144.54pt x 39.14626pt>
 File: Immagini/ExpirableTrait.png Graphic file (type png)
 <use Immagini/ExpirableTrait.png>
-Package pdftex.def Info: Immagini/ExpirableTrait.png  used on input line 66.
+Package pdftex.def Info: Immagini/ExpirableTrait.png  used on input line 63.
 (pdftex.def)             Requested size: 169.29684pt x 45.85349pt.
 <Immagini/VendingMachine.png, id=508, 121.95563pt x 104.64093pt>
 File: Immagini/VendingMachine.png Graphic file (type png)
 <use Immagini/VendingMachine.png>
-Package pdftex.def Info: Immagini/VendingMachine.png  used on input line 68.
+Package pdftex.def Info: Immagini/VendingMachine.png  used on input line 65.
 (pdftex.def)             Requested size: 120.92421pt x 103.75768pt.
 <Immagini/VendingMachineTrait.png, id=509, 243.91125pt x 74.52844pt>
 File: Immagini/VendingMachineTrait.png Graphic file (type png)
 <use Immagini/VendingMachineTrait.png>
-Package pdftex.def Info: Immagini/VendingMachineTrait.png  used on input line 7
-0.
+Package pdftex.def Info: Immagini/VendingMachineTrait.png  used on input line 6
+7.
 (pdftex.def)             Requested size: 217.66211pt x 66.50862pt.
  [19 <./Immagini/EnergyDrink.png> <./Immagini/ExpirableTrait.png> <./Immagini/V
 endingMachine.png> <./Immagini/VendingMachineTrait.png>]
 <Immagini/Filter.png, id=523, 362.10281pt x 242.40562pt>
 File: Immagini/Filter.png Graphic file (type png)
 <use Immagini/Filter.png>
-Package pdftex.def Info: Immagini/Filter.png  used on input line 90.
+Package pdftex.def Info: Immagini/Filter.png  used on input line 87.
 (pdftex.def)             Requested size: 266.03474pt x 178.09755pt.
 <Immagini/RicercaTag.png, id=524, 377.91188pt x 203.25937pt>
 File: Immagini/RicercaTag.png Graphic file (type png)
 <use Immagini/RicercaTag.png>
-Package pdftex.def Info: Immagini/RicercaTag.png  used on input line 97.
+Package pdftex.def Info: Immagini/RicercaTag.png  used on input line 94.
 (pdftex.def)             Requested size: 266.03474pt x 143.08696pt.
 
-Overfull \hbox (37.19586pt too wide) in paragraph at lines 108--109
+Overfull \hbox (37.19586pt too wide) in paragraph at lines 105--106
 []\T1/lmr/m/n/10.95 Una volta ef-fet-tuato il fil-trag-gio \T1/lmr/bx/n/10.95 h
 o con-sid-er-ato so-la-mente i prodotti il cui risul-tato dall'operazione
  []
 
 [20 <./Immagini/Filter.png> <./Immagini/RicercaTag.png>]
-<Immagini/Sealed.png, id=533, 280.04625pt x 74.52844pt>
+<Immagini/Sealed.png, id=533, 432.11438pt x 72.27pt>
 File: Immagini/Sealed.png Graphic file (type png)
 <use Immagini/Sealed.png>
-Package pdftex.def Info: Immagini/Sealed.png  used on input line 123.
-(pdftex.def)             Requested size: 241.84843pt x 64.36612pt.
+Package pdftex.def Info: Immagini/Sealed.png  used on input line 126.
+(pdftex.def)             Requested size: 241.84843pt x 40.44885pt.
 ) [21 <./Immagini/Sealed.png>] [22
 
 ] [23] [24]
@@ -1122,7 +1113,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
 Package rerunfilecheck Info: File `BreveDocumentazione.out' has not changed.
-(rerunfilecheck)             Checksum: 7CC2EE30C2C9D726536351A9BC966AC9;3590.
+(rerunfilecheck)             Checksum: DEBEEFA28DFC84E35D1F63F615F99BDD;3607.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
  ) 
 Here is how much of TeX's memory you used:
@@ -1150,7 +1141,7 @@ KTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Users/miche/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/miche/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Users/miche/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb>
-Output written on BreveDocumentazione.pdf (42 pages, 894285 bytes).
+Output written on BreveDocumentazione.pdf (42 pages, 895698 bytes).
 PDF statistics:
  711 PDF objects out of 1000 (max. 8388607)
  137 named destinations out of 1000 (max. 500000)

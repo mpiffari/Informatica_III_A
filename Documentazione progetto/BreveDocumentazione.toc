@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {3.2}Costrutti utilizzati}{18}{section.3.2}
 \contentsline {section}{\numberline {3.3}Gerarchia delle classi e trait}{19}{section.3.3}
 \contentsline {section}{\numberline {3.4}Filter}{20}{section.3.4}
-\contentsline {section}{\numberline {3.5}Match - sealed}{21}{section.3.5}
+\contentsline {section}{\numberline {3.5}Expression oriented programming}{21}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Match}{21}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Sealed}{21}{subsection.3.5.2}
 \contentsline {part}{IV\hspace {1em}Quarto progettino}{23}{part.4}

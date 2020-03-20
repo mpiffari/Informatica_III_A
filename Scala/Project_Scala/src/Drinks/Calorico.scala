@@ -1,7 +1,8 @@
 package Drinks
 
+// Sealed to guarantee that all subclass will be declared in the same file [here]
 sealed trait Calorico
 
-final case class IpoCalorico() extends Calorico
-final case class NormoCalorico() extends Calorico
-final case class IperCalorico() extends Calorico
+case class IpoCalorico() extends Calorico
+case class NormoCalorico() extends Calorico
+case class IperCalorico() extends Calorico

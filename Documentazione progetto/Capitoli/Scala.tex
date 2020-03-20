@@ -10,7 +10,7 @@ In particolar modo si è progettato un sistema con queste specifiche:
 		\item \textbf{RedBull};
 		\item \textbf{Monster};
 		\item \textbf{Gatorade};
-		\item \textbf{Italian} (particolare energy drink \textit{made in Italy}).
+		\item \textbf{Italian} (particolare energy drink \textit{made in Italy}, che NON viene erogato da distributori in lingua inglese).
 	\end{itemize}
 	Ognuno di questi prodotti sarà caratterizzato dai seguenti campi descrittivi:
 	\begin{itemize}
@@ -38,10 +38,7 @@ Ogni distributore andrà ad offrire le seguenti funzionalità:
 		\label{fig:AvailableProducts}
 	\end{figure}
 	\item Possibilità di \textbf{cercare un prodotto tramite tag}, per poter così trovare l'energy drink più adatto ad ogni specifica evenienza
-	\item \textbf{Aggiunta di lattine} di energy drink all'interno del distributore: 
-	
-	
-	TODO: move in another section nello specifico, l'aggiunta di un nuovo prodotto, avviene all'interno di una struttura definita come un array di Queue (ovvero una matrice), che non fa altro che andare a riprodurre la fisionomia di un distirbutore reale.
+	\item \textbf{Aggiunta di lattine} di energy drink all'interno del distributore.
 \end{itemize}
 
 \section{Costrutti utilizzati}
@@ -107,7 +104,7 @@ Questa operazione di filtraggio viene poi ripetuta per ogni tipologia di prodott
 
 Una volta effettuato il filtraggio \textbf{ho considerato solamente i prodotti il cui risultato dall'operazione di filter non fosse un vettore vuoto}: questo corrisponde infatti al prendere solamente i prodotti che contengono il tag cercato, notificando poi all'utente la loro tipologia, tramite una stampa a display.
 
-\section{Match - sealed}
+\section{Expression oriented programming}
 \label{sec:match_sealed}
 \subsection{Match}
 Il \textit{pattern match} rappresenta una struttura per verificare il valore assunto da una variabile, tramite un pattern: si tratta in sostanza di una versione leggermente più potente del construtto \textit{switch} di Java.
@@ -118,7 +115,12 @@ Nell'applicazione si è pensato di andare ad utilizzare il \textit{pattern match
 	\item \textit{Matching on classes}: per la funzionalità di aggiunta di nuovi prodotti all'interno del distributore automatico, si era pensato di utilizzare un \textit{pattern match} per poter distinguere la tipologia specifica del prodotto aggiunto. Alla fine la scelta è però ricaduta sull'utilizzo del comando \textit{isInstanceOf}.
 \end{itemize}
 \subsection{Sealed}
-Classi e traits possono essere segnati come \textit{sealed}: questo significa che tutti i sotto tipi devono essere dichiarati all'interno dello stesso file, garantendo che tutti i sottotipi siano conosciuti e noti.
+Classi e traits possono essere segnati come \textit{sealed}: questo significa che tutti i sotto tipi devono essere dichiarati e implementati all'interno dello stesso file, garantendo che tutti i sottotipi siano conosciuti e noti già in fase di compilazione, prevenendo quindi errori nel nostro codice.
+
+
+In questo modo, unendo l'utilizzo di classi \textit{sealed} con il \textit{pattern match}, siamo in grado di garantire \textit{type safety}.
+Infatti questa struttura permette di garantire il fatto che i \textit{match cases} utilizzati saranno tutti esaustivi: questo grazie al fatto il compilatore conosce in anticipo tutte le possibili implementazioni, dato che sono implementate tutte nello stesso file.
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Immagini/Sealed.png}
