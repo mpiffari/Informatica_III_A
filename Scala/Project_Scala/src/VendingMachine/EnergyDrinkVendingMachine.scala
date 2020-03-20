@@ -14,9 +14,12 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
    val MONSTER: Int = 1
    val GATORADE: Int = 2
    val ITALIAN: Int = 3
+   // Simulated the matrix structure of a vending machine, with an array of different products.
+   // Each queue can contains more energy drink, of the same type.
    var products = Array[Queue[EnergyDrink]](Queue[EnergyDrink](),Queue[EnergyDrink](),Queue[EnergyDrink](),Queue[EnergyDrink]())
    var amountOfMoneyOnMachine = 0.0
    
+   // Adding new product in the correct Queue
    def addProduct(product: EnergyDrink) {
      if(product.isInstanceOf[RedBullEnergyDrink]) {
        products(RED_BULL) += product
@@ -25,6 +28,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
      } else if(product.isInstanceOf[GatoradeEnergyDrink]) {
        products(GATORADE) += product
      } else if(product.isInstanceOf[ItalianEnergyDrink]) {
+       // No italian energy drink allowed in english vending machine
        if(language == "ENG") {
          println("! ERROR ! Italian drink forbidden in ENG vending machine") 
        } else {
@@ -34,11 +38,15 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
    }
    
    def searchByTag(tag: String) : List[String] = {   
+     
+     // Check if tag searched is contained in vending machine
      def checkTag(product: EnergyDrink) : Boolean = {
        if(language == "ITA") {
          if(product.tagITA.filter(t => t.contains(tag)).size > 0) {
+           // if size is equal than 0, it means that the product match the tag search
            return true
          } else {
+           // else this product doesn't match the tag searched by user
            return false
          }
        } else if(language == "ENG") {
@@ -51,32 +59,36 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
          return false
        }
      }
-     
+
      val columns = Vector(RED_BULL,MONSTER,GATORADE,ITALIAN)
-     var columnWithTagRequested = List[String]()
-      for(column <- columns) {
-        if(!isEmpty(column)) {
-          if(checkTag(products(column)(0))) {
-             if(column == 0) {
-               columnWithTagRequested = columnWithTagRequested:+"Red Bull"
-             } else if(column == 1) {
-               columnWithTagRequested = columnWithTagRequested:+"Monster"
-             } else if(column == 2) {
-               columnWithTagRequested = columnWithTagRequested:+"Gatorade"
-             } else {
-               columnWithTagRequested = columnWithTagRequested:+"Italian"
-             }
-          }
-        }
-     }
-     
-      columnWithTagRequested
+		 var columnWithTagRequested = List[String]()
+		 // Search tag for each product
+		 for(column <- columns) {
+			 if(!isEmpty(column)) {
+			   // Each kind of product has the same tags, so I'll use the tags of the first EnergyDrink of the queue
+				 if(checkTag(products(column)(0))) {
+					 if(column == 0) {
+						 columnWithTagRequested = columnWithTagRequested:+"Red Bull"
+					 } else if(column == 1) {
+						 columnWithTagRequested = columnWithTagRequested:+"Monster"
+					 } else if(column == 2) {
+						 columnWithTagRequested = columnWithTagRequested:+"Gatorade"
+					 } else {
+						 columnWithTagRequested = columnWithTagRequested:+"Italian"
+					 }
+				 }
+			 }
+		 }
+
+     columnWithTagRequested
    }
      
+   // Check if a column is empty, and so if is available product
    def isEmpty(column: Int): Boolean = {
      products(column).isEmpty
    }
    
+   // Take one energy drink from the queue
    def buy(column: Int): EnergyDrink = {
      products(column).dequeue()
    }
@@ -97,7 +109,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
        println("Product " + productDescription + " not available")
        money
      } else {
-       val productSelected = buy(column)
+       val productSelected = buy(column) // Take product from column
        val price = productSelected.price
        if(money < price || money <= 0){
          println("Money not enough for " + productDescription)
@@ -116,6 +128,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
      }
    }
    
+   // Print product name and amount available for each kind product 
    def show {
      println("Available drinks for machine with id " + id + ":")
      if(!isEmpty(RED_BULL)) {
@@ -136,6 +149,7 @@ class EnergyDrinkVendingMachine(val language: String, val id: Int) extends Vendi
          println("	- GATORADE EMPTY!")
      }
      
+     // Italian energy drink not allowed in ENG vending machine
      if(language != "ENG") {
     	 if(!isEmpty(ITALIAN)) {
     		 println("	- " + products(ITALIAN).size + " ITALIAN")
