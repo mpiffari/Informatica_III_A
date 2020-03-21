@@ -114,6 +114,7 @@ Nell'applicazione si è pensato di andare ad utilizzare il \textit{pattern match
 	\item \textit{Pattern guard}: nell'andare a definire se un prodotto è considerabile come normo, ipo o iper calorico, si è fatto uso di un pattern guard, sfruttando anche la potenzialità aggiuntiva di poter aggiungere una condizione dopo il pattern, tramite la dicitura \textit{if<boolean expression>}, che permette di rendere più specifico ogni singolo case.
 	\item \textit{Matching on classes}: per la funzionalità di aggiunta di nuovi prodotti all'interno del distributore automatico, si era pensato di utilizzare un \textit{pattern match} per poter distinguere la tipologia specifica del prodotto aggiunto. Alla fine la scelta è però ricaduta sull'utilizzo del comando \textit{isInstanceOf}.
 \end{itemize}
+
 \subsection{Sealed}
 Classi e traits possono essere segnati come \textit{sealed}: questo significa che tutti i sotto tipi devono essere dichiarati e implementati all'interno dello stesso file, garantendo che tutti i sottotipi siano conosciuti e noti già in fase di compilazione, prevenendo quindi errori nel nostro codice.
 

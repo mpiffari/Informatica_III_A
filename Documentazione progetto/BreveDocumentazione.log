@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  20 MAR 2020 09:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  21 MAR 2020 17:56
 entering extended mode
 **./BreveDocumentazione.tex
 (BreveDocumentazione.tex
@@ -983,14 +983,14 @@ o con-sid-er-ato so-la-mente i prodotti il cui risul-tato dall'operazione
 <Immagini/Sealed.png, id=533, 432.11438pt x 72.27pt>
 File: Immagini/Sealed.png Graphic file (type png)
 <use Immagini/Sealed.png>
-Package pdftex.def Info: Immagini/Sealed.png  used on input line 126.
+Package pdftex.def Info: Immagini/Sealed.png  used on input line 127.
 (pdftex.def)             Requested size: 241.84843pt x 40.44885pt.
 ) [21 <./Immagini/Sealed.png>] [22
 
 ] [23] [24]
  4.
 (Capitoli/ASM.tex
-Overfull \hbox (7.31778pt too wide) in paragraph at lines 6--7
+Overfull \hbox (7.31778pt too wide) in paragraph at lines 7--8
 []\T1/lmr/m/n/10.95 Il dis-trib-u-tore ac-cetta paga-menti so-la-mente in mon-e
 ta tramite l'inserimento di denaro nell'apposita
  []
@@ -998,65 +998,56 @@ ta tramite l'inserimento di denaro nell'apposita
 <Immagini/FSM.png, id=553, 525.46312pt x 357.58594pt>
 File: Immagini/FSM.png Graphic file (type png)
 <use Immagini/FSM.png>
-Package pdftex.def Info: Immagini/FSM.png  used on input line 16.
-(pdftex.def)             Requested size: 386.95897pt x 263.34357pt.
+Package pdftex.def Info: Immagini/FSM.png  used on input line 17.
+(pdftex.def)             Requested size: 483.69687pt x 329.17401pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Immagini/ActionASM.png, id=555, 399.74344pt x 57.96657pt>
-File: Immagini/ActionASM.png Graphic file (type png)
-<use Immagini/ActionASM.png>
-Package pdftex.def Info: Immagini/ActionASM.png  used on input line 34.
-(pdftex.def)             Requested size: 241.84843pt x 35.07031pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [25
 
 ]
-<Immagini/EnumDomain.png, id=561, 554.82281pt x 106.14656pt>
+<Immagini/ActionASM.png, id=559, 399.74344pt x 57.96657pt>
+File: Immagini/ActionASM.png Graphic file (type png)
+<use Immagini/ActionASM.png>
+Package pdftex.def Info: Immagini/ActionASM.png  used on input line 36.
+(pdftex.def)             Requested size: 241.84843pt x 35.07031pt.
+ [26 <./Immagini/FSM.png> <./Immagini/ActionASM.png>]
+<Immagini/EnumDomain.png, id=566, 554.82281pt x 106.14656pt>
 File: Immagini/EnumDomain.png Graphic file (type png)
 <use Immagini/EnumDomain.png>
-Package pdftex.def Info: Immagini/EnumDomain.png  used on input line 52.
+Package pdftex.def Info: Immagini/EnumDomain.png  used on input line 54.
 (pdftex.def)             Requested size: 241.84843pt x 46.26894pt.
-<Immagini/DynamicController.png, id=563, 382.42876pt x 73.77562pt>
+<Immagini/DynamicController.png, id=568, 382.42876pt x 73.77562pt>
 File: Immagini/DynamicController.png Graphic file (type png)
 <use Immagini/DynamicController.png>
-Package pdftex.def Info: Immagini/DynamicController.png  used on input line 64.
+Package pdftex.def Info: Immagini/DynamicController.png  used on input line 66.
 
 (pdftex.def)             Requested size: 241.84843pt x 46.65561pt.
- [26 <./Immagini/FSM.png> <./Immagini/ActionASM.png> <./Immagini/EnumDomain.png
->]
-<Immagini/StaticFunction.png, id=571, 332.74312pt x 33.87656pt>
+<Immagini/StaticFunction.png, id=570, 332.74312pt x 33.87656pt>
 File: Immagini/StaticFunction.png Graphic file (type png)
 <use Immagini/StaticFunction.png>
-Package pdftex.def Info: Immagini/StaticFunction.png  used on input line 85.
+Package pdftex.def Info: Immagini/StaticFunction.png  used on input line 87.
 (pdftex.def)             Requested size: 241.84843pt x 24.62267pt.
-<Immagini/MonitoredFunc.png, id=572, 311.66437pt x 106.14656pt>
+<Immagini/MonitoredFunc.png, id=571, 311.66437pt x 106.14656pt>
 File: Immagini/MonitoredFunc.png Graphic file (type png)
 <use Immagini/MonitoredFunc.png>
-Package pdftex.def Info: Immagini/MonitoredFunc.png  used on input line 95.
+Package pdftex.def Info: Immagini/MonitoredFunc.png  used on input line 97.
 (pdftex.def)             Requested size: 386.95897pt x 131.79205pt.
- [27 <./Immagini/DynamicController.png> <./Immagini/StaticFunction.png> <./Imma
-gini/MonitoredFunc.png>]
-<Immagini/InitialState.png, id=581, 277.035pt x 322.95656pt>
+ [27 <./Immagini/EnumDomain.png> <./Immagini/DynamicController.png> <./Immagini
+/StaticFunction.png>]
+<Immagini/InitialState.png, id=580, 277.035pt x 322.95656pt>
 File: Immagini/InitialState.png Graphic file (type png)
 <use Immagini/InitialState.png>
-Package pdftex.def Info: Immagini/InitialState.png  used on input line 107.
+Package pdftex.def Info: Immagini/InitialState.png  used on input line 109.
 (pdftex.def)             Requested size: 241.84843pt x 281.9358pt.
-<Immagini/ManagementRule.png, id=583, 342.5297pt x 254.45062pt>
+
+[28 <./Immagini/MonitoredFunc.png> <./Immagini/InitialState.png>]
+<Immagini/ManagementRule.png, id=588, 342.5297pt x 254.45062pt>
 File: Immagini/ManagementRule.png Graphic file (type png)
 <use Immagini/ManagementRule.png>
-Package pdftex.def Info: Immagini/ManagementRule.png  used on input line 118.
+Package pdftex.def Info: Immagini/ManagementRule.png  used on input line 120.
 (pdftex.def)             Requested size: 241.84843pt x 179.66338pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 1888) has occurred while \output is active []
-
- [28 <./Immagini/InitialState.png>]) [29 <./Immagini/ManagementRule.png>] [30
+) [29 <./Immagini/ManagementRule.png>] [30
 
 ]
  5.
@@ -1101,7 +1092,7 @@ Package pdftex.def Info: Immagini/calcolaMax.png  used on input line 92.
 <Immagini/scalaWrap.png, id=629, 393.72093pt x 149.05687pt>
 File: Immagini/scalaWrap.png Graphic file (type png)
 <use Immagini/scalaWrap.png>
-Package pdftex.def Info: Immagini/scalaWrap.png  used on input line 102.
+Package pdftex.def Info: Immagini/scalaWrap.png  used on input line 103.
 (pdftex.def)             Requested size: 290.22107pt x 109.87276pt.
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
@@ -1141,9 +1132,9 @@ KTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Users/miche/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/miche/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Users/miche/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb>
-Output written on BreveDocumentazione.pdf (42 pages, 895698 bytes).
+Output written on BreveDocumentazione.pdf (42 pages, 896966 bytes).
 PDF statistics:
- 711 PDF objects out of 1000 (max. 8388607)
+ 712 PDF objects out of 1000 (max. 8388607)
  137 named destinations out of 1000 (max. 500000)
  621 words of extra memory for PDF output out of 10000 (max. 10000000)
 

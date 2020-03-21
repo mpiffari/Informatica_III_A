@@ -22,7 +22,7 @@ public class Main_Prova {
 		System.out.println("Figura con area max: " + calcolaMax(list).accept(cd));
 	}
 	
-	static FiguraGeometrica calcolaMax(List<FiguraGeometrica> list) {
+	static FiguraGeometrica calcolaMax(List<? extends FiguraGeometrica> list) {
 		CalcolaArea ca = new CalcolaArea();
 		FiguraGeometrica maxFigura = list.get(0);
 		for (FiguraGeometrica figuraGeometrica : list) {
