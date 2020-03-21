@@ -2,11 +2,10 @@ asm CoffeeMachine
 import StandardLibrary
 
 signature:
-	/****** DOMAINS ******/
+	// DOMAINS
+	abstract domain Product	// Product available from the machine
 
-	abstract domain Product									// Product available from the machine
-
-	domain CoinValue subsetof Integer						// Coins accepted by the machine (value in cents)
+	domain CoinValue subsetof Integer // Coins accepted by the machine (value in cents)
 
 	enum domain State = {WAITING | COINS_INSERTED | GIVING_CHANGE | PREPARED | MAINTAINING | OUT_OF_SERVICE}						// Possible states for the machine
 
@@ -16,47 +15,38 @@ signature:
 	enum domain OutOfServiceAction = {REPAIR}				                    // Possible user actions when the machine is out of service
 	enum domain MaintainAction = {FILL | FILL_COINS | FINISH}					// Possible user actions when the machine has been opened for maintenance
 
-	enum domain Ingredient = {COFFEE | MILK | WATER | TEA | CHOCOLATE | PLASTIC_GLASS}					// The "ingredients" needed to prepare a product
+	enum domain Ingredient = {COFFEE | MILK | WATER | TEA | CHOCOLATE | PLASTIC_GLASS} // The "ingredients" needed to prepare a product
 
+	// MONITORED FUNCTIONS (system readble)
+	dynamic monitored selectedProduct	 : Product			  // The product that has just been chosen
+	dynamic monitored insertedCoin		 : CoinValue		  // The coin that has just been inserted
+	dynamic monitored numberOfCoins		 : Integer			  // The number of coins left in the machine by the maintenance man
+	dynamic monitored filledIngredient	 : Ingredient		  // The ingredient whose container has to be filled by the maintenance man
+	dynamic monitored waitingAction		 : WaitingAction	  // The selected action in the WAITING state
+	dynamic monitored coinsInsAction	 : CoinsInsAction	  // The selected action in the COINS_INSERTED state
+	dynamic monitored preparedAction	 : PreparedAction	  // The selected action in the PREPARED state
+	dynamic monitored outOfServiceAction : OutOfServiceAction // The selected action in the OUT_OF_SERVICE state
+	dynamic monitored maintainAction	 : MaintainAction	  // The selected action in the MAINTAINING state
 
-	/****** MONITORED FUNCTIONS (system readble) ******/
+	// CONTROLLED FUNCTIONS (system readble and writable)
+	dynamic controlled state		     : State				 // The machine state
+	dynamic controlled display		     : String				 // The message displayed to the user
+	dynamic controlled credit		     : Integer				 // The current credit of the user (coins only)
+	dynamic controlled coinsLeft	     : CoinValue -> Integer	 // For each coin value, the number of coins held by the machine
+	dynamic controlled maxSpaceAvailable : CoinValue -> Integer	 // For each coin value, the max quantity of coins that the machine can store
+	dynamic controlled quantityLeft      : Ingredient -> Integer // The amount of ingredient left in the machine
 
-	dynamic monitored selectedProduct	 : Product				// The product that has just been chosen
-	dynamic monitored insertedCoin		 : CoinValue			// The coin that has just been inserted
-	dynamic monitored numberOfCoins		 : Integer				// The number of coins left in the machine by the maintenance man
-	dynamic monitored filledIngredient	 : Ingredient			// The ingredient whose container has to be filled by the maintenance man
-	dynamic monitored waitingAction		 : WaitingAction		// The selected action in the WAITING state
-	dynamic monitored coinsInsAction	 : CoinsInsAction		// The selected action in the COINS_INSERTED state
-	dynamic monitored preparedAction	 : PreparedAction		// The selected action in the PREPARED state
-	dynamic monitored outOfServiceAction : OutOfServiceAction	// The selected action in the OUT_OF_SERVICE state
-	dynamic monitored maintainAction	 : MaintainAction		// The selected action in the MAINTAINING state
+	// STATIC FUNCTIONS
+	static capacity			: Ingredient -> Integer				   // The maximum amount of an ingredient that the machine can hold
+	static quantityNeeded	: Prod(Product, Ingredient) -> Integer // The amount of ingredient needed to prepare a product
+	static price			: Product -> Integer				   // The price of a product
 
+	// DERIVED FUNCTIONS
+	derived canPrepare		 : Product -> Boolean // True if the ingredients left are enough to prepare the product
+	derived outOfIngredients : Boolean			  // True if no product can be prepared with the left ingredients (except glassOnly)
 
-	/****** CONTROLLED FUNCTIONS (system readble and writable) ******/
-
-	dynamic controlled state		    			: State					// The machine state
-	dynamic controlled display		    			: String				// The message displayed to the user
-	dynamic controlled credit		    			: Integer				// The current credit of the user (coins only)
-	dynamic controlled coinsLeft	    			: CoinValue -> Integer	// For each coin value, the number of coins held by the machine
-	dynamic controlled maxSpaceAvailable			: CoinValue -> Integer	// For each coin value, the max quantity of coins that the machine can store
-	dynamic controlled quantityLeft     			: Ingredient -> Integer	// The amount of ingredient left in the machine
-
-
-	/****** STATIC FUNCTIONS ******/
-
-	static capacity			: Ingredient -> Integer					// The maximum amount of an ingredient that the machine can hold
-	static quantityNeeded	: Prod(Product, Ingredient) -> Integer	// The amount of ingredient needed to prepare a product
-	static price			: Product -> Integer					// The price of a product
-
-	/****** DERIVED FUNCTIONS ******/
-
-	derived canPrepare		 : Product -> Boolean			 // True if the ingredients left are enough to prepare the product
-	derived outOfIngredients : Boolean						 // True if no product can be prepared with the left ingredients (except glassOnly)
-
-
-	/****** DEFAULT ELEMENTS FOR ABSTRACT DOMAINS ******/
-
-	// available products
+	// DEFAULT ELEMENTS FOR ABSTRACT DOMAINS
+	// Available products
 	static coffee	  : Product
 	static tea		  : Product
 	static cappuccino : Product
@@ -64,13 +54,11 @@ signature:
 	static glassOnly  : Product
 
 definitions:
-	/****** STATIC CONCRETE DOMAINS ******/
+	// STATIC CONCRETE DOMAINS
+	domain CoinValue = {5, 10, 20, 50, 100, 200} // Possible money value accepted by the coffe machine
 
-	domain CoinValue = {5, 10, 20, 50, 100, 200}
-
-	/****** STATIC FUNCTIONS ******/
-
-	function quantityNeeded ($p in Product, $i in Ingredient) =
+	// STATIC FUNCTIONS
+	function quantityNeeded ($p in Product, $i in Ingredient) = // Static function that the define the quantity need for each kind of product
 		if($i = PLASTIC_GLASS) then
 			1
 		else
@@ -94,7 +82,7 @@ definitions:
 			endswitch
 		endif
 
-	function capacity($i in Ingredient) =
+	function capacity($i in Ingredient) = // Static function that define the available quantity of each raw material
 		switch($i)
 			case COFFEE			:  100
 			case MILK			:  100
@@ -104,7 +92,7 @@ definitions:
 			case PLASTIC_GLASS	: 1000
 		endswitch
 
-	function price($p in Product) =
+	function price($p in Product) = // Static function that define the price for each product available in coffe vending machine
 		switch($p)
 			case coffee		: 30
 			case tea		: 40
@@ -113,8 +101,7 @@ definitions:
 			case glassOnly	: 10
 		endswitch
 
-	/****** DERIVED FUNCTIONS ******/
-
+	// DERIVED FUNCTIONS
 	function canPrepare($p in Product) =
 		not (exist $i in Ingredient
 			with quantityLeft($i) < quantityNeeded($p,$i))
@@ -123,12 +110,10 @@ definitions:
 		not (exist $p in Product with canPrepare($p) and $p != glassOnly)
 
 
-	/****** RULES ******/
+	// RULES //
 
-	/** UTILITY RULES **/
-
-	// Reduce the amount of ingredients left, because they were used
-	// to prepare a product
+	//UTILITY RULES
+	// Reduce the amount of ingredients left, because they were used to prepare a product
 	rule r_consumeIngredients($p in Product) =
 		forall $i in Ingredient do
 			quantityLeft($i) := quantityLeft($i) - quantityNeeded($p,$i)
@@ -151,9 +136,7 @@ definitions:
 			endswitch
 		endpar
 
-
-	/** TRANISITION RULES **/
-
+	// TRANISITION RULES
 	// Show information about price/availability of a product
 	rule r_productInfo =
 		let($p1 = selectedProduct) in
@@ -164,8 +147,12 @@ definitions:
 			endif
 		endlet
 
-	// Change state to MAINTAINING
+	// Change state to MAINTAINING when a maintanace (filling of product for example) is required
 	rule r_maintain =
+		r_changeState[MAINTAINING]
+
+	// Change state to MAINTAINING when there's some problem on vending machine
+	rule r_repair =
 		r_changeState[MAINTAINING]
 
 	// Go out of service if no products can be prepared
@@ -174,7 +161,7 @@ definitions:
 			state := OUT_OF_SERVICE
 		endif
 
-	// Accept an inserted coin and change state to COINS_INSERTED
+	// Accept an inserted coin, increase the credit, increse the number of coins available and change state to COINS_INSERTED
 	rule r_insertCoins =
 		let($c = insertedCoin) in
 			seq
@@ -188,8 +175,7 @@ definitions:
 	rule r_moreCoins =
 		r_insertCoins[]
 
-	// If the chosen product is available and the credit is enough,
-	// then prepare it and give the change
+	// If the chosen product is available and the credit is enough, then prepare it and give the change
 	rule r_chooseProduct =
 		let($p2 = selectedProduct) in
 			if(not canPrepare($p2)) then
@@ -233,8 +219,7 @@ definitions:
 				endseq
 		endif
 
-	// Set the number of coins in the machine
-	// (after insertion/removal by the maintenance man)
+	// Set the number of coins in the machine (after insertion/removal by the maintenance man)
 	rule r_setCoins =
 		let($cv = insertedCoin, $n = numberOfCoins) in
 			let($cl = coinsLeft($cv), $mq = maxSpaceAvailable($cv)) in
@@ -260,14 +245,9 @@ definitions:
 			endlet
 		endlet
 
-
-	// Get back to WAITING state
+	// Get back to WAITING state after the picking action by the user
 	rule r_pick =
 		r_changeState[WAITING]
-
-	// Change state to MAINTAINING
-	rule r_repair =
-		r_changeState[MAINTAINING]
 
 	// Change state to WAITING
 	rule r_finish =
@@ -278,8 +258,7 @@ definitions:
 		quantityLeft(filledIngredient) := capacity(filledIngredient)
 
 
-	/** EVENT MANAGEMENT RULES **/
-
+	// EVENT MANAGEMENT RULES
 	// Deal with events that can happen in the WAITING state
 	rule r_waitingAction =
 		if(state = WAITING) then
@@ -326,8 +305,7 @@ definitions:
 			endswitch
 		endif
 
-	/** MAIN RULE **/
-
+	// MAIN RULE
 	main rule r_main =
 		seq
 			r_selfCheck[]
