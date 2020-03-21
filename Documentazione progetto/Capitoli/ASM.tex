@@ -3,10 +3,10 @@ Per quanto riguarda la parte di \textit{ASM} si è deciso di riprendere un esemp
 
 In particolare l'applicazione è stata definita basandosi su una serie di specifiche, quali:
 \begin{itemize}
-	\item Il distributore modellato può preparare diverse tipologie di bevande (caffè, cappuccino etc), ognuna delle quali è preparata con diverse quantità di ingredienti (acqua, caffè, latte etc) i quali vengono consumati dagli utenti e reintegrati dal manutentore;
-	\item Il distributore accetta pagamenti solamente in moneta tramite l'inserimento di denaro nell'apposita fessura;
+	\item Il distributore modellato può preparare \textbf{diverse tipologie di bevande} (caffè, cappuccino etc), ognuna delle quali è preparata con diverse quantità di ingredienti (acqua, caffè, latte etc) i quali vengono consumati dagli utenti e reintegrati dal manutentore;
+	\item Il distributore accetta \textbf{pagamenti solamente in moneta} tramite l'inserimento di denaro nell'apposita fessura;
 	\item Il distributore è in grado di fornire il resto;
-	\item Quando tutte le bevande sono esaurite, il distributore va fuori servizio, in attesa che gli ingredienti vengano aggiunti dal manutentore, il quale può inoltre prelevare o inserire monete dal distributore, sempr etenendo conto del vincolo di capacità del vano porta monete
+	\item Quando tutte le bevande sono esaurite, il distributore va fuori servizio, in attesa che gli ingredienti vengano aggiunti dal manutentore, il quale può inoltre prelevare o inserire monete dal distributore, sempre tenendo conto del vincolo della capacità massima del vano porta monete
 \end{itemize}
 	
 
@@ -14,40 +14,39 @@ In particolare l'applicazione è stata definita basandosi su una serie di specif
 La ASM è basata su una macchina a stati finiti, mostrata in figura ~\ref{fig:StateMachine}, che definisce i principali stati e le principali transizioni che si possono verificare durante il funzionamento del distributore. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\textwidth]{Immagini/FSM.png}
+	\includegraphics[width=0.6\textwidth]{Immagini/FSM.png}
 	\caption{Macchina a stati}
 	\label{fig:StateMachine}
 \end{figure}
-La ASM permette di estendere questa FSM introducendo un concetto aumentato di “stato”, che comprende anche funzioni dinamiche, modificando le quali si possono memorizzare informazioni aggiuntive.
-In particolare, è stato possibile memorizzare informazioni su:
-\begin{itemize}
-	\item Quantità di ingredienti residui
-	\item Monete possedute dal distributore
-	\item Credito dell'utente attuale
-\end{itemize}
 
 \newpage
 \section{Eventi}
 La ASM sviluppata modella un sistema event-driven, ovvero un sistema in cui le transizioni da uno stato all’altro sono perlopiù scatenate da input dell’utente, mentre di solito la macchina si trova ferma in uno stato, in attesa di tali eventi.
-Nel codice della ASM questi eventi sono denominati action; ad ogni stato corrispondono una o più azioni che l’utente può compiere quando la macchina è in quello stato, le quali sono codificate come elementi di un dominio enumerativo, i quali essendo identificativi univoci, non possono essere duplicati, come si vede in figura ~\ref{fig:actionASM}.
+
+Nel codice ASMETA questi eventi sono denominati \textbf{action}: ad ogni stato corrispondono una o più azioni che l’utente può compiere quando la macchina si trova in quello stato, le quali sono codificate come elementi di un dominio enumerativo (figura ~\ref{fig:actionASM}).
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Immagini/ActionASM.png}
-	\caption{Action che implicano un possibile cambio di stato}
+	\includegraphics[width=0.6\textwidth]{Immagini/ActionASM.png}
+	\caption{Action che implicano un possibile cambio di stato, qualora la condizione sia verificata}
 	\label{fig:actionASM}
 \end{figure}
 
 La caratteristica event-driven del sistema si è riflessa nella ASM, infatti le regole (\textit{rules}) implementate possono essere suddivise in due categorie:
 \begin{itemize}
-	\item  regole che attendono il verificarsi di un’azione (qui chiamate event management rules) e poi eseguono le corrette regole di transizione (transition rules)
-	\item regole di transizione che verificano la guardia della transizione e, se verificata, eseguono gli update opportuni
+	\item  regole che attendono il verificarsi di un’azione (qui chiamate \textbf{event management rules});
+	\item regole di transizione (\textbf{transition rules}) che verificano la condizione della transizione e, se verificata, eseguono gli update opportuni per effettuare il passaggio di stato.
 \end{itemize}
 	
-In linea di massima, ad ogni stato corrisponde una \textit{event management rule}, mentre ad ogni arco (transizione) corrisponde una \textit{transition rule}.
+\textbf{In linea di massima, ad ogni stato corrisponde una \textit{event management rule}, mentre ad ogni arco (transizione) corrisponde una \textit{transition rule}.}
 
 \section{Domini}
-Sono stati introdotti un dominio enumerativo per gli stati della FSM, uno per ciascun insieme di eventi (ciascun insieme contiene gli eventi validi per uno stato), ovvero quelli relativi alle possibili azioni eseguibili in ogni specifico stato, ed uno relativo alla tipologia di ingredienti utilizzati (figura ~\ref{fig:enumDomain})
+I domini introdotti nel codice ASM sono:
+\begin{itemize}
+	\item \textbf{Domini enumerativi}: per gli stati della FSM, uno per ciascun insieme di eventi (ciascun insieme contiene gli eventi validi per uno stato), ovvero quelli relativi alle possibili azioni eseguibili in ogni specifico stato, ed uno relativo alla tipologia di ingredienti utilizzati (figura ~\ref{fig:enumDomain});
+	\item \textbf{Dominio statico concreto} per i tagli di monete riconosciuti dal distributore (in centesimi);
+	\item \textbf{Dominio astratto} per i prodotti disponibili.
+\end{itemize}
 
 \begin{figure}[h]
 	\centering
@@ -55,8 +54,6 @@ Sono stati introdotti un dominio enumerativo per gli stati della FSM, uno per ci
 	\caption{Domini enumerativi}
 	\label{fig:enumDomain}
 \end{figure}
-
-Sono stati introdotti anche un dominio statico concreto per i tagli di monete riconosciuti dal distributore (rappresentati in centesimi) e un dominio astratto per i prodotti disponibili.
 
 \section{Controlled - static - monitored functions}
 \subsection{Controlled}
