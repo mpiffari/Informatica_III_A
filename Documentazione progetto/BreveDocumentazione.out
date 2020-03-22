@@ -1,53 +1,49 @@
-\BOOKMARK [-1][-]{part.1}{I Primo progettino}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Cyclone}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Introduzione}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Descrizione del progetto}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Costrutti Cyclone}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.3.1}{Puntatori @fat e @thin}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.2}{Puntatori @nullable e @notnull}{section.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.3.3}{Regioni}{section.1.3}% 8
-\BOOKMARK [-1][-]{part.2}{II Secondo progettino}{}% 9
-\BOOKMARK [0][-]{chapter.2}{C++}{part.2}% 10
-\BOOKMARK [1][-]{section.2.1}{Descrizione del progetto}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{Gerarchia delle classi}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Multiple inheritance}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.4}{Diamond inheritance}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.5}{Virtual method}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.6}{Overloading particolari}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.6.1}{Overloading di cout<<}{section.2.6}% 17
-\BOOKMARK [2][-]{subsection.2.6.2}{Overloading di \(\)}{section.2.6}% 18
-\BOOKMARK [1][-]{section.2.7}{Templates}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.8}{Standard Template Library}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.8.1}{STL - Iterator}{section.2.8}% 21
-\BOOKMARK [2][-]{subsection.2.8.2}{STL - Algorithm}{section.2.8}% 22
-\BOOKMARK [-1][-]{part.3}{III Terzo progettino}{}% 23
-\BOOKMARK [0][-]{chapter.3}{Energy drink vending machine con Scala}{part.3}% 24
-\BOOKMARK [1][-]{section.3.1}{Descrizione del progetto}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Costrutti utilizzati}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Gerarchia delle classi e trait}{chapter.3}% 27
-\BOOKMARK [1][-]{section.3.4}{Filter}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.5}{Expression oriented programming}{chapter.3}% 29
-\BOOKMARK [2][-]{subsection.3.5.1}{Match}{section.3.5}% 30
-\BOOKMARK [2][-]{subsection.3.5.2}{Sealed}{section.3.5}% 31
-\BOOKMARK [-1][-]{part.4}{IV Quarto progettino}{}% 32
-\BOOKMARK [0][-]{chapter.4}{Coffe Machine con ASM}{part.4}% 33
-\BOOKMARK [1][-]{section.4.1}{Descrizione del progetto}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.2}{Macchina a stati}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.3}{Eventi}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.4}{Domini}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.5}{Static and Dynamic functions}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.5.1}{Static}{section.4.5}% 39
-\BOOKMARK [2][-]{subsection.4.5.2}{Dynamic}{section.4.5}% 40
-\BOOKMARK [1][-]{section.4.6}{Event management rules e main rule}{chapter.4}% 41
-\BOOKMARK [1][-]{section.4.7}{Inizializzazione}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.8}{Simulazione}{chapter.4}% 43
-\BOOKMARK [0][-]{chapter.5}{Correzione prova}{part.4}% 44
-\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 45
-\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 46
-\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 47
-\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 48
-\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 49
-\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 50
-\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 51
-\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 52
-\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 53
+\BOOKMARK [0][-]{chapter.1}{I - Cyclone}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Introduzione}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Descrizione del progetto}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Costrutti Cyclone}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.3.1}{Puntatori @fat e @thin}{section.1.3}% 5
+\BOOKMARK [2][-]{subsection.1.3.2}{Puntatori @nullable e @notnull}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.3}{Regioni}{section.1.3}% 7
+\BOOKMARK [0][-]{chapter.2}{II - C++}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Descrizione del progetto}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Gerarchia delle classi}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Multiple inheritance}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Diamond inheritance}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.5}{Virtual method}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.6}{Overloading particolari}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.6.1}{Overloading di cout<<}{section.2.6}% 15
+\BOOKMARK [2][-]{subsection.2.6.2}{Overloading di \(\)}{section.2.6}% 16
+\BOOKMARK [1][-]{section.2.7}{Templates}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.8}{Standard Template Library}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.8.1}{STL - Iterator}{section.2.8}% 19
+\BOOKMARK [2][-]{subsection.2.8.2}{STL - Algorithm}{section.2.8}% 20
+\BOOKMARK [0][-]{chapter.3}{III - Energy drink vending machine con Scala}{}% 21
+\BOOKMARK [1][-]{section.3.1}{Descrizione del progetto}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.2}{Costrutti utilizzati}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.3}{Gerarchia delle classi e trait}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.4}{Filter}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.5}{Expression oriented programming}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.5.1}{Match}{section.3.5}% 27
+\BOOKMARK [2][-]{subsection.3.5.2}{Sealed}{section.3.5}% 28
+\BOOKMARK [0][-]{chapter.4}{IV - Coffe Machine con ASM}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Descrizione del progetto}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Macchina a stati}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Eventi}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.4}{Domini}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.5}{Static and Dynamic functions}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.5.1}{Static}{section.4.5}% 35
+\BOOKMARK [2][-]{subsection.4.5.2}{Dynamic}{section.4.5}% 36
+\BOOKMARK [1][-]{section.4.6}{Event management rules e main rule}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.7}{Inizializzazione}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.8}{Simulazione}{chapter.4}% 39
+\BOOKMARK [0][-]{chapter.5}{Correzione prova}{}% 40
+\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 43
+\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 44
+\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 45
+\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 47
+\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 48
+\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 49
