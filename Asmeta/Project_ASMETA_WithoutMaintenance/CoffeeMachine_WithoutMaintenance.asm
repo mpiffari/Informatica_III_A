@@ -1,4 +1,4 @@
-asm CoffeeMachine
+asm CoffeeMachine_WithoutMaintenance
 import StandardLibrary
 
 signature:
@@ -7,33 +7,25 @@ signature:
 
 	domain CoinValue subsetof Integer // Coins accepted by the machine (value in cents)
 
-	enum domain State = {WAITING | COINS_INSERTED | GIVING_CHANGE | PREPARED | MAINTAINING | OUT_OF_SERVICE}						// Possible states for the machine
-
-	enum domain WaitingAction = {INSERT_COINS | PRODUCT_INFO | MAINTAIN | EXIT}	// Possible user actions when the machine is waiting
-	enum domain CoinsInsAction = {MORE_COINS | CHOOSE_PRODUCT}				    // Possible user actions when some coins have been inserted
-	enum domain PreparedAction = {PICK}						                    // Possible user actions when the chosen  has been prepared
-	enum domain OutOfServiceAction = {REPAIR}				                    // Possible user actions when the machine is out of service
-	enum domain MaintainAction = {FILL | FILL_COINS | FINISH}					// Possible user actions when the machine has been opened for maintenance
-
-	enum domain Ingredient = {COFFEE | MILK | WATER | TEA | CHOCOLATE | PLASTIC_GLASS} // The "ingredients" needed to prepare a product
+	enum domain State = {WAITING | COINS_INSERTED | GIVING_CHANGE | PREPARED | OUT_OF_SERVICE} // Possible states for the machine
+	enum domain WaitingAction  = {INSERT_COINS | PRODUCT_INFO | EXIT}	                       // Possible user actions when the machine is waiting
+	enum domain CoinsInsAction = {MORE_COINS | CHOOSE_PRODUCT}				                   // Possible user actions when some coins have been inserted
+	enum domain PreparedAction = {PICK}						                                   // Possible user actions when the chosen  has been prepared
+	enum domain Ingredient     = {COFFEE | MILK | WATER | TEA | CHOCOLATE | PLASTIC_GLASS}     // The "ingredients" needed to prepare a product
 
 	// MONITORED FUNCTIONS (system readble)
 	dynamic monitored selectedProduct	 : Product			  // The product that has just been chosen
 	dynamic monitored insertedCoin		 : CoinValue		  // The coin that has just been inserted
-	dynamic monitored numberOfCoins		 : Integer			  // The number of coins left in the machine by the maintenance man
-	dynamic monitored filledIngredient	 : Ingredient		  // The ingredient whose container has to be filled by the maintenance man
+	dynamic monitored numberOfCoins		 : Integer			  // The number of coins left in the machine
 	dynamic monitored waitingAction		 : WaitingAction	  // The selected action in the WAITING state
 	dynamic monitored coinsInsAction	 : CoinsInsAction	  // The selected action in the COINS_INSERTED state
 	dynamic monitored preparedAction	 : PreparedAction	  // The selected action in the PREPARED state
-	dynamic monitored outOfServiceAction : OutOfServiceAction // The selected action in the OUT_OF_SERVICE state
-	dynamic monitored maintainAction	 : MaintainAction	  // The selected action in the MAINTAINING state
 
 	// CONTROLLED FUNCTIONS (system readble and writable)
 	dynamic controlled state		     : State				 // The machine state
 	dynamic controlled display		     : String				 // The message displayed to the user
 	dynamic controlled credit		     : Integer				 // The current credit of the user (coins only)
 	dynamic controlled coinsLeft	     : CoinValue -> Integer	 // For each coin value, the number of coins held by the machine
-	dynamic controlled maxSpaceAvailable : CoinValue -> Integer	 // For each coin value, the max quantity of coins that the machine can store
 	dynamic controlled quantityLeft      : Ingredient -> Integer // The amount of ingredient left in the machine
 
 	// STATIC FUNCTIONS
@@ -129,8 +121,6 @@ definitions:
 					display := concat("Credit: ", concat(toString(credit/100), " €"))
 				case PREPARED:
 					display := "Prepared."
-				case MAINTAINING:
-					display := "*** Opened ***"
 				case OUT_OF_SERVICE:
 					display := "*** Out of service ***"
 			endswitch
@@ -146,14 +136,6 @@ definitions:
 				display := "not available"
 			endif
 		endlet
-
-	// Change state to MAINTAINING when a maintanace (filling of product for example) is required
-	rule r_maintain =
-		r_changeState[MAINTAINING]
-
-	// Change state to MAINTAINING when there's some problem on vending machine
-	rule r_repair =
-		r_changeState[MAINTAINING]
 
 	// Go out of service if no products can be prepared
 	rule r_selfCheck =
@@ -208,7 +190,7 @@ definitions:
 						seq
 							credit := credit - $cv
 							coinsLeft($cv) := $cl - 1
-							display := concat("Pick up your change! Credit on machine ", concat(toString(credit/100), " €"))
+							display := concat("Giving change - credit left: ", concat(toString(credit/100), " €"))
 						endseq
 					endif
 				endlet
@@ -219,32 +201,6 @@ definitions:
 				endseq
 		endif
 
-	// Set the number of coins in the machine (after insertion/removal by the maintenance man)
-	rule r_setCoins =
-		let($cv = insertedCoin, $n = numberOfCoins) in
-			let($cl = coinsLeft($cv), $mq = maxSpaceAvailable($cv)) in
-				if($cl < $mq) then // Here $mq is the size of the pocket for each coin size
-					let($free_space = $mq - $cl) in
-						if($free_space > $n) then
-							// If amount of insertedCoins is lower than space available, insert only money available
-							par
-								coinsLeft($cv) := $cl + $n
-								display := "POCKET NOT COMPLETELY FULLFILLED"
-							endpar
-						else
-							// Else refill completely pocket for coin of type $cv
-							par
-								coinsLeft($cv) := $mq
-								display := "POCKET FULLFILLED WITH EXCEED MONEY"
-							endpar
-						endif
-					endlet
-				else
-					display := "MONEY POCKET ALREADY FULL"
-				endif
-			endlet
-		endlet
-
 	// Get back to WAITING state after the picking action by the user
 	rule r_pick =
 		r_changeState[WAITING]
@@ -252,10 +208,6 @@ definitions:
 	// Change state to WAITING
 	rule r_finish =
 		r_changeState[WAITING]
-
-	// Restore the maximum amount of an ingredient
-	rule r_fill =
-		quantityLeft(filledIngredient) := capacity(filledIngredient)
 
 
 	// EVENT MANAGEMENT RULES
@@ -265,7 +217,6 @@ definitions:
 			switch(waitingAction)
 				case PRODUCT_INFO:	r_productInfo[]
 				case INSERT_COINS:	r_insertCoins[]
-				case MAINTAIN:		r_maintain[]
 				case EXIT:			skip
 			endswitch
 		endif
@@ -290,19 +241,7 @@ definitions:
 	// Deal with events that can happen in the OUT_OF_SERVICE state
 	rule r_outOfServiceAction =
 		if(state = OUT_OF_SERVICE) then
-			switch(outOfServiceAction)
-				case REPAIR: r_repair[]
-			endswitch
-		endif
-
-	// Deal with events that can happen in the MAINTAINING state
-	rule r_maintainAction =
-		if(state = MAINTAINING) then
-			switch(maintainAction)
-				case FINISH:		r_finish[]
-				case FILL:	 		r_fill[]
-				case FILL_COINS:	r_setCoins[]
-			endswitch
+			display := "Wait the maintainer..."
 		endif
 
 	// MAIN RULE
@@ -314,7 +253,6 @@ definitions:
 				r_coinsInsAction[]
 				r_giveChange[]
 				r_preparedAction[]
-				r_maintainAction[]
 				r_outOfServiceAction[]
 			endpar
 		endseq
@@ -333,19 +271,9 @@ default init initial_state:
 			case 100 : 10
 			case 200 :  2
 		endswitch
-	function maxSpaceAvailable ($cv in CoinValue) =
-		switch($cv)
-			case   5 : 30
-			case  10 : 30
-			case  20 : 30
-			case  50 : 30
-			case 100 : 20
-			case 200 : 10
-		endswitch
 	function quantityLeft($i in Ingredient) =
 		switch($i)
-			case PLASTIC_GLASS	: 	35
-			case WATER			:  	25
+			case PLASTIC_GLASS	: 	100
+			case WATER			:  	100
 			otherwise 			   	40
 		endswitch
-

@@ -23,16 +23,18 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Macchina a stati\relax }}{25}{figure.caption.21}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Action che implicano un possibile cambio di stato, qualora la condizione sia verificata\relax }}{26}{figure.caption.22}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Domini enumerativi\relax }}{26}{figure.caption.23}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Funzioni non monitored\relax }}{27}{figure.caption.24}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Static functions\relax }}{27}{figure.caption.25}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{27}{figure.caption.26}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Inizializzazione\relax }}{28}{figure.caption.27}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Management rules\relax }}{28}{figure.caption.28}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Signature} delle static functions utilizzate\relax }}{27}{figure.caption.24}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Funzioni dynamic - controlled\relax }}{27}{figure.caption.26}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{28}{figure.caption.28}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Management rules\relax }}{28}{figure.caption.29}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Inizializzazione\relax }}{29}{figure.caption.30}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Test iterativo ASM\relax }}{29}{figure.caption.31}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Test random ASM\relax }}{30}{figure.caption.32}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Parziale soluzione esercizio RA\relax }}{31}{figure.caption.29}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Serie numeri pari Iterativa\relax }}{32}{figure.caption.30}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Serie numeri pari ricorsiva senza tail [operazioni di debug omesse]]\relax }}{32}{figure.caption.31}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Serie numeri pari ricorsiva senza tail - debug print\relax }}{32}{figure.caption.32}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Metodo \textit {make}\relax }}{33}{figure.caption.33}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Confronto tra metodi calcolaMax (prova sopra e correzione sotto)\relax }}{34}{figure.caption.34}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Wrap in Scala\relax }}{34}{figure.caption.35}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Parziale soluzione esercizio RA\relax }}{31}{figure.caption.33}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Serie numeri pari Iterativa\relax }}{32}{figure.caption.34}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Serie numeri pari ricorsiva senza tail [operazioni di debug omesse]]\relax }}{32}{figure.caption.35}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Serie numeri pari ricorsiva senza tail - debug print\relax }}{32}{figure.caption.36}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Metodo \textit {make}\relax }}{33}{figure.caption.37}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Confronto tra metodi calcolaMax (prova sopra e correzione sotto)\relax }}{34}{figure.caption.38}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Wrap in Scala\relax }}{34}{figure.caption.39}

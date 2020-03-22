@@ -35,21 +35,19 @@
 \BOOKMARK [1][-]{section.4.2}{Macchina a stati}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.3}{Eventi}{chapter.4}% 36
 \BOOKMARK [1][-]{section.4.4}{Domini}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.5}{Controlled - static - monitored functions}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.5.1}{Controlled}{section.4.5}% 39
-\BOOKMARK [2][-]{subsection.4.5.2}{Static}{section.4.5}% 40
-\BOOKMARK [2][-]{subsection.4.5.3}{Monitored}{section.4.5}% 41
-\BOOKMARK [1][-]{section.4.6}{Inizializzazione}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.7}{Event management rules e main rule}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.8}{Transition rule}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.9}{Simulazione}{chapter.4}% 45
-\BOOKMARK [0][-]{chapter.5}{Correzione prova}{part.4}% 46
-\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 47
-\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 48
-\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 49
-\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 50
-\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 51
-\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 52
-\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 53
-\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 54
-\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 55
+\BOOKMARK [1][-]{section.4.5}{Static and Dynamic functions}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.5.1}{Static}{section.4.5}% 39
+\BOOKMARK [2][-]{subsection.4.5.2}{Dynamic}{section.4.5}% 40
+\BOOKMARK [1][-]{section.4.6}{Event management rules e main rule}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.7}{Inizializzazione}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.8}{Simulazione}{chapter.4}% 43
+\BOOKMARK [0][-]{chapter.5}{Correzione prova}{part.4}% 44
+\BOOKMARK [1][-]{section.5.1}{EXE 1 - RA}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.2}{EXE 2 - C}{chapter.5}% 46
+\BOOKMARK [2][-]{subsection.5.2.1}{Iterativa}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.2}{Ricorsiva senza tail}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.3}{Ricorsiva CON tail}{section.5.2}% 49
+\BOOKMARK [1][-]{section.5.3}{EXE 3 - C++ distruttore}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.4}{EXE 4 - Opachi}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.5}{EXE 5 - Visitor}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.6}{EXE 6 - Scala}{chapter.5}% 53
