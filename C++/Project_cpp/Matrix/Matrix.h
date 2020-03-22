@@ -20,6 +20,11 @@ using namespace std;
  * Matrix composed by generics elements
  */
 template<class T> class Matrix: public Addable, public Subtractable, public Stringable {
+	private:
+    	int rows;
+    	int columns;
+    	vector< vector<T>* >* elements; // Elements container
+
     public:
         // Constructors (overrloaded)
 		Matrix(); // Identity matrix 1 x 1
@@ -49,10 +54,6 @@ template<class T> class Matrix: public Addable, public Subtractable, public Stri
 
         list<T>* toList(); // List with matrix elements
         template<class F> Matrix<T>* apply(F f); // Transform all matrix's elements using a generic function f
-    private:
-        int rows;
-        int columns;
-        vector< vector<T>* >* elements; // Elements container
 };
 
 // l'implementazione della classe è qui per una limitazione del compilatore.

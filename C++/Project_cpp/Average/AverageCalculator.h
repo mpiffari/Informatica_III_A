@@ -5,10 +5,7 @@
 
 using namespace std;
 
-/**
- * Class used to compute average of generic element.
- * It was thought to be used with STl algoritmh "for each"
- */
+// Class used to compute average of generic element; it was thought to be used with STl algoritmh "for each"
 class AverageCalculator {
 public:
 	AverageCalculator(); // Default constructor

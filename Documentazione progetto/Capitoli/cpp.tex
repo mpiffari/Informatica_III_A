@@ -1,11 +1,11 @@
 \section{Descrizione del progetto}
-Per quanto riguarda il progetto realizzato in cpp si è pensato, piuttosto che realizzare un applicativo "funzionale" (approccio seguito per gli altri 3 progetti), di andare a realizzare, come oggetto di questo elaborato, una libreria per il calcolo numerico, che consiste in due moduli principali:
+Per quanto riguarda il progetto realizzato in cpp si è pensato, piuttosto che realizzare un applicativo "funzionale" (approccio seguito per gli altri 3 progetti), di andare a realizzare una libreria per il calcolo numerico, che consiste in due moduli principali:
 \begin{itemize}
 	\item Matrici
 	\item Applicativo dimostrativo
 \end{itemize}
 
-In particolare sono state sviluppate alcune funzionalità algebriche base come \textit{sommma} e \textit{sottrazione} elemento per elemento di una matrice: l'espressività del C++ ha permesso di rendere questa libreria del tutto generica, permettendo quindi di realizzare matrici composte da elementi di qualsiasi tipo, tramite l'utilizzo dei \textit{templetes generici}.
+In particolare sono state sviluppate alcune funzionalità algebriche base come \textbf{somma} e \textbf{sottrazione} elemento per elemento di una matrice: l'espressività del C++ ha permesso di rendere questa libreria del tutto generica, permettendo quindi di realizzare matrici composte da elementi di qualsiasi tipo, tramite l'utilizzo dei \textbf{templates generici}.
 
 \section{Gerarchia delle classi}
 Come si vede nell'\textit{UML Class Diagram} in figura ~\ref{fig:UMLClassDiagram}, la libreria presenta una classe base principale, \textit{Number}, che rappresenta un numero il quale può essere un numero di tipo \textit{Addable} o \textit{Subtractable}, che offrono rispettivamente un metodo e un operatore per realizzare la somma e la sottrazione.
@@ -17,25 +17,24 @@ Come si vede nell'\textit{UML Class Diagram} in figura ~\ref{fig:UMLClassDiagram
 \end{figure}
 
 \section{Multiple inheritance}
-Nella gerarchia delle classi esposta sopra, è stato necessario utilizzare l’ereditarietà multipla
+Nella gerarchia delle classi sopra esposta, è stato necessario utilizzare l’ereditarietà multipla
 nei due diversi contesti tipici: 
 \begin{itemize}
-	\item implementazione di interfacce
-	\item ereditarietà multipla \textit{classica}
+	\item \textbf{implementazione di interfacce}
+	\item \textbf{ereditarietà multipla classica}
 \end{itemize}
 
-Il C++ non fa distinzioni sostanziali tra queste due tipologie, ma la differenza concettuale è
-notevole, tanto che altri linguaggi (come Java) permettono il primo tipo di ereditarietà multipla
-e non il secondo.
+\textbf{Il C++ non fa distinzioni sostanziali tra queste due tipologie, ma la differenza concettuale è
+notevole, tanto che altri linguaggi (come Java) i quali permettono di implementare più interfacce ma non di ereditare di più classi.}
 
 La prima tipologia consiste nel derivare una classe da al più una classe base “non pure virtual”.
 Le altre classi base devono essere l’equivalente delle interface Java, ovvero devono essere
-classi astratte (\textit{Abstract Base Classes} - ABCs) in cui tutte le member functions (o quasi) sono
-pure virtual e in cui tutte le member variables sono costanti e pubbliche.
+classi astratte (\textit{Abstract Base Classes} - ABCs) in cui tutte le member functions sono
+pure virtual.
 
-Questa tipologia di eredità è stata utilizzata per derivare da Stringable.
+\textbf{Questa tipologia di eredità è stata utilizzata per derivare da Stringable}.
 
-La seconda tipologia di eredità è stata invece utilizzata per andare a modellizzare il rapporto tra una matrice e quelle che sono le strutture relative a \textit{Number}, come si vede nella figura ~\ref{fig:MultipleInerithance}.
+La seconda tipologia di eredità è stata invece utilizzata per andare a modellizzare il rapporto tra una matrice e quelle che sono le strutture relative a \textbf{Number}, come si vede nella figura ~\ref{fig:MultipleInerithance}.
 
 \begin{figure}[h]
 	\centering
@@ -45,12 +44,10 @@ La seconda tipologia di eredità è stata invece utilizzata per andare a modelli
 \end{figure}
 
 \section{Diamond inheritance}
-Un aspetto problematico dell’ereditarietà multipla (specialmente per il secondo tipo) è la
-possibilità di generare una gerarchia a diamante.
+Un aspetto problematico dell’ereditarietà multipla (specialmente quando si attua una doppia ereditarietà da due classi diverse, la quale è una peculiarità del C++) è la
+possibilità di generare una \textbf{gerarchia a diamante}.
 
-Esso si verifica quando, come si vede nella figura ~\ref{fig:DiamondProblem} una generica classe D eredita da due classi B e C che hanno un antenato in
-comune A. In questo caso c'è un'ambiguità su quale “versione” dell'antenato deve essere ereditata
-da D: quella di B o quella di C?
+Essa si verifica quando, come si vede nella figura ~\ref{fig:DiamondProblem}, una generica classe D eredita da due classi B e C che hanno un antenato in comune A. In questo caso c'è un'ambiguità su quale “versione” dell'antenato deve essere ereditata da D: quella di B o quella di C?
 
 \begin{figure}[h]
 	\centering
@@ -59,7 +56,7 @@ da D: quella di B o quella di C?
 	\label{fig:DiamondProblem}
 \end{figure}
 
-Un modo di risolvere il problema in C++ è dichiarare, nelle classi B e C, un'eredità \textit{virtuale} da A, specificandolo direttamente nella dichiarazione, come fatto nelle classi \textit{Addble} e \textit{Subtractable} (figura ~\ref{fig:VirtualInerithance}).
+Un modo di risolvere il problema in C++ è dichiarare, nelle classi B e C, un'\textbf{eredità virtuale} da A, specificandolo direttamente nella dichiarazione, come fatto nelle classi \textbf{Addble} e \textbf{Subtractable} (figura ~\ref{fig:VirtualInerithance}).
 
 \begin{figure}[h]
 	\centering
@@ -68,16 +65,21 @@ Un modo di risolvere il problema in C++ è dichiarare, nelle classi B e C, un'er
 	\label{fig:VirtualInerithance}
 \end{figure}
 
+\section{Costruttori e distruttori}
+La libertà di poter utilizzare oggetti all'interno delle applicazioni scritte in C++, si incontra però con la necessità di andare a compiere due operazioni preliminari:
+\begin{itemize}
+	\item Allocare la memoria dei membri dell'oggetto in esame;
+	\item Inizializzate i membri.
+\end{itemize}
+Queste operazioni sono svolte da una particolare funzione membro detta \textbf{costruttore}, il cui nome coincide con quello della classe e non presenta alcun valore di ritorno.
 
-L’ereditarietà virtuale introduce comunque un altro leggero problema: poiché esiste un’unica
-classe base, le classi derivate direttamente da essa non possono inizializzare l’oggetto della
-classe base, perché si avrebbe un conflitto tra queste inizializzazioni. Il compito di costruire
-l’istanza della classe base è quindi delegato alla classe most-derived, ovvero a quella che sta
-alla “convergenza” dei rami del diamante. Ciò che è più contro intuitivo è che anche eventuali
-classi derivate da quest’ultima (anche con ereditarietà singola) devono inizializzare
-direttamente la virtual base class; questo può rendere poco chiaro il codice e richiedere alle
-classi derivate di conoscere alcuni dettagli della virtual base class che altrimenti potrebbero
-ignorare.
+In C++ un costruttore che non accetta argomenti, o in cui tutti gli argomenti sono opzionali, è detto \textbf{costruttore di default} ed è possibile sovraccaricare questo metodo, fornendo quindi diverse alternative.
+
+Dal lato opposto, il distruttore si occupa del compito di rilasciare tutte le risorse associate ad un oggetto, quando finisce la lifetime dell'oggetto stesso.
+
+In particolare, come per il costruttore, anche il distruttore presenta una firma particolare
+
+Queste caratteristiche sono state sfruttate per quanto riguarda gli oggetti della classe \textit{Matrix}: 
 
 \section{Virtual method}
 In C++, una sottoclasse può sempre ridefinire i metodi della sopraclasse, ma il dynamic binding non

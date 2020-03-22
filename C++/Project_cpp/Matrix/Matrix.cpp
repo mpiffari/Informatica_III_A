@@ -6,9 +6,7 @@
 
 // ====================== INITIALIZER ================================
 
-/**
- * Identy matrix 1 x 1 initialization
- */
+// Identy matrix 1 x 1 initialization
 template<class T> Matrix<T>::Matrix(){
 	// Setup of private field
     this->rows = 1;
@@ -18,9 +16,7 @@ template<class T> Matrix<T>::Matrix(){
     (*this)(0,0) = 1; // Initialization of an 1 x 1 identity matrix
 }
 
-/*
- * Identity matrix rows x columns initialization
- */
+// Identity matrix rows x columns initialization
 template<class T> Matrix<T>::Matrix(int rows, int columns){
     this->rows = rows;
     this->columns = columns;
@@ -37,9 +33,7 @@ template<class T> Matrix<T>::Matrix(int rows, int columns){
     }
 }
 
-/*
- * Shallows of a matrix
- */
+// Shallows of a matrix
 template<class T> Matrix<T>::Matrix(Matrix* toCopy){
     this->rows = toCopy->rows;
     this->columns = toCopy->columns;
@@ -185,8 +179,6 @@ template<class T> Matrix<T>* Matrix<T>::operator* (int k){
 // ===================================================================
 
 
-
-
 template<class T> list<T>* Matrix<T>::toList(){
     list<T>* result = new list<T>();
     typename vector<vector<T>*>::iterator rowsIterator = this->elements->begin();
@@ -214,9 +206,5 @@ template<class T> template<class F> Matrix<T>* Matrix<T>::apply(F f){
     }
     return result;
 }
-
-
-
-
 
 #endif /*MATRIX_CPP_*/

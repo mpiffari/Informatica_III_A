@@ -1,9 +1,7 @@
 #ifndef NUMBER_H_
 #define NUMBER_H_
 
-/**
- * Base class for this library
- */
+// Base class for this library
 class Number{
 public:
     Number(); // Default constructor

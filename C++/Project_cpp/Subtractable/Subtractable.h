@@ -3,10 +3,7 @@
 
 #include "../Number/Number.h"
 
-/**
- * Object that can be substracted, using Number interface.
- * It's requested the implementation of method Add.
- */
+// Object that can be substracted, using Number interface; it's requested the implementation of method Add.
 class Subtractable: virtual public Number {
 public:
 	Subtractable(); // Default constructor

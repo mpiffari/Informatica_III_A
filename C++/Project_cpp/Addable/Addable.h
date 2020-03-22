@@ -3,10 +3,8 @@
 
 #include "../Number/Number.h"
 
-/**
- * Object that can be added, using Number interface.
- * It's requested the implementation of method Add.
- */
+
+// Object that can be added, using Number interface; it's requested the implementation of method Add.
 class Addable: virtual public Number {
 public:
 	Addable(); // Default constructor

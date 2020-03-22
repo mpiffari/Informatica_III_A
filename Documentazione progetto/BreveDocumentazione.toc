@@ -11,14 +11,15 @@
 \contentsline {section}{\numberline {2.2}Gerarchia delle classi}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}Multiple inheritance}{6}{section.2.3}
 \contentsline {section}{\numberline {2.4}Diamond inheritance}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}Virtual method}{7}{section.2.5}
-\contentsline {section}{\numberline {2.6}Overloading particolari}{7}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Overloading di cout<<}{7}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}Overloading di ()}{7}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Templates}{8}{section.2.7}
-\contentsline {section}{\numberline {2.8}Standard Template Library}{8}{section.2.8}
-\contentsline {subsection}{\numberline {2.8.1}STL - Iterator}{8}{subsection.2.8.1}
-\contentsline {subsection}{\numberline {2.8.2}STL - Algorithm}{9}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.5}Costruttori e distruttori}{7}{section.2.5}
+\contentsline {section}{\numberline {2.6}Virtual method}{7}{section.2.6}
+\contentsline {section}{\numberline {2.7}Overloading particolari}{7}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Overloading di cout<<}{7}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Overloading di ()}{7}{subsection.2.7.2}
+\contentsline {section}{\numberline {2.8}Templates}{8}{section.2.8}
+\contentsline {section}{\numberline {2.9}Standard Template Library}{8}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}STL - Iterator}{8}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}STL - Algorithm}{8}{subsection.2.9.2}
 \contentsline {chapter}{\numberline {3}III - Energy drink vending machine con Scala}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}Descrizione del progetto}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Costrutti utilizzati}{12}{section.3.2}
