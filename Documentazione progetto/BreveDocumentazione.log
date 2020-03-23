@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  23 MAR 2020 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  23 MAR 2020 13:20
 entering extended mode
 **./BreveDocumentazione.tex
 (BreveDocumentazione.tex
@@ -814,7 +814,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
  1.
 (Capitoli/Cyclone.tex
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 25.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 24.
 
 ("C:\Users\miche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -826,13 +826,13 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 <Immagini/FatPointerStruct.png, id=381, 384.6872pt x 74.52844pt>
 File: Immagini/FatPointerStruct.png Graphic file (type png)
 <use Immagini/FatPointerStruct.png>
-Package pdftex.def Info: Immagini/FatPointerStruct.png  used on input line 66.
+Package pdftex.def Info: Immagini/FatPointerStruct.png  used on input line 62.
 (pdftex.def)             Requested size: 241.84843pt x 46.85649pt.
 <Immagini/NullablePointerFile.png, id=383, 240.14719pt x 78.2925pt>
 File: Immagini/NullablePointerFile.png Graphic file (type png)
 <use Immagini/NullablePointerFile.png>
-Package pdftex.def Info: Immagini/NullablePointerFile.png  used on input line 8
-4.
+Package pdftex.def Info: Immagini/NullablePointerFile.png  used on input line 7
+8.
 (pdftex.def)             Requested size: 241.84843pt x 78.849pt.
 
 
@@ -844,24 +844,24 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ]
  2.
 (Capitoli/cpp.tex
-<Immagini/ClassDiagram.jpg, id=399, 1172.38pt x 814.04124pt>
+<Immagini/ClassDiagram.jpg, id=401, 1172.38pt x 814.04124pt>
 File: Immagini/ClassDiagram.jpg Graphic file (type jpg)
 <use Immagini/ClassDiagram.jpg>
 Package pdftex.def Info: Immagini/ClassDiagram.jpg  used on input line 14.
 (pdftex.def)             Requested size: 338.58632pt x 235.09705pt.
  [5 <./Immagini/ClassDiagram.jpg>]
-<Immagini/MultipleInerithance.png, id=405, 470.50781pt x 47.42719pt>
+<Immagini/MultipleInerithance.png, id=407, 470.50781pt x 47.42719pt>
 File: Immagini/MultipleInerithance.png Graphic file (type png)
 <use Immagini/MultipleInerithance.png>
 Package pdftex.def Info: Immagini/MultipleInerithance.png  used on input line 4
 1.
 (pdftex.def)             Requested size: 290.22107pt x 29.25401pt.
-<Immagini/DiamondProblem.png, id=407, 386.19281pt x 246.9225pt>
+<Immagini/DiamondProblem.png, id=409, 386.19281pt x 246.9225pt>
 File: Immagini/DiamondProblem.png Graphic file (type png)
 <use Immagini/DiamondProblem.png>
 Package pdftex.def Info: Immagini/DiamondProblem.png  used on input line 54.
 (pdftex.def)             Requested size: 145.11053pt x 92.78032pt.
-<Immagini/VirtualInerithance.png, id=409, 240.9pt x 40.65187pt>
+<Immagini/VirtualInerithance.png, id=411, 240.9pt x 40.65187pt>
 File: Immagini/VirtualInerithance.png Graphic file (type png)
 <use Immagini/VirtualInerithance.png>
 Package pdftex.def Info: Immagini/VirtualInerithance.png  used on input line 63
@@ -869,26 +869,26 @@ Package pdftex.def Info: Immagini/VirtualInerithance.png  used on input line 63
 (pdftex.def)             Requested size: 241.84843pt x 40.81303pt.
  [6 <./Immagini/MultipleInerithance.png> <./Immagini/DiamondProblem.png> <./Imm
 agini/VirtualInerithance.png>]
-<Immagini/MatrixConstructors.png, id=417, 342.5297pt x 50.43843pt>
+<Immagini/MatrixConstructors.png, id=419, 342.5297pt x 50.43843pt>
 File: Immagini/MatrixConstructors.png Graphic file (type png)
 <use Immagini/MatrixConstructors.png>
 Package pdftex.def Info: Immagini/MatrixConstructors.png  used on input line 93
 .
 (pdftex.def)             Requested size: 386.95897pt x 56.9855pt.
  [7 <./Immagini/MatrixConstructors.png>]
-<Immagini/MatrixDestructors.png, id=425, 450.18187pt x 112.16907pt>
+<Immagini/MatrixDestructors.png, id=427, 450.18187pt x 112.16907pt>
 File: Immagini/MatrixDestructors.png Graphic file (type png)
 <use Immagini/MatrixDestructors.png>
 Package pdftex.def Info: Immagini/MatrixDestructors.png  used on input line 113
 .
 (pdftex.def)             Requested size: 386.95897pt x 96.42072pt.
-<Immagini/CoutRedefinition.png, id=427, 459.96844pt x 64.74188pt>
+<Immagini/CoutRedefinition.png, id=429, 459.96844pt x 64.74188pt>
 File: Immagini/CoutRedefinition.png Graphic file (type png)
 <use Immagini/CoutRedefinition.png>
 Package pdftex.def Info: Immagini/CoutRedefinition.png  used on input line 125.
 
 (pdftex.def)             Requested size: 386.95897pt x 54.46873pt.
-<Immagini/MatrixOperatorsRedef.png, id=428, 228.855pt x 52.69687pt>
+<Immagini/MatrixOperatorsRedef.png, id=430, 228.855pt x 52.69687pt>
 File: Immagini/MatrixOperatorsRedef.png Graphic file (type png)
 <use Immagini/MatrixOperatorsRedef.png>
 Package pdftex.def Info: Immagini/MatrixOperatorsRedef.png  used on input line 
@@ -905,7 +905,7 @@ Overfull \hbox (6.93907pt too wide) in paragraph at lines 145--146
 s-are se l'operatore
  []
 
-<Immagini/OperatorExample.png, id=431, 494.59781pt x 40.65187pt>
+<Immagini/OperatorExample.png, id=433, 494.59781pt x 40.65187pt>
 File: Immagini/OperatorExample.png Graphic file (type png)
 <use Immagini/OperatorExample.png>
 Package pdftex.def Info: Immagini/OperatorExample.png  used on input line 151.
@@ -917,7 +917,7 @@ iz-zata nella stesura della classe \T1/lmr/m/it/10.95 Ma-trix\T1/lmr/m/n/10.95
 : nell'applicazione
  []
 
-<Immagini/ConcreteteTemplates.png, id=440, 383.18156pt x 21.07875pt>
+<Immagini/ConcreteteTemplates.png, id=442, 383.18156pt x 21.07875pt>
 File: Immagini/ConcreteteTemplates.png Graphic file (type png)
 <use Immagini/ConcreteteTemplates.png>
 Package pdftex.def Info: Immagini/ConcreteteTemplates.png  used on input line 1
@@ -925,12 +925,12 @@ Package pdftex.def Info: Immagini/ConcreteteTemplates.png  used on input line 1
 (pdftex.def)             Requested size: 386.95897pt x 21.28773pt.
 [9 <./Immagini/MatrixOperatorsRedef.png> <./Immagini/OperatorExample.png> <./Im
 magini/ConcreteteTemplates.png>]
-<Immagini/Stl_Iterator.png, id=449, 469.00218pt x 160.34906pt>
+<Immagini/Stl_Iterator.png, id=451, 469.00218pt x 160.34906pt>
 File: Immagini/Stl_Iterator.png Graphic file (type png)
 <use Immagini/Stl_Iterator.png>
 Package pdftex.def Info: Immagini/Stl_Iterator.png  used on input line 202.
 (pdftex.def)             Requested size: 435.32422pt x 148.83437pt.
-<Immagini/Stl_Algorithm.png, id=450, 432.11438pt x 189.70876pt>
+<Immagini/Stl_Algorithm.png, id=452, 432.11438pt x 189.70876pt>
 File: Immagini/Stl_Algorithm.png Graphic file (type png)
 <use Immagini/Stl_Algorithm.png>
 Package pdftex.def Info: Immagini/Stl_Algorithm.png  used on input line 221.
@@ -944,7 +944,7 @@ lmr/bx/n/10.95 re-ga-lando i prodotti scaduti\T1/lmr/m/n/10.95 : in par-ti-co-l
 are la macchinetta
  []
 
-<Immagini/ShowVendingMachine.png, id=458, 218.31563pt x 69.25874pt>
+<Immagini/ShowVendingMachine.png, id=460, 218.31563pt x 69.25874pt>
 File: Immagini/ShowVendingMachine.png Graphic file (type png)
 <use Immagini/ShowVendingMachine.png>
 Package pdftex.def Info: Immagini/ShowVendingMachine.png  used on input line 36
@@ -953,22 +953,22 @@ Package pdftex.def Info: Immagini/ShowVendingMachine.png  used on input line 36
 [11
 
 ] [12 <./Immagini/ShowVendingMachine.png>]
-<Immagini/EnergyDrink.png, id=472, 387.69844pt x 213.04594pt>
+<Immagini/EnergyDrink.png, id=474, 387.69844pt x 213.04594pt>
 File: Immagini/EnergyDrink.png Graphic file (type png)
 <use Immagini/EnergyDrink.png>
 Package pdftex.def Info: Immagini/EnergyDrink.png  used on input line 61.
 (pdftex.def)             Requested size: 217.66211pt x 119.61047pt.
-<Immagini/ExpirableTrait.png, id=473, 144.54pt x 39.14626pt>
+<Immagini/ExpirableTrait.png, id=475, 144.54pt x 39.14626pt>
 File: Immagini/ExpirableTrait.png Graphic file (type png)
 <use Immagini/ExpirableTrait.png>
 Package pdftex.def Info: Immagini/ExpirableTrait.png  used on input line 63.
 (pdftex.def)             Requested size: 169.29684pt x 45.85349pt.
-<Immagini/VendingMachine.png, id=474, 121.95563pt x 104.64093pt>
+<Immagini/VendingMachine.png, id=476, 121.95563pt x 104.64093pt>
 File: Immagini/VendingMachine.png Graphic file (type png)
 <use Immagini/VendingMachine.png>
 Package pdftex.def Info: Immagini/VendingMachine.png  used on input line 65.
 (pdftex.def)             Requested size: 120.92421pt x 103.75768pt.
-<Immagini/VendingMachineTrait.png, id=475, 243.91125pt x 74.52844pt>
+<Immagini/VendingMachineTrait.png, id=477, 243.91125pt x 74.52844pt>
 File: Immagini/VendingMachineTrait.png Graphic file (type png)
 <use Immagini/VendingMachineTrait.png>
 Package pdftex.def Info: Immagini/VendingMachineTrait.png  used on input line 6
@@ -976,12 +976,12 @@ Package pdftex.def Info: Immagini/VendingMachineTrait.png  used on input line 6
 (pdftex.def)             Requested size: 217.66211pt x 66.50862pt.
  [13 <./Immagini/EnergyDrink.png> <./Immagini/ExpirableTrait.png> <./Immagini/V
 endingMachine.png> <./Immagini/VendingMachineTrait.png>]
-<Immagini/Filter.png, id=490, 362.10281pt x 242.40562pt>
+<Immagini/Filter.png, id=492, 362.10281pt x 242.40562pt>
 File: Immagini/Filter.png Graphic file (type png)
 <use Immagini/Filter.png>
 Package pdftex.def Info: Immagini/Filter.png  used on input line 87.
 (pdftex.def)             Requested size: 266.03474pt x 178.09755pt.
-<Immagini/RicercaTag.png, id=491, 377.91188pt x 203.25937pt>
+<Immagini/RicercaTag.png, id=493, 377.91188pt x 203.25937pt>
 File: Immagini/RicercaTag.png Graphic file (type png)
 <use Immagini/RicercaTag.png>
 Package pdftex.def Info: Immagini/RicercaTag.png  used on input line 94.
@@ -993,7 +993,7 @@ o con-sid-er-ato so-la-mente i prodotti il cui risul-tato dall'operazione
  []
 
 [14 <./Immagini/Filter.png> <./Immagini/RicercaTag.png>]
-<Immagini/Sealed.png, id=500, 432.11438pt x 72.27pt>
+<Immagini/Sealed.png, id=502, 432.11438pt x 72.27pt>
 File: Immagini/Sealed.png Graphic file (type png)
 <use Immagini/Sealed.png>
 Package pdftex.def Info: Immagini/Sealed.png  used on input line 127.
@@ -1003,35 +1003,35 @@ Package pdftex.def Info: Immagini/Sealed.png  used on input line 127.
 ]
  4.
 (Capitoli/ASM.tex
-<Immagini/FSM.png, id=511, 525.46312pt x 240.14719pt>
+<Immagini/FSM.png, id=513, 525.46312pt x 240.14719pt>
 File: Immagini/FSM.png Graphic file (type png)
 <use Immagini/FSM.png>
 Package pdftex.def Info: Immagini/FSM.png  used on input line 17.
 (pdftex.def)             Requested size: 290.22107pt x 132.64198pt.
  [17 <./Immagini/FSM.png>]
-<Immagini/ActionASM.png, id=518, 348.55219pt x 33.12375pt>
+<Immagini/ActionASM.png, id=520, 348.55219pt x 33.12375pt>
 File: Immagini/ActionASM.png Graphic file (type png)
 <use Immagini/ActionASM.png>
 Package pdftex.def Info: Immagini/ActionASM.png  used on input line 30.
 (pdftex.def)             Requested size: 290.22107pt x 27.58165pt.
-<Immagini/EnumDomain.png, id=520, 479.54156pt x 60.97781pt>
+<Immagini/EnumDomain.png, id=522, 479.54156pt x 60.97781pt>
 File: Immagini/EnumDomain.png Graphic file (type png)
 <use Immagini/EnumDomain.png>
 Package pdftex.def Info: Immagini/EnumDomain.png  used on input line 55.
 (pdftex.def)             Requested size: 241.84843pt x 30.75307pt.
  [18 <./Immagini/ActionASM.png> <./Immagini/EnumDomain.png>]
-<Immagini/StaticFunction.png, id=528, 332.74312pt x 33.87656pt>
+<Immagini/StaticFunction.png, id=530, 332.74312pt x 33.87656pt>
 File: Immagini/StaticFunction.png Graphic file (type png)
 <use Immagini/StaticFunction.png>
 Package pdftex.def Info: Immagini/StaticFunction.png  used on input line 68.
 (pdftex.def)             Requested size: 241.84843pt x 24.62267pt.
-<Immagini/DynamicController.png, id=530, 381.67593pt x 59.47218pt>
+<Immagini/DynamicController.png, id=532, 381.67593pt x 59.47218pt>
 File: Immagini/DynamicController.png Graphic file (type png)
 <use Immagini/DynamicController.png>
 Package pdftex.def Info: Immagini/DynamicController.png  used on input line 83.
 
 (pdftex.def)             Requested size: 314.40001pt x 48.99164pt.
-<Immagini/MonitoredFunc.png, id=531, 291.33844pt x 72.27pt>
+<Immagini/MonitoredFunc.png, id=533, 291.33844pt x 72.27pt>
 File: Immagini/MonitoredFunc.png Graphic file (type png)
 <use Immagini/MonitoredFunc.png>
 Package pdftex.def Info: Immagini/MonitoredFunc.png  used on input line 106.
@@ -1041,12 +1041,12 @@ Package pdftex.def Info: Immagini/MonitoredFunc.png  used on input line 106.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19 <./Immagini/StaticFunction.png> <./Immagini/DynamicController.png>]
-<Immagini/ManagementRule.png, id=542, 342.5297pt x 220.57407pt>
+<Immagini/ManagementRule.png, id=544, 342.5297pt x 220.57407pt>
 File: Immagini/ManagementRule.png Graphic file (type png)
 <use Immagini/ManagementRule.png>
 Package pdftex.def Info: Immagini/ManagementRule.png  used on input line 122.
 (pdftex.def)             Requested size: 241.84843pt x 155.74368pt.
-<Immagini/InitialState.png, id=544, 245.41687pt x 232.61906pt>
+<Immagini/InitialState.png, id=546, 245.41687pt x 232.61906pt>
 File: Immagini/InitialState.png Graphic file (type png)
 <use Immagini/InitialState.png>
 Package pdftex.def Info: Immagini/InitialState.png  used on input line 136.
@@ -1056,12 +1056,12 @@ Package pdftex.def Info: Immagini/InitialState.png  used on input line 136.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [20 <./Immagini/MonitoredFunc.png> <./Immagini/ManagementRule.png>]
-<Immagini/IterativeRunASM.png, id=552, 413.29407pt x 371.13657pt>
+<Immagini/IterativeRunASM.png, id=554, 413.29407pt x 371.13657pt>
 File: Immagini/IterativeRunASM.png Graphic file (type png)
 <use Immagini/IterativeRunASM.png>
 Package pdftex.def Info: Immagini/IterativeRunASM.png  used on input line 155.
 (pdftex.def)             Requested size: 241.84843pt x 217.1848pt.
-<Immagini/RandomRunASM.png, id=553, 1243.64626pt x 427.5975pt>
+<Immagini/RandomRunASM.png, id=555, 1243.64626pt x 427.5975pt>
 File: Immagini/RandomRunASM.png Graphic file (type png)
 <use Immagini/RandomRunASM.png>
 Package pdftex.def Info: Immagini/RandomRunASM.png  used on input line 166.
@@ -1074,7 +1074,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 agini/RandomRunASM.png>]
  5.
 (Capitoli/CorrezioneProva.tex
-<Immagini/Partial_RA.png, id=567, 858.20625pt x 177.66376pt>
+<Immagini/Partial_RA.png, id=569, 858.20625pt x 177.66376pt>
 File: Immagini/Partial_RA.png Graphic file (type png)
 <use Immagini/Partial_RA.png>
 Package pdftex.def Info: Immagini/Partial_RA.png  used on input line 10.
@@ -1082,19 +1082,19 @@ Package pdftex.def Info: Immagini/Partial_RA.png  used on input line 10.
  [23
 
  <./Immagini/Partial_RA.png>]
-<Immagini/SerieNumeriPariIt.png, id=574, 336.50719pt x 161.10187pt>
+<Immagini/SerieNumeriPariIt.png, id=576, 336.50719pt x 161.10187pt>
 File: Immagini/SerieNumeriPariIt.png Graphic file (type png)
 <use Immagini/SerieNumeriPariIt.png>
 Package pdftex.def Info: Immagini/SerieNumeriPariIt.png  used on input line 27.
 
 (pdftex.def)             Requested size: 290.22107pt x 138.94313pt.
-<Immagini/SerieNumeriPariRecNoTail.png, id=576, 517.935pt x 251.43938pt>
+<Immagini/SerieNumeriPariRecNoTail.png, id=578, 517.935pt x 251.43938pt>
 File: Immagini/SerieNumeriPariRecNoTail.png Graphic file (type png)
 <use Immagini/SerieNumeriPariRecNoTail.png>
 Package pdftex.def Info: Immagini/SerieNumeriPariRecNoTail.png  used on input l
 ine 40.
 (pdftex.def)             Requested size: 290.22107pt x 140.89716pt.
-<Immagini/SerieNumeriPariRecNoTailDebug.png, id=577, 344.03531pt x 68.50594pt>
+<Immagini/SerieNumeriPariRecNoTailDebug.png, id=579, 344.03531pt x 68.50594pt>
 File: Immagini/SerieNumeriPariRecNoTailDebug.png Graphic file (type png)
 <use Immagini/SerieNumeriPariRecNoTailDebug.png>
 Package pdftex.def Info: Immagini/SerieNumeriPariRecNoTailDebug.png  used on in
@@ -1102,18 +1102,18 @@ put line 47.
 (pdftex.def)             Requested size: 290.22107pt x 57.79024pt.
  [24 <./Immagini/SerieNumeriPariIt.png> <./Immagini/SerieNumeriPariRecNoTail.pn
 g> <./Immagini/SerieNumeriPariRecNoTailDebug.png>]
-<Immagini/makeSommaOpachi.png, id=587, 471.26062pt x 121.20282pt>
+<Immagini/makeSommaOpachi.png, id=589, 471.26062pt x 121.20282pt>
 File: Immagini/makeSommaOpachi.png Graphic file (type png)
 <use Immagini/makeSommaOpachi.png>
 Package pdftex.def Info: Immagini/makeSommaOpachi.png  used on input line 80.
 (pdftex.def)             Requested size: 290.22107pt x 74.64192pt.
  [25 <./Immagini/makeSommaOpachi.png>]
-<Immagini/calcolaMax.png, id=595, 549.55313pt x 228.10219pt>
+<Immagini/calcolaMax.png, id=597, 549.55313pt x 228.10219pt>
 File: Immagini/calcolaMax.png Graphic file (type png)
 <use Immagini/calcolaMax.png>
 Package pdftex.def Info: Immagini/calcolaMax.png  used on input line 92.
 (pdftex.def)             Requested size: 290.22107pt x 120.46545pt.
-<Immagini/scalaWrap.png, id=597, 393.72093pt x 149.05687pt>
+<Immagini/scalaWrap.png, id=599, 393.72093pt x 149.05687pt>
 File: Immagini/scalaWrap.png Graphic file (type png)
 <use Immagini/scalaWrap.png>
 Package pdftex.def Info: Immagini/scalaWrap.png  used on input line 103.
@@ -1132,8 +1132,8 @@ Package rerunfilecheck Info: File `BreveDocumentazione.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 11336 strings out of 492970
- 174858 string characters out of 3126593
+ 11338 strings out of 492970
+ 174880 string characters out of 3126593
  471201 words of memory out of 3000000
  14844 multiletter control sequences out of 15000+200000
  81591 words of font info for 49 fonts, out of 3000000 for 9000
@@ -1156,9 +1156,9 @@ KTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Users/miche/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/miche/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Users/miche/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb>
-Output written on BreveDocumentazione.pdf (32 pages, 955024 bytes).
+Output written on BreveDocumentazione.pdf (32 pages, 956395 bytes).
 PDF statistics:
- 677 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
+ 679 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
  617 words of extra memory for PDF output out of 10000 (max. 10000000)
 

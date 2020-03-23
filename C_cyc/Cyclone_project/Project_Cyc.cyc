@@ -13,8 +13,7 @@
 #define MAX_LINE_LENGTH 95
 #define MAX_POSTCARDS_IN_FILE 50
 
-#define FILE_PATH "C:\\Users\\miche\\OneDrive\\Desktop\\I anno Magistrale\\Informatica III - Modulo di programmazione\\PROGETTI_INFOIIIA_MICHELEPIFFARI\\C_cyc\\Cyclone_project\\PostcardsSimplified.txt"
-//#define FILE_PATH "E:/PostcardsSimplified.txt"
+#define FILE_PATH "../Cyclone_project/PostcardsSimplified.txt"
 #define BY_SENDER 49
 #define BY_REC	  50
 #define BY_PLACE  51
@@ -26,8 +25,7 @@ int number_of_postcards_parsed = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1) rea
 int nop_found = 0; //findBy
 
 // Dropped because, if memory cannot be allocated, a null pointer exception
-// will be raised when dereferencing the null pointer returned by the memory
-// allocation function
+// will be raised when dereferencing the null pointer returned by the memory allocation function
 //void outofmemory() {
 //	printf("Out of memory error!\n");
 //	exit(1);
@@ -39,7 +37,7 @@ typedef struct postcard {
 	char* @notnull @fat place;
 } postcard;
 
-/* Destructively converts the given zero-terminated string to lowercase */
+// Destructively converts the given zero-terminated string to lowercase
 int min(int a, int b) { 
 	return (a < b) ? a : b;
 }
@@ -65,15 +63,12 @@ void str2lower(char * @fat @zeroterm str) {
 	}
 }
 
-/*Divides the given string into tokens, delimited in the original string
-* by the given delimiter character.
-* Returns an array of tokens.
-* Delimiters are not part of the tokens;
-* tokens may also be empty strings.
-* If delimiter is '\0', the whole string is one single token.
-*/
+// Divides the given string into tokens, delimited in the original string by the given delimiter character.
+// Returns an array of tokens.
+//Delimiters are not part of the tokens.
 char?? tokenize(const char? str, char delimiter) {
 	const char? s = str;
+
 	// Counts occurrences of the tokens (= delimiters + 1)
 	int tokenCount = 1;
 	while (*s) {
@@ -117,23 +112,20 @@ char?? tokenize(const char? str, char delimiter) {
 }
 
 void printPostcard (postcard? p) {
-	printf("	----------------\n");
-	printf("	from: %s\n", p->sender_name);
-	printf("	to: %s\n", p->receiver_name);
-	printf("	place: %s\n", p->place);
-	printf("	----------------\n");
+	printf("----------------\n");
+	printf("from: %s\n", p->sender_name);
+	printf("to: %s\n", p->receiver_name);
+	printf("place: %s\n", p->place);
+	printf("----------------\n");
 }
 
 
-/* Read the file and create a list of postcard object, only if it's present
- * all the needed informations.
- * Returns the number of postcards (as a parameter) and the reference of such
- * postcard (as the return value).
- */
-//postcard *@fat readFile(int*‘r *‘r num_of_postcard) {
+// Read the file and create a list of postcard object, only if it's present all the needed informations.
+// Returns the number of postcards (as a parameter) and the reference of such postcard (as the return value).
 postcard?? readFile() {
 	postcard?? postcards = (postcard??) calloc(MAX_POSTCARDS_IN_FILE, sizeof(postcard?));
-		
+	
+	// Try to open the file located at FILE_PATH
 	FILE* filePointer = fopen(FILE_PATH, "r");
 	if(filePointer == NULL) {
 		printf("Error opening file %s\n", FILE_PATH);
@@ -145,10 +137,14 @@ postcard?? readFile() {
 	char line[MAX_LINE_LENGTH + 1] @zeroterm;
 
 	while (1) {
-		if (fscanf(filePointer, "%s", line) == -1)
+		// If the end of file is treached, break the loop
+		if (fscanf(filePointer, "%s", line) == -1) {
 			break;
-		printf("Length: %d --> %s\n", strlen(line),line);
+		}
+
+		printf("\nLength: %d --> %s\n", strlen(line),line);
 		
+		// Allocate memory for struct
 		postcard* pc = (postcard*) malloc(sizeof(postcard));
 		pc->sender_name = (char*@notnull @fat) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
 		pc->receiver_name = (char*@notnull @fat) calloc(MAX_NAMES_LENGTH + 1, sizeof(char));
@@ -158,27 +154,26 @@ postcard?? readFile() {
 		const char? l = (char?) calloc(MAX_LINE_LENGTH + 1, sizeof(char));
 		l = strdup(line);
 		
+		// Divde the line just read in tokens
 		tokens = tokenize(l, '|');
 		int numberOfToken = numelts(tokens);
-		
 
+		// Check the correct number of informations parsed from each file line
+		// Must be three: SENDER - RECEIVER - PLACE
 		if(numberOfToken == 3) {
 			for (int i = 0; i < numberOfToken; i++) {
 				str2lower(tokens[i]);
+				// Check tokens before acces it
 				if(tokens[i] != NULL) {
 					const char * @notnull @fat safe_token = tokens[i];
-					printf("%s\n", tokens[i]);
 					switch (i) {
 						case SENDER:
-							//strcpy(pc->sender_name, tokens[i]);
 							safe_strcpy(pc->sender_name, safe_token);
 							break;
 						case RECEIVER:
-							//strcpy(pc->receiver_name, tokens[i]);
 							safe_strcpy(pc->receiver_name, safe_token);
 							break;
 						case PLACE:
-							//strcpy(pc->place, tokens[i]);
 							safe_strcpy(pc->place, safe_token);
 							break;
 						default:
@@ -187,8 +182,6 @@ postcard?? readFile() {
 				} else {
 					printf("TOKENS NOT SAFE");
 				}
-				
-				
 			}
 		}
 		
@@ -201,37 +194,34 @@ postcard?? readFile() {
 		}
 	}
 	
+	// Close the file
 	fclose(filePointer);
 	return postcards;
 }
 
-/*
- * Search postcards and return them.
- * If number of informations it's not enough, return NULL postcard
- */
+// Search postcards and return them. If number of informations it's not enough, return NULL postcard
 postcard?`H?`H findBy(postcard?`H?`H postcards,const char? str_src, int findBy) {
 	postcard?`H?`H res = (postcard?`H?`H) malloc(sizeof(postcard?`H) * number_of_postcards_parsed);
 	nop_found = 0;
 	
 	for(int i = 0; i < number_of_postcards_parsed; i++) {
 		if(findBy == BY_SENDER &&
-				strcmp((*(postcards+i))->sender_name, str_src) == 0) {
+				strcmp((*(postcards+i))->sender_name, str_src) == 0) { // Check, if searching by sender, on sender name field
 
 			*(res + nop_found) = *(postcards + i);
 			nop_found = nop_found + 1;
 		} else if(findBy == BY_REC &&
-				strcmp((*(postcards+i))->receiver_name, str_src) == 0) {
+				strcmp((*(postcards+i))->receiver_name, str_src) == 0) { // Check, if searching by receiver, on receiver name field
 
 			*(res + nop_found) = *(postcards + i);
 			nop_found = nop_found + 1;
 		} else if(findBy == BY_PLACE &&
-				strcmp((*(postcards+i))->place, str_src) == 0) {
+				strcmp((*(postcards+i))->place, str_src) == 0) { // Check, if searching by place, on place name field
 
 			*(res + nop_found) = *(postcards + i);
 			nop_found = nop_found + 1;
 		}
 	}
-
 	return res;
 }
 
