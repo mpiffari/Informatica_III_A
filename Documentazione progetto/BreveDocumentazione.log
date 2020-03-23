@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  23 MAR 2020 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.29)  23 MAR 2020 12:43
 entering extended mode
 **./BreveDocumentazione.tex
 (BreveDocumentazione.tex
@@ -894,20 +894,23 @@ File: Immagini/MatrixOperatorsRedef.png Graphic file (type png)
 Package pdftex.def Info: Immagini/MatrixOperatorsRedef.png  used on input line 
 137.
 (pdftex.def)             Requested size: 241.84843pt x 55.69115pt.
- [8 <./Immagini/MatrixDestructors.png> <./Immagini/CoutRedefinition.png> <./Imm
-agini/MatrixOperatorsRedef.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Overfull \hbox (6.93907pt too wide) in paragraph at lines 145--146
 []\T1/lmr/m/n/10.95 il mod-i-fi-ca-tore \T1/lmr/bx/n/10.95 const \T1/lmr/m/n/10
 .95 in-dica in-vece che la \T1/lmr/bx/n/10.95 prima ridefinizione è quella da u
 s-are se l'operatore
  []
 
-<Immagini/OperatorExample.png, id=438, 494.59781pt x 40.65187pt>
+<Immagini/OperatorExample.png, id=431, 494.59781pt x 40.65187pt>
 File: Immagini/OperatorExample.png Graphic file (type png)
 <use Immagini/OperatorExample.png>
 Package pdftex.def Info: Immagini/OperatorExample.png  used on input line 151.
 (pdftex.def)             Requested size: 386.95897pt x 31.80446pt.
-
+[8 <./Immagini/MatrixDestructors.png> <./Immagini/CoutRedefinition.png>]
 Overfull \hbox (35.88751pt too wide) in paragraph at lines 170--171
 []\T1/lmr/m/n/10.95 Questa flessibil-ità of-ferta dai tem-plates, è stata uti-l
 iz-zata nella stesura della classe \T1/lmr/m/it/10.95 Ma-trix\T1/lmr/m/n/10.95 
@@ -920,7 +923,8 @@ File: Immagini/ConcreteteTemplates.png Graphic file (type png)
 Package pdftex.def Info: Immagini/ConcreteteTemplates.png  used on input line 1
 75.
 (pdftex.def)             Requested size: 386.95897pt x 21.28773pt.
-[9 <./Immagini/OperatorExample.png> <./Immagini/ConcreteteTemplates.png>]
+[9 <./Immagini/MatrixOperatorsRedef.png> <./Immagini/OperatorExample.png> <./Im
+magini/ConcreteteTemplates.png>]
 <Immagini/Stl_Iterator.png, id=449, 469.00218pt x 160.34906pt>
 File: Immagini/Stl_Iterator.png Graphic file (type png)
 <use Immagini/Stl_Iterator.png>
@@ -931,8 +935,7 @@ File: Immagini/Stl_Algorithm.png Graphic file (type png)
 <use Immagini/Stl_Algorithm.png>
 Package pdftex.def Info: Immagini/Stl_Algorithm.png  used on input line 221.
 (pdftex.def)             Requested size: 338.58632pt x 148.65248pt.
-)
-[10 <./Immagini/Stl_Iterator.png> <./Immagini/Stl_Algorithm.png>]
+) [10 <./Immagini/Stl_Iterator.png> <./Immagini/Stl_Algorithm.png>]
  3.
 (Capitoli/Scala.tex
 Overfull \hbox (7.96613pt too wide) in paragraph at lines 32--33
@@ -1153,7 +1156,7 @@ KTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Users/miche/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/miche/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Users/miche/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb>
-Output written on BreveDocumentazione.pdf (32 pages, 954939 bytes).
+Output written on BreveDocumentazione.pdf (32 pages, 955024 bytes).
 PDF statistics:
  677 PDF objects out of 1000 (max. 8388607)
  129 named destinations out of 1000 (max. 500000)

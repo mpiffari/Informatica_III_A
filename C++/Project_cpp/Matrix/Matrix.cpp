@@ -50,6 +50,7 @@ template<class T> Matrix<T>::Matrix(Matrix* toCopy){
 // ======================== DEINITIALIZER ============================
 
 template<class T> Matrix<T>::~Matrix(){
+	cout<<"Deleted matrix"<<endl;
     typename vector< vector<T>* >::iterator rowsIterator = this->elements->begin();
     while (rowsIterator != this->elements->end()){
         delete *rowsIterator;
@@ -78,17 +79,17 @@ template<class T> T Matrix<T>::get(int row, int column){
 
 template<class T> Matrix<T>* Matrix<T>::add(Addable* number){
 	Matrix<T>* matrix = (Matrix<T>*) number;
+	Matrix<T>* result = new Matrix<T>(matrix->rows, matrix->columns);
 	if((this->rows != matrix->rows) || ((this->columns != matrix->columns))) {
-		cout << "[add] - Matrix dimension mismatch" << endl;
-		return this;
+		// In case of dimension mismatch return an idenitity matrix
+		cout << "[Matrix library log] - {add} - Matrix dimension mismatch" << endl;
+	} else {
+	    for (int row=0; row<this->rows; row++){
+	        for (int column=0; column<this->columns; column++){
+	            (*result)(row,column) = (*matrix)(row, column) + (*this)(row, column);
+	        }
+	    }
 	}
-
-    Matrix<T>* result = new Matrix<T>(matrix->rows, matrix->columns);
-    for (int row=0; row<this->rows; row++){
-        for (int column=0; column<this->columns; column++){
-            (*result)(row,column) = (*matrix)(row, column) + (*this)(row, column);
-        }
-    }
     return result;
 }
 

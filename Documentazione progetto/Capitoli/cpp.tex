@@ -79,7 +79,7 @@ In C++ un costruttore che non accetta argomenti, o in cui tutti gli argomenti so
 \subsection{Distruttori}
 Dal lato opposto, il \textbf{distruttore} si occupa del compito di rilasciare tutte le risorse associate ad un oggetto, quando finisce la lifetime dell'oggetto stesso: infatti il distruttore viene invocato per tutte le variabili automaticamente ogni volta che viene raggiunta la fine del loro \textit{scope} e tutte le volte che le variabili dinamiche vengono deallocate con la parola chiave \textit{delete}.
 
-In particolare, come per il costruttore, anche il distruttore presenta una firma particolare, ovvero presenta lo stesso nome della classe solamente per il fatto che è preceduto dal simbolo ~ (\textit{tilde}); anch'esso, come il costruttore, non presenta alcun valore di ritorno, e in più non presenta parametri (motivo per cui non può essere sovraccaricato).
+In particolare, come per il costruttore, anche il distruttore presenta una firma particolare, ovvero presenta lo stesso nome della classe solamente per il fatto che è preceduto dal simbolo \textit{tilde}; anch'esso, come il costruttore, non presenta alcun valore di ritorno, e in più non presenta parametri (motivo per cui non può essere sovraccaricato).
 
 Inoltre se non viene esplicitamente incluso nella dichiarazione della classe, il distruttore viene generato automaticamente dal compilatore. In questo caso tuttavia, l’unica risorsa rilasciata è la memoria occupata dall’oggetto: se alcuni dei suoi dati membro sono delle reference, o se l’oggetto fa uso di altre risorse (file o altre interfacce di I/O), potrebbe essere necessario svolgere delle operazioni per il loro corretto rilascio.
 
@@ -104,7 +104,7 @@ In particolare si ha che:
 
 Per quanto riguarda il distruttore (figura ~\ref{fig:matrixDeInit}) sono due gli aspetti da porre ini evidenza:
 \begin{itemize}
-	\item é stato definito \textit{virtual} in maniera tale che venissero chiamati anche i distruttori delle superclassi;
+	\item é stato definito \textit{virtual} in maniera tale che venissero chiamati anche i distruttori delle superclassi (come si vede dal log che si ottene dall'esecuzione del main del progetto);
 	\item esso si occupa, come si vede nella relativa implementazione, di andare a liberare la memoria allocata per la struttura contenete gli elementi della matrice: per fare ciò s è fatto uso di un iteratore sulle righe della matrice, in maniera tale da andare poi a liberare ogni elemento della colonna.
 \end{itemize}
 

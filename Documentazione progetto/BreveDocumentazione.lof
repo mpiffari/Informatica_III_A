@@ -10,7 +10,7 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Costruttori classe \textit {Matrix}\relax }}{7}{figure.caption.9}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Firma e implementazione del distruttore della classe \textit {Matrix}\relax }}{8}{figure.caption.10}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Ridefinizione dell'operatore di stream\relax }}{8}{figure.caption.11}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Ridefinizione degli operatori nella classe \textit {Matrix}\relax }}{8}{figure.caption.12}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Ridefinizione degli operatori nella classe \textit {Matrix}\relax }}{9}{figure.caption.12}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di utilizzo della redefinizione degli operatori\relax }}{9}{figure.caption.13}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Utilizzo concreto dei templetas\relax }}{9}{figure.caption.14}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces STL - Iterator\relax }}{10}{figure.caption.15}

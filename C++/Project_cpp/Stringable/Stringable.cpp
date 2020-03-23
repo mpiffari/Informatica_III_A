@@ -7,6 +7,7 @@ Stringable::Stringable(){
 }
 
 Stringable::~Stringable(){
+	cout<<"Deleted stringable"<<endl;
 }
 
 ostream& operator<<(ostream &ostream, Stringable* p){
