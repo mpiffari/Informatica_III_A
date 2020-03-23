@@ -14,12 +14,14 @@
 #define MAX_POSTCARDS_IN_FILE 50
 
 #define FILE_PATH "../Cyclone_project/PostcardsSimplified.txt"
-#define BY_SENDER 49
-#define BY_REC	  50
-#define BY_PLACE  51
-#define EXIT 	  81
-
-#define DEBUG 0 // Search in automatic way (4 kind of test) [1] or search from command line input [0]
+#define BY_SENDER   49 // 1
+#define BY_REC	    50 // 2
+#define BY_PLACE    51 // 3
+#define CHANGE_MODE	81 // Q
+#define DEBUG 	    68 // D
+#define NO_DEBUG    73 // I (iterative)
+#define TERMINATE   84 // T
+#define NONE        0
 
 int number_of_postcards_parsed = 0; // From 0 to (MAX_POSTCARDS_IN_FILE - 1) readFile
 int nop_found = 0; //findBy
@@ -226,124 +228,139 @@ postcard?`H?`H findBy(postcard?`H?`H postcards,const char? str_src, int findBy) 
 }
 
 int main(){
-	printf("\nSTART\n");	
+	printf("\nSTART\n");
+	printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^FILE PARSING^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 	postcard?? postcards = (postcard??) malloc(sizeof(postcard?) * MAX_POSTCARDS_IN_FILE);	
 	postcards = readFile();
-	printf("Number of postcards = %i\n", number_of_postcards_parsed);
+	printf("Number of postcards parsed = %i\n", number_of_postcards_parsed);
+	printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n\n\n\n");
 
 	postcard?`H?`H res = (postcard?`H?`H) malloc(sizeof(postcard?`H) * number_of_postcards_parsed);	
-	printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]"
-			"\n- EXIT [Q]\n");
-			
-	// TEST MANUALE
-	if(DEBUG) {
-		printf("BY SENDER --> ");
-		const char? param = "maertin_piffari";
-		res = findBy(postcards, param, BY_SENDER);
-		printf("Postcard found: \n");
-		if(nop_found == 0) {
-			printf("----> No postcard match <----\n");
-		} else {
-			for(int i = 0; i < nop_found; i++) {
-				printPostcard(*(res + i));
-			}
-		}
-
-		printf("BY RECEIVER --> ");
-		param = "nicola_piffari";
-		res = findBy(postcards, param, BY_REC);
-		printf("Postcard found: \n");
-		if(nop_found == 0) {
-			printf("----> No postcard match <----\n");
-		} else {
-			for(int i = 0; i < nop_found; i++) {
-				printPostcard(*(res + i));
-			}
-		}
-
-		printf("BY PLACE --> ");
-		param = "groenlandia";
-		res = findBy(postcards, param, BY_PLACE);
-		printf("Postcard found: \n");
-		if(nop_found == 0) {
-			printf("----> No postcard match <----\n");
-		} else {
-			for(int i = 0; i < nop_found; i++) {
-				printPostcard(*(res + i));
-			}
-		}
-
-		printf("BY REC [wrong] --> ");
-		res = findBy(postcards, param, BY_REC);
-		printf("Postcard found: \n");
-		if(nop_found == 0) {
-			printf("----> No postcard match <----\n");
-		} else {
-			for(int i = 0; i < nop_found; i++) {
-				printPostcard(*(res + i));
-			}
-		}
-	} else {
-		// Console reading through "fgets" append automaticcaly "null"terminator
-		int command;
-		char* @fat @zeroterm param = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+	printf("CHOOSE MODE: \n- AUTOMATIC TEST [D]\n- ITERATIVE TEST [I]\n - TERMINATE [T]\n");
+	
+	int mainCommand;
 		
-		while (command != EXIT) {
-			command = getchar();
-			if(command == BY_SENDER) {
-				printf("BY SENDER --> ");
-				scanf("%s",param);
-				str2lower(param);
-				res = findBy(postcards, param, BY_SENDER);
-				printf("Postcard search: \n");
-				if(nop_found == 0) {
-					printf("----> No postcard match <----\n");
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
-				} else {
-					for(int i = 0; i < nop_found; i++) {
-						printPostcard(*(res + i));
-					}
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
+	while (mainCommand != TERMINATE) {
+		mainCommand = getchar();
+		if(mainCommand == DEBUG) {
+			// Test search from hard coded input
+			printf("\n\n\n\n\n\nSearch BY SENDER --> ");
+			const char? param = "maertin_piffari";
+			res = findBy(postcards, param, BY_SENDER);
+			printf("Postcard found: \n");
+			if(nop_found == 0) {
+				printf("----> No postcard match <----\n");
+			} else {
+				for(int i = 0; i < nop_found; i++) {
+					printPostcard(*(res + i));
 				}
-			} else if(command == BY_REC) {
-				printf("BY REC --> ");
-				scanf("%s",param);
-				str2lower(param);
-				res = findBy(postcards, param, BY_REC);
-				printf("Postcard search: \n");
-				if(nop_found == 0) {
-					printf("----> No postcard match <----\n");
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
-				} else {
-					for(int i = 0; i < nop_found; i++) {
-						printPostcard(*(res + i));
-					}
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
-				}
-			} else if(command == BY_PLACE) {
-				printf("BY PLACE --> ");
-				scanf("%s",param);
-				//fgets(param, MAX_NAMES_LENGTH, stdi);
-				str2lower(param);
-				res = findBy(postcards, param, BY_PLACE);
-				printf("Postcard search: \n");
-				if(nop_found == 0)  {
-					printf("----> No postcard match <----\n");
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
-				} else {
-					for(int i = 0; i < nop_found; i++) {
-						printPostcard(*(res + i));
-					}
-					printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
-				}
-			} else if(command == EXIT) {
-				printf("EXIT");
-			} else { 
-				printf("Wrong command \n");
-				printf("FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- EXIT [Q]\n");
 			}
+
+			printf("Search  BY RECEIVER --> ");
+			param = "nicola_piffari";
+			res = findBy(postcards, param, BY_REC);
+			printf("Postcard found: \n");
+			if(nop_found == 0) {
+				printf("----> No postcard match <----\n");
+			} else {
+				for(int i = 0; i < nop_found; i++) {
+					printPostcard(*(res + i));
+				}
+			}
+
+			printf("Search  BY PLACE --> ");
+			param = "groenlandia";
+			res = findBy(postcards, param, BY_PLACE);
+			printf("Postcard found: \n");
+			if(nop_found == 0) {
+				printf("----> No postcard match <----\n");
+			} else {
+				for(int i = 0; i < nop_found; i++) {
+					printPostcard(*(res + i));
+				}
+			}
+
+			printf("Search  BY REC [wrong] --> ");
+			res = findBy(postcards, param, BY_REC);
+			printf("Postcard found: \n");
+			if(nop_found == 0) {
+				printf("----> No postcard match <----\n");
+			} else {
+				for(int i = 0; i < nop_found; i++) {
+					printPostcard(*(res + i));
+				}
+			}
+		} else if(mainCommand == NO_DEBUG) {
+			// Test search from ostream input
+
+			// Console reading through "fgets" append automaticcaly "null"terminator
+			int command = NONE;
+			char* @fat @zeroterm param = calloc(MAX_LINE_LENGTH + 1, sizeof(char));
+			
+			while (command != CHANGE_MODE) {
+				command = getchar();
+
+				if(command == BY_SENDER) {
+					printf("Search BY SENDER --> ");
+					scanf("%s",param);
+					str2lower(param);
+					res = findBy(postcards, param, BY_SENDER);
+					printf("Postcard found: \n");
+					if(nop_found == 0) {
+						command = NONE;
+						printf("----> No postcard match <----\n");
+					} else {
+						for(int i = 0; i < nop_found; i++) {
+							printPostcard(*(res + i));
+						}
+						command = NONE;
+					}
+				} else if(command == BY_REC) {
+					printf("Search BY REC --> ");
+					scanf("%s",param);
+					str2lower(param);
+					res = findBy(postcards, param, BY_REC);
+					printf("Postcard found: \n");
+					if(nop_found == 0) {
+						command = NONE;
+						printf("----> No postcard match <----\n");
+					} else {
+						for(int i = 0; i < nop_found; i++) {
+							printPostcard(*(res + i));
+						}
+						command = NONE;
+					}
+				} else if(command == BY_PLACE) {
+					printf("Search BY PLACE --> ");
+					scanf("%s",param);
+					//fgets(param, MAX_NAMES_LENGTH, stdi);
+					str2lower(param);
+					res = findBy(postcards, param, BY_PLACE);
+					printf("Postcard found: \n");
+					if(nop_found == 0) {
+						command = NONE;
+						printf("----> No postcard match <----\n");
+						continue;
+					} else {
+						for(int i = 0; i < nop_found; i++) {
+							printPostcard(*(res + i));
+						}
+						command = NONE;
+					}
+				} else if(command == CHANGE_MODE) {
+					printf("CHANGE MODE");
+				} else if(command != NONE  && command != CHANGE_MODE && command != BY_PLACE && command != BY_REC && command != BY_SENDER) {
+					printf("\n FIND POSTCARD BY: \n- SENDER [1]\n- RECEIVER [2]\n- PLACE [3]\n- CHANGE MODE [Q]\n");
+					command = NONE;
+					continue;
+				}
+			}
+		} else if(mainCommand == TERMINATE) {
+			printf("Goodbye my friend, goodbye my lover, You have been the one for me...");
+		} else { 
+			printf("\n\n\n\n\nCHOOSE MODE: \n- AUTOMATIC TEST [D]\n- ITERATIVE TEST [I]\n - TERMINATE [T]\n");
 		}
 	}
-	
+
 	return EXIT_SUCCESS;
 }
