@@ -12,14 +12,16 @@
 \contentsline {section}{\numberline {2.3}Multiple inheritance}{6}{section.2.3}
 \contentsline {section}{\numberline {2.4}Diamond inheritance}{6}{section.2.4}
 \contentsline {section}{\numberline {2.5}Costruttori e distruttori}{7}{section.2.5}
-\contentsline {section}{\numberline {2.6}Virtual method}{7}{section.2.6}
-\contentsline {section}{\numberline {2.7}Overloading particolari}{7}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Overloading di cout<<}{7}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}Overloading di ()}{7}{subsection.2.7.2}
-\contentsline {section}{\numberline {2.8}Templates}{8}{section.2.8}
-\contentsline {section}{\numberline {2.9}Standard Template Library}{8}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}STL - Iterator}{8}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}STL - Algorithm}{8}{subsection.2.9.2}
+\contentsline {subsection}{\numberline {2.5.1}Costruttori}{7}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Distruttori}{7}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Implementazione nell'applicazione}{7}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}Overloading particolari}{8}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Overloading di cout<<}{8}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Overloading di ()}{8}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Templates}{9}{section.2.7}
+\contentsline {section}{\numberline {2.8}Standard Template Library}{9}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}STL - Iterator}{9}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}STL - Algorithm}{9}{subsection.2.8.2}
 \contentsline {chapter}{\numberline {3}III - Energy drink vending machine con Scala}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}Descrizione del progetto}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Costrutti utilizzati}{12}{section.3.2}
@@ -36,8 +38,8 @@
 \contentsline {section}{\numberline {4.5}Static and Dynamic functions}{19}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Static}{19}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Dynamic}{19}{subsection.4.5.2}
-\contentsline {subsubsection}{Controlled}{19}{section*.24}
-\contentsline {subsubsection}{Monitored}{19}{section*.26}
+\contentsline {subsubsection}{Controlled}{19}{section*.25}
+\contentsline {subsubsection}{Monitored}{19}{section*.27}
 \contentsline {section}{\numberline {4.6}Event management rules e main rule}{20}{section.4.6}
 \contentsline {section}{\numberline {4.7}Inizializzazione}{20}{section.4.7}
 \contentsline {section}{\numberline {4.8}Simulazione}{21}{section.4.8}

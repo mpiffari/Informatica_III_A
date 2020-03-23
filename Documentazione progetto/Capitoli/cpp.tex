@@ -66,6 +66,7 @@ Un modo di risolvere il problema in C++ è dichiarare, nelle classi B e C, un'\t
 \end{figure}
 
 \section{Costruttori e distruttori}
+\subsection{Costruttori}
 La libertà di poter utilizzare oggetti all'interno delle applicazioni scritte in C++, si incontra però con la necessità di andare a compiere due operazioni preliminari:
 \begin{itemize}
 	\item Allocare la memoria dei membri dell'oggetto in esame;
@@ -73,76 +74,92 @@ La libertà di poter utilizzare oggetti all'interno delle applicazioni scritte i
 \end{itemize}
 Queste operazioni sono svolte da una particolare funzione membro detta \textbf{costruttore}, il cui nome coincide con quello della classe e non presenta alcun valore di ritorno.
 
-In C++ un costruttore che non accetta argomenti, o in cui tutti gli argomenti sono opzionali, è detto \textbf{costruttore di default} ed è possibile sovraccaricare questo metodo, fornendo quindi diverse alternative.
+In C++ un costruttore che non accetta argomenti, o in cui tutti gli argomenti sono opzionali, è detto \textbf{costruttore di default} ed è possibile sovraccaricare questo metodo, fornendo quindi diverse alternative. E' comunque sempre buona norma andare a realizzare l'overloading del costruttore di default, perchè esso ha dei limiti come il fatto che il valore predefinito per il tipo di ogni dato membro può dipendere dal compilatore utilizzato, e quindi non essere deterministico.
 
-Dal lato opposto, il distruttore si occupa del compito di rilasciare tutte le risorse associate ad un oggetto, quando finisce la lifetime dell'oggetto stesso.
+\subsection{Distruttori}
+Dal lato opposto, il \textbf{distruttore} si occupa del compito di rilasciare tutte le risorse associate ad un oggetto, quando finisce la lifetime dell'oggetto stesso: infatti il distruttore viene invocato per tutte le variabili automaticamente ogni volta che viene raggiunta la fine del loro \textit{scope} e tutte le volte che le variabili dinamiche vengono deallocate con la parola chiave \textit{delete}.
 
-In particolare, come per il costruttore, anche il distruttore presenta una firma particolare
+In particolare, come per il costruttore, anche il distruttore presenta una firma particolare, ovvero presenta lo stesso nome della classe solamente per il fatto che è preceduto dal simbolo ~ (\textit{tilde}); anch'esso, come il costruttore, non presenta alcun valore di ritorno, e in più non presenta parametri (motivo per cui non può essere sovraccaricato).
 
-Queste caratteristiche sono state sfruttate per quanto riguarda gli oggetti della classe \textit{Matrix}: 
+Inoltre se non viene esplicitamente incluso nella dichiarazione della classe, il distruttore viene generato automaticamente dal compilatore. In questo caso tuttavia, l’unica risorsa rilasciata è la memoria occupata dall’oggetto: se alcuni dei suoi dati membro sono delle reference, o se l’oggetto fa uso di altre risorse (file o altre interfacce di I/O), potrebbe essere necessario svolgere delle operazioni per il loro corretto rilascio.
 
-\section{Virtual method}
-In C++, una sottoclasse può sempre ridefinire i metodi della sopraclasse, ma il dynamic binding non
-avviene se non si usa la parola chiave virtual (a differenza di Java dove avviene sempre).
+\subsection{Implementazione nell'applicazione}
+Queste caratteristiche sono state sfruttate per quanto riguarda gli oggetti della classe \textit{Matrix}.
 
-Pertanto, ogni metodo che viene (o potrebbe essere) ridefinito in una sottoclasse va dichiarato come virtuale.
-Un caso particolare è il distruttore, che se non fosse virtuale non permetterebbe la distruzione di
-tutti gli oggetti appartenenti alle sottoclassi: per questo che, nella classe base \textit{Number} il distruttore è stato dichiarato di tipo virtual come si vede in figura ~\ref{fig:VirtualDesctructor}
+Per quanto riguarda la costruzione degli oggetti di tipo \textit{Matrix} sono stati sovraccaricati i costruttori di default, con 2 alternative differenti: come si vede in figura ~\ref{fig:matrixInit}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Immagini/VirtualDestructor.png}
-	\caption{Virtual desctructor della classe base \textit{Number}}
-	\label{fig:VirtualDesctructor}
+	\includegraphics[width=0.8\textwidth]{Immagini/MatrixConstructors.png}
+	\caption{Costruttori classe \textit{Matrix}}
+	\label{fig:matrixInit}
 \end{figure}
 
-L'utilizzo di metodo virtuale ne permette anche l'applicazione e l'utilizzo come interfacce Java, tramite i metodi \textit{virtual pure}: in particolare, questi metodi virtuali, possono essere usati proprio come gli altri, con la differenza che le classi contenenti metodi virtuali puri non possono però essere istanziate.
+In particolare si ha che:
+\begin{itemize}
+	\item Il primo costruttore rappresenta il costruttore di default, ed è stato implementato per fornire un'inizializzazione "custum" (e non di default del compilatore) ai membri della classe. Esso va a creare una matrice identità di dimensioni 1x1;
+	\item Il secondo costruttore invece va a inizializzare i mebri della classe \textit{Matrix} in maniera tale da ricreare una matrice di dimensioni \textit{rows x columns} (parametri passati in input al costruttore);
+	\item L'ultimo overriding del costruttore di \textit{Matrix} permette di inizializzare un nuovo oggetto \textit{Matrix} tramite un altro oggeto di tipo \textit{Matrix}.
+\end{itemize}
+
+Per quanto riguarda il distruttore (figura ~\ref{fig:matrixDeInit}) sono due gli aspetti da porre ini evidenza:
+\begin{itemize}
+	\item é stato definito \textit{virtual} in maniera tale che venissero chiamati anche i distruttori delle superclassi;
+	\item esso si occupa, come si vede nella relativa implementazione, di andare a liberare la memoria allocata per la struttura contenete gli elementi della matrice: per fare ciò s è fatto uso di un iteratore sulle righe della matrice, in maniera tale da andare poi a liberare ogni elemento della colonna.
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Immagini/MatrixDestructors.png}
+	\caption{Firma e implementazione del distruttore della classe \textit{Matrix}}
+	\label{fig:matrixDeInit}
+\end{figure}
 
 \section{Overloading particolari}
 Nella nostra libreria, su consigli di altri studenti, siamo andati a ridefinire alcuni operatori, per renderli più "personalizzati".
 \subsection{Overloading di cout<<}
-Tra gli operatori che risulta utili sovraccaricare c'è \textit{"<<"}, il quale è utilizzato nella libreria standard per inviare dati agli oggetti \textit{ostream} (flussi in output): è stato quindi possibile personalizzare, in maniera facile e diffusa, la tipologia di log aggiungendo, coem si vede in figura ~\ref{fig:CoutRedef}, 
+Tra gli operatori che risulta utili sovraccaricare c'è "<<", il quale è utilizzato nella libreria standard per inviare dati agli oggetti \textit{ostream} (flussi in output): è stato quindi possibile personalizzare, in maniera facile e diffusa, la tipologia di log aggiungendo, come si vede in figura ~\ref{fig:CoutRedef}, un print personalizzato, per distinguere così il log della libreria da quello di sistema classico.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Immagini/CoutRedefinition.png}
+	\includegraphics[width=0.8\textwidth]{Immagini/CoutRedefinition.png}
 	\caption{Ridefinizione dell'operatore di stream}
 	\label{fig:CoutRedef}
 \end{figure}
 
 \subsection{Overloading di ()}
-L'operatore () è leggeremente diverso dagli altri, in quanto è possibile interpretarli in due modi, a seconda che compaiano in un l-value o in un r-value.
+L'operatore () è leggeremente diverso dagli altri, in quanto è possibile interpretarlo in due modi, a seconda che compaiano in un l-value ("get") o in un r-value ("set").
 
 In C++ è possibile sovraccaricare gli operatori in modo che si comportino in maniera diversa a seconda della posizione esattamente come accade con gli array.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.3\textwidth]{Immagini/MatrixOperatorsRedef.png}
+	\includegraphics[width=0.5\textwidth]{Immagini/MatrixOperatorsRedef.png}
 	\caption{Ridefinizione degli operatori nella classe \textit{Matrix}}
 	\label{fig:MatrixOperatorRedef}
 \end{figure}
 
 Nella nostra applicazione siamo andati a ridefinire appunto l'operatore (), come si vede in figura ~\ref{fig:MatrixOperatorRedef}, in particolare:
 \begin{itemize}
-	\item  la presenza del simbolo $\&$ subito dopo il valore ritornato indica che ci sono due definizioni diverse dello stesso operatore.
-	\item il modificatore const indica invece che la prima ridefinizione è quella da usare se l'operatore sta a sinistra del simbolo di assegnamento.
+	\item  la presenza del simbolo \textbf{$\&$} subito dopo il valore ritornato indica che ci sono\textbf{ due definizioni diverse dello stesso operatore}.
+	\item il modificatore \textbf{const} indica invece che la\textbf{ prima ridefinizione è quella da usare se l'operatore sta a sinistra} (\textit{l-value}) del simbolo di assegnamento.
 \end{itemize}
-Esempi di utilizzo della redefinizione dell'operatore (), li si possono vedere in figura ~\ref{fig:OperatorExamples}.
+Un esempio di applicazione della redefinizione dell'operatore (), li si possono vedere in figura ~\ref{fig:OperatorExamples}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Immagini/OperatorExample.png}
+	\includegraphics[width=0.8\textwidth]{Immagini/OperatorExample.png}
 	\caption{Esempio di utilizzo della redefinizione degli operatori}
 	\label{fig:OperatorExamples}
 \end{figure}
 
 \section{Templates}
-Un metodo più potente per il riutilizzo del codice è fornito dai templates. Essi costituiscono
-uno “schema” di classe che poi verrà realizzato concretamente sostituendo ai tipi parametrici i
-tipi effettivi dichiarati dagli utilizzatori del template
+Un metodo più potente per il riutilizzo del codice è fornito dai templates. 
+
+Essi costituiscono uno “schema” di classe che poi verrà realizzato concretamente sostituendo ai tipi parametrici i tipi effettivi dichiarati dagli utilizzatori.
 
 A differenza del linguaggio Java, ogni differente realizzazione del template costituisce un tipo
-a sé stante e senza alcuna relazione con gli altri. In Java si può avere una gerarchia di tipi
+a sé stante e senza alcuna relazione con gli altri: in Java si può avere una gerarchia di tipi
 derivati dallo stesso template.
 
 In C++ invece ogni realizzazione di un template viene concretizzata tramite codice
