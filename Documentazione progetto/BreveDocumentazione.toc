@@ -40,8 +40,8 @@
 \contentsline {section}{\numberline {4.5}Static and Dynamic functions}{19}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Static}{19}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Dynamic}{19}{subsection.4.5.2}
-\contentsline {subsubsection}{Controlled}{19}{section*.28}
-\contentsline {subsubsection}{Monitored}{19}{section*.30}
+\contentsline {subsubsection}{Controlled}{19}{section*.29}
+\contentsline {subsubsection}{Monitored}{19}{section*.31}
 \contentsline {section}{\numberline {4.6}Event management rules e main rule}{20}{section.4.6}
 \contentsline {section}{\numberline {4.7}Inizializzazione}{20}{section.4.7}
 \contentsline {section}{\numberline {4.8}Simulazione}{21}{section.4.8}

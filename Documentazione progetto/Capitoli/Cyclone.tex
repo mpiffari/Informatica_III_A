@@ -82,24 +82,35 @@ Questa tipologia di identificatori per i puntatori sono stati utilizzati nella f
 
 \subsubsection{@notnull}
 I puntatori @notnull non possono invece essere nulli, ovvero non è possibile assegnare loro il
-valore NULL. Essi possono essere definiti in modo abbreviato con il carattere @.
+valore \textit{null}.
+Essi possono essere definiti in modo abbreviato con il carattere @.
+
 I puntatori non nulli sono sicuramente i più utilizzati, sia perché non introducono l’overhead
 del controllo di non-nullità (che viene garantita a compile-time), sia perché nella quasi totalità
 dei casi un puntatore è utilizzato per operare sull’oggetto puntato e non per verificare se tale
 oggetto esiste, quindi si dà per scontato che esso esista.
 
-Questa tipologia di puntatore è stata largamente utilizzata nper quanto riguarda le stringhe, relative alla struttura \textit{postcard}.
+Questa tipologia di puntatore è stata largamente utilizzata per quanto riguarda le stringhe, relative alla struct \textit{postcard}.
 
 \subsection{Regioni}
 \label{sec:regions}
 Per evitare dangling pointers, Cyclone impone che ogni puntatore dichiari in quale area della
-memoria punti. L’area (region) in cui punta può essere un particolare record di attivazione
-sullo stack, lo heap o una regione di stack allocata dinamicamente. Ogni puntatore può puntare
-solo a regioni che hanno una vita uguale o più lunga di quella della regione dichiarata; ad
+memoria punti. 
+
+L’area (region) in cui punta può essere un particolare record di attivazione sullo stack, lo heap o una regione di stack allocata dinamicamente. Ogni puntatore può puntare solo a regioni che hanno una vita uguale o più lunga di quella della regione dichiarata; ad
 esempio, un puntatore allo heap può puntare solo allo heap, un puntatore al record di
 attivazione di una funzione può puntare a quel record, ai record dei chiamanti della funzione o
 allo heap, ma non può puntare a record di funzioni chiamate
 
-Per indicare esplicitamente una regione, si deve annotare il puntatore con @region(`r) o
+Per indicare esplicitamente una regione, si deve annotare il puntatore con \textbf{@region(`r)} o
 @effect(`r) o semplicemente `r, dove r è il nome di un’opportuna regione o un semplice
 segnaposto. `H rappresenta lo heap.
+
+Si è fatto uso di questa notazione nella funzione per che va a cercare se una cartolina è disponibile o meno, come si vede in figura ~\ref{fig:region}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Immagini/CycRegion.png}
+	\caption{Region}
+	\label{fig:region}
+\end{figure}
