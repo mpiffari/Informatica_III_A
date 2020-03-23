@@ -12,30 +12,31 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Ridefinizione dell'operatore di stream\relax }}{8}{figure.caption.11}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Ridefinizione degli operatori nella classe \textit {Matrix}\relax }}{8}{figure.caption.12}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Esempio di utilizzo della redefinizione degli operatori\relax }}{9}{figure.caption.13}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces STL - Iterator\relax }}{10}{figure.caption.14}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces STL - Algorithm\relax }}{10}{figure.caption.15}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Utilizzo concreto dei templetas\relax }}{9}{figure.caption.14}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces STL - Iterator\relax }}{10}{figure.caption.15}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces STL - Algorithm\relax }}{10}{figure.caption.16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Prodotti disponibili\relax }}{12}{figure.caption.16}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Classi e trait\relax }}{13}{figure.caption.17}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Utilizzo comando \textit {filter}\relax }}{14}{figure.caption.18}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Ricerca del tag su ogni possibile prodotto con \textit {checkTag}\relax }}{14}{figure.caption.19}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Sealed\relax }}{15}{figure.caption.20}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Prodotti disponibili\relax }}{12}{figure.caption.17}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Classi e trait\relax }}{13}{figure.caption.18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Utilizzo comando \textit {filter}\relax }}{14}{figure.caption.19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Ricerca del tag su ogni possibile prodotto con \textit {checkTag}\relax }}{14}{figure.caption.20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Sealed\relax }}{15}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Macchina a stati\relax }}{17}{figure.caption.21}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Action che implicano un possibile cambio di stato, qualora la condizione sia verificata\relax }}{18}{figure.caption.22}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Domini enumerativi\relax }}{18}{figure.caption.23}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Signature} delle static functions utilizzate\relax }}{19}{figure.caption.24}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Funzioni dynamic - controlled\relax }}{19}{figure.caption.26}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{20}{figure.caption.28}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Management rules\relax }}{20}{figure.caption.29}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Inizializzazione\relax }}{21}{figure.caption.30}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Test iterativo ASM\relax }}{21}{figure.caption.31}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Test random ASM\relax }}{22}{figure.caption.32}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Macchina a stati\relax }}{17}{figure.caption.22}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Action che implicano un possibile cambio di stato, qualora la condizione sia verificata\relax }}{18}{figure.caption.23}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Domini enumerativi\relax }}{18}{figure.caption.24}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Signature} delle static functions utilizzate\relax }}{19}{figure.caption.25}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Funzioni dynamic - controlled\relax }}{19}{figure.caption.27}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Monitored functions\relax }}{20}{figure.caption.29}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Management rules\relax }}{20}{figure.caption.30}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Inizializzazione\relax }}{21}{figure.caption.31}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Test iterativo ASM\relax }}{21}{figure.caption.32}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Test random ASM\relax }}{22}{figure.caption.33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Parziale soluzione esercizio RA\relax }}{23}{figure.caption.33}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Serie numeri pari Iterativa\relax }}{24}{figure.caption.34}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Serie numeri pari ricorsiva senza tail [operazioni di debug omesse]]\relax }}{24}{figure.caption.35}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Serie numeri pari ricorsiva senza tail - debug print\relax }}{24}{figure.caption.36}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Metodo \textit {make}\relax }}{25}{figure.caption.37}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Confronto tra metodi calcolaMax (prova sopra e correzione sotto)\relax }}{26}{figure.caption.38}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Wrap in Scala\relax }}{26}{figure.caption.39}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Parziale soluzione esercizio RA\relax }}{23}{figure.caption.34}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Serie numeri pari Iterativa\relax }}{24}{figure.caption.35}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Serie numeri pari ricorsiva senza tail [operazioni di debug omesse]]\relax }}{24}{figure.caption.36}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Serie numeri pari ricorsiva senza tail - debug print\relax }}{24}{figure.caption.37}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Metodo \textit {make}\relax }}{25}{figure.caption.38}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Confronto tra metodi calcolaMax (prova sopra e correzione sotto)\relax }}{26}{figure.caption.39}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Wrap in Scala\relax }}{26}{figure.caption.40}
