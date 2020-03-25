@@ -5,8 +5,7 @@ Informatica III A - 🏫
   <img width="500" height="460" src="/Documentazione%20progetto/Immagini//UniBg.png">
 </p>
 
-Applicazioni scritte durante il corso di Informatica III A, tenuto dal professor Angelo Gargantini
-
+Applicazioni scritte durante il corso di [Informatica III A](https://cs.unibg.it/gargantini/didattica/info3/), tenuto dal professor [Angelo Gargantini](https://cs.unibg.it/gargantini/index.html)
 presso l'Università degli Studi di Bergamo nell'anno accademico 2019/2020.
 
 ## Cyclone 🌀
