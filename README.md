@@ -17,7 +17,7 @@ L'applicazione consente di andare a parsare le informazioni relative ad un insie
 stata inviata) contenute all'interno di un file .txt: questo file è pesanto come un insieme di cartoline relative ad un certo account, con il quale l'utenterisulta essere loggato sull'ipotetica piattaforma.
 Una volta completato il parsing l'applicazione permette di scegliere secondo quale parametro andare a completare la ricerca:
 - *BY SENDER* (ricerca per nome completo del mittente);
-- *BY RECEIVER** (ricerca per nome completo del destinatario);
+- *BY RECEIVER* (ricerca per nome completo del destinatario);
 - *BY PLACE* (ricerca per nome completo del luogo da cui la cartolina è stat spedita);
 
 Nello specifico è stata inizialmente realizzata la versione in C, su cui sono stati realizzati i vari test e bug fix.
