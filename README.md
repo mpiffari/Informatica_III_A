@@ -1,7 +1,9 @@
 Informatica III A - 🏫
 ======
 
-![UniBG Logo](/UniBg.png)
+<p align="center">
+  <img width="500" height="460" src="/UniBg.png">
+</p>
 
 Applicazioni scritte durante il corso di Informatica III A, tenuto dal professor Angelo Gargantini
 
@@ -38,9 +40,11 @@ nello specifico sono state realizzate alcune funzionalità di supporto quali
 
 Il tutto è stato realizzato secondo un pattern generico, con l'utilizzo dei *templates*.
 
-![Class diagram](/Documentazione%20progetto/Immagini/ClassDiagram.jpg)
+<p align="center">
+  <img src="/Documentazione%20progetto/Immagini/ClassDiagram.jpg">
+</p>
 
-## Scala 🪜
+## Scala
 Il progetto realizzato in Scala si inserisce invece (come per quello che riguarda il progetto in ASMETA) nell'ambito della realizzazione
 di un'area break presso l'università.
 Nello specifico in Scala è stata progettata un insieme di funzionalità per gestire la distribuzione di bevande energetiche.
@@ -56,7 +60,9 @@ Nell'ambito ASMETA è stata invece realizzata una *coffee vending machine* da af
 
 La macchina a stati realizzata e gestita è la seguente:
 
-![ASMETA state machine](/Documentazione%20progetto/Immagini/FSM.png)
+<p align="center">
+  <img src="/Documentazione%20progetto/Immagini/FSM.png">
+</p>
 
 ## Correzione prova 😎
 Sono stati inseriti anche i codici sorgenti relativi allo svolgimento della prova di Febbrario 2020 (non si garantisce sulla correttezza e completezza delle soluzioni).
