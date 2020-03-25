@@ -2,7 +2,7 @@ Informatica III A - 🏫
 ======
 
 <p align="center">
-  <img width="500" height="460" src="/UniBg.png">
+  <img width="500" height="460" src="/Documentazione%20progetto/Immagini//UniBg.png">
 </p>
 
 Applicazioni scritte durante il corso di Informatica III A, tenuto dal professor Angelo Gargantini
